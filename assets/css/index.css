@@ -1,0 +1,59 @@
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  overflow-x: hidden;
+  background-color: #0b0e11;
+  color: #fff;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+body header .imagen_main img {
+  height: 100vh;
+}
+
+body header .texto_main {
+  margin-left: -10em;
+}
+
+body header .texto_main h2 {
+  font-size: 2rem;
+}
+
+body header .texto_main h1 {
+  margin: .4em 0;
+  letter-spacing: .1em;
+}
+
+body header .texto_main a {
+  font-size: 2rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  background: #FC427B;
+  font-weight: bold;
+  letter-spacing: .125em;
+  text-transform: uppercase;
+  padding: .75em 1em;
+}
+
+body h1 {
+  font-size: 6rem;
+  font-weight: bold;
+}
+/*# sourceMappingURL=index.css.map */

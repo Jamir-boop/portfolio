@@ -1,0 +1,51 @@
+body
+    font-family: 'Ubuntu Mono', monospace
+    overflow-x: hidden
+
+    //  VARIABLES
+    $void: #0b0e11
+    $accent_color: #FC427B
+
+    $normal: 1rem
+    $title: 2rem
+    $accent: 6rem
+
+    background-color: $void
+    color: #fff
+
+    header
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-direction: row
+
+        width: 100%
+        height: 100vh
+
+        .imagen_main
+            img
+                height: 100vh
+
+        .texto_main
+            margin-left: -10em
+            h2
+                font-size: $title
+            h1 
+                margin: .4em 0
+                letter-spacing: .1em
+            a
+                font-size: $title
+
+                cursor: pointer
+                text-decoration: none
+                color: white
+                background: $accent_color
+                font-weight: bold
+                letter-spacing: .125em
+                text-transform: uppercase
+
+                padding: .75em 1em
+
+    h1
+        font-size: $accent
+        font-weight: bold
