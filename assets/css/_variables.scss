@@ -1,0 +1,13 @@
+//  VARIABLES
+$void: #0b0e11;
+$accent_color: #FC427B;
+
+$font-z: (
+    "normal": 1rem,
+    "title": 2rem,
+    "accent": 6rem
+);
+
+@function fontz($type){
+    @return map-get($font-z, $type);
+}

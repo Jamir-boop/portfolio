@@ -1,0 +1,88 @@
+@import './variables';
+@import './mixins';
+
+body{
+    font-family: 'Ubuntu Mono', monospace;
+    overflow-x: hidden;
+
+    background-color: $void;
+    color: #fff;
+}
+
+h1{
+    font-size: fontz(accent);
+    font-weight: bold;
+}
+
+main .section_home{
+    .main_content{
+        @include flex_center(row);
+        width: 100%;
+        height: 92vh;
+
+        .imagen_main{
+            img{ height: 100vh; }
+        }
+
+        .texto_main{
+            margin-left: -10em;
+
+            h2{ font-size: fontz(title); }
+            h1{
+                margin: .1em 0 .4em;
+                letter-spacing: .1em;
+            }
+            h1, h2{ pointer-events: none; }
+
+            a{
+                font-size: fontz(title);
+
+                @include buttons;
+                color: white;
+                background: $accent_color;
+
+                font-weight: bold;
+                letter-spacing: .125em;
+                text-transform: uppercase;
+
+                padding: .75em 1em;
+            }
+        }
+    }
+
+    .nav_social{
+        font-size: fontz(title);
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        i{color: white;}
+    }
+}
+
+header{
+    width: 100%;
+    height: 8vh;
+
+    @include flex_center(row);
+
+    .nav_menu ul{
+        @include flex(row);
+        button{
+            @include buttons;
+            font-size: fontz(normal);
+            text-transform: uppercase;
+            font-family: 'Ubuntu Mono', monospace;
+            font-weight: bold;
+            letter-spacing: .1em;
+
+            background-color: transparent;
+            color: white;
+            border: none;
+        }
+    }
+}
+
+footer{
+    text-align: center;
+}
