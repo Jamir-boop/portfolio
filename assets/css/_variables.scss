@@ -1,13 +1,20 @@
 //  VARIABLES
 $void: #0b0e11;
-$accent_color: #FC427B;
+$dark: #4d4d4d;
+// $accent_color: #FC427B;
+$accent_color: #FD7272;
+$gray: rgba(255, 255, 255, 0.30);
 
 $font-z: (
     "normal": 1rem,
     "title": 2rem,
-    "accent": 6rem
+    "accent": 6rem,
+    "super_accent": 10rem
 );
 
 @function fontz($type){
     @return map-get($font-z, $type);
 }
+
+$main_h: 94vh;
+$header_h: 100vh - $main_h;

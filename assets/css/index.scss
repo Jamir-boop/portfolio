@@ -14,11 +14,12 @@ h1{
     font-weight: bold;
 }
 
+// MAIN
 main .section_home{
     .main_content{
         @include flex_center(row);
         width: 100%;
-        height: 92vh;
+        height: $main_h;
 
         .imagen_main{
             img{ height: 100vh; }
@@ -27,26 +28,32 @@ main .section_home{
         .texto_main{
             margin-left: -10em;
 
-            h2{ font-size: fontz(title); }
+            h2{ 
+                font-size: fontz(title);
+                border-bottom: 2px solid $accent_color;
+             }
             h1{
                 margin: .1em 0 .4em;
                 letter-spacing: .1em;
             }
-            h1, h2{ pointer-events: none; }
+            h1, h2{ @include no_touchy }
 
             a{
-                font-size: fontz(title);
+                font-size: fontz(title) + 1;
 
                 @include buttons;
                 color: white;
-                background: $accent_color;
 
                 font-weight: bold;
                 letter-spacing: .125em;
                 text-transform: uppercase;
 
                 padding: .75em 1em;
-            }
+
+                &:hover{
+                    background-color: $accent_color;
+                }
+            }      
         }
     }
 
@@ -58,11 +65,28 @@ main .section_home{
 
         i{color: white;}
     }
+
+    .nav_language{
+      @extend .nav_social;
+      position: absolute;
+      bottom: 0;
+      top: 1rem;
+
+      color: white;
+
+      i{color: $void}
+    }
 }
 
+// BARRA NAVEGACION
 header{
     width: 100%;
-    height: 8vh;
+    height: $header_h;
+
+    position: relative;
+    z-index: 2;
+
+    background-color: $accent_color;
 
     @include flex_center(row);
 
@@ -85,4 +109,42 @@ header{
 
 footer{
     text-align: center;
+}
+
+// PROYECTOS
+article{
+  width: 100%;
+  h1{
+    font-size: fontz(super_accent);
+
+    @include no_touchy;
+    color: $gray;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    margin: 5vh 0;
+  }
+
+  .item_container{
+    @include flex_center(column);
+    
+    .proyecto_item{
+      margin: 10vh auto;
+
+      h2, p { @include no_touchy }
+
+      h2{
+        font-size: fontz(title);
+        color: #fff;
+      }
+
+      p{
+        font-size: fontz(normal);
+      }
+    }
+
+    img{
+      width: 50%;
+    }
+  }
 }

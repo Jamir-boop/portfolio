@@ -25,7 +25,7 @@ main .section_home .main_content {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
-  height: 92vh;
+  height: 94vh;
 }
 
 main .section_home .main_content .imagen_main img {
@@ -38,6 +38,7 @@ main .section_home .main_content .texto_main {
 
 main .section_home .main_content .texto_main h2 {
   font-size: 2rem;
+  border-bottom: 2px solid #FD7272;
 }
 
 main .section_home .main_content .texto_main h1 {
@@ -46,35 +47,56 @@ main .section_home .main_content .texto_main h1 {
 }
 
 main .section_home .main_content .texto_main h1, main .section_home .main_content .texto_main h2 {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   pointer-events: none;
 }
 
 main .section_home .main_content .texto_main a {
-  font-size: 2rem;
+  font-size: 3rem;
   cursor: pointer;
   text-decoration: none;
   color: white;
-  background: #FC427B;
   font-weight: bold;
   letter-spacing: .125em;
   text-transform: uppercase;
   padding: .75em 1em;
 }
 
-main .section_home .nav_social {
+main .section_home .main_content .texto_main a:hover {
+  background-color: #FD7272;
+}
+
+main .section_home .nav_social, main .section_home .nav_language {
   font-size: 2rem;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
 }
 
-main .section_home .nav_social i {
+main .section_home .nav_social i, main .section_home .nav_language i {
   color: white;
+}
+
+main .section_home .nav_language {
+  position: absolute;
+  bottom: 0;
+  top: 1rem;
+  color: white;
+}
+
+main .section_home .nav_language i {
+  color: #0b0e11;
 }
 
 header {
   width: 100%;
-  height: 8vh;
+  height: 6vh;
+  position: relative;
+  z-index: 2;
+  background-color: #FD7272;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,5 +137,64 @@ header .nav_menu ul button {
 
 footer {
   text-align: center;
+}
+
+article {
+  width: 100%;
+}
+
+article h1 {
+  font-size: 10rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  margin: 5vh 0;
+}
+
+article .item_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+article .item_container .proyecto_item {
+  margin: 10vh auto;
+}
+
+article .item_container .proyecto_item h2, article .item_container .proyecto_item p {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
+}
+
+article .item_container .proyecto_item h2 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+article .item_container .proyecto_item p {
+  font-size: 1rem;
+}
+
+article .item_container img {
+  width: 50%;
 }
 /*# sourceMappingURL=index.css.map */

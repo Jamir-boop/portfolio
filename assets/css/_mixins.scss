@@ -15,3 +15,8 @@
     cursor: pointer;
     text-decoration: none;
 }
+
+@mixin no_touchy {
+    user-select: none;
+    pointer-events: none;
+}
