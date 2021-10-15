@@ -40,6 +40,7 @@ main .section_home{
 
             a{
                 font-size: fontz(title) + 1;
+                user-select: none;
 
                 @include buttons;
                 color: white;
@@ -52,6 +53,7 @@ main .section_home{
 
                 &:hover{
                     background-color: $accent_color;
+                    transition: background-color .2s ease-in-out;
                 }
             }      
         }
@@ -59,22 +61,39 @@ main .section_home{
 
     .nav_social{
         font-size: fontz(title);
-        position: fixed;
-        bottom: 1rem;
+        // position: fixed;
+        position: absolute;
+        bottom: 4rem;
         right: 1rem;
 
         i{color: white;}
     }
 
     .nav_language{
-      @extend .nav_social;
-      position: absolute;
+      @extend .nav_social;      
       bottom: 0;
-      top: 1rem;
+      top: 2rem;
 
-      color: white;
+      img{
+        width: 2rem;
+      }
 
-      i{color: $void}
+      ul{
+        display: none;
+      }
+
+      ul li{
+        user-select: none;
+        list-style: none;
+        cursor: pointer;
+        &:hover{
+          border-bottom: 2px solid $accent_color;
+        }
+      }
+
+      &:hover ul{
+        display: block;
+      }
     }
 }
 

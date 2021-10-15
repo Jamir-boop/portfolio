@@ -56,6 +56,10 @@ main .section_home .main_content .texto_main h1, main .section_home .main_conten
 
 main .section_home .main_content .texto_main a {
   font-size: 3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
   text-decoration: none;
   color: white;
@@ -67,12 +71,14 @@ main .section_home .main_content .texto_main a {
 
 main .section_home .main_content .texto_main a:hover {
   background-color: #FD7272;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
 }
 
 main .section_home .nav_social, main .section_home .nav_language {
   font-size: 2rem;
-  position: fixed;
-  bottom: 1rem;
+  position: absolute;
+  bottom: 4rem;
   right: 1rem;
 }
 
@@ -81,14 +87,33 @@ main .section_home .nav_social i, main .section_home .nav_language i {
 }
 
 main .section_home .nav_language {
-  position: absolute;
   bottom: 0;
-  top: 1rem;
-  color: white;
+  top: 2rem;
 }
 
-main .section_home .nav_language i {
-  color: #0b0e11;
+main .section_home .nav_language img {
+  width: 2rem;
+}
+
+main .section_home .nav_language ul {
+  display: none;
+}
+
+main .section_home .nav_language ul li {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  list-style: none;
+  cursor: pointer;
+}
+
+main .section_home .nav_language ul li:hover {
+  border-bottom: 2px solid #FD7272;
+}
+
+main .section_home .nav_language:hover ul {
+  display: block;
 }
 
 header {
