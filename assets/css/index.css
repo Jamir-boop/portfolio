@@ -54,7 +54,7 @@ main .section_home .main_content .texto_main h1, main .section_home .main_conten
   pointer-events: none;
 }
 
-main .section_home .main_content .texto_main a {
+main .section_home .main_content .texto_main .CTA {
   font-size: 3rem;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -66,13 +66,25 @@ main .section_home .main_content .texto_main a {
   font-weight: bold;
   letter-spacing: .125em;
   text-transform: uppercase;
-  padding: .75em 1em;
+  padding: .75em 1em .75em 0;
+  position: relative;
 }
 
-main .section_home .main_content .texto_main a:hover {
-  background-color: #FD7272;
-  -webkit-transition: background-color .2s ease-in-out;
-  transition: background-color .2s ease-in-out;
+main .section_home .main_content .texto_main .CTA span {
+  position: absolute;
+}
+
+main .section_home .main_content .texto_main .CTA .CTA_gradient {
+  background: linear-gradient(138deg, #65fce6 10%, #3eb09f 45%, #fd7272 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .section_home .main_content .texto_main .CTA .CTA_white:hover {
+  position: absolute;
+  left: .06em;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 main .section_home .nav_social, main .section_home .nav_language {
@@ -109,10 +121,17 @@ main .section_home .nav_language ul li {
 }
 
 main .section_home .nav_language ul li:hover {
-  border-bottom: 2px solid #FD7272;
+  -webkit-transition: -webkit-box-shadow 0.15s ease;
+  transition: -webkit-box-shadow 0.15s ease;
+  transition: box-shadow 0.15s ease;
+  transition: box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+  -webkit-box-shadow: 0px 0px 100px 20px #FD7272;
+          box-shadow: 0px 0px 100px 20px #FD7272;
 }
 
 main .section_home .nav_language:hover ul {
+  -webkit-transition: display .2s ease-out;
+  transition: display .2s ease-out;
   display: block;
 }
 
@@ -154,7 +173,10 @@ header .nav_menu ul button {
   text-transform: uppercase;
   font-family: 'Ubuntu Mono', monospace;
   font-weight: bold;
+  -webkit-text-decoration: underline 2px;
+          text-decoration: underline 2px;
   letter-spacing: .1em;
+  margin: 0 .5em;
   background-color: transparent;
   color: white;
   border: none;
