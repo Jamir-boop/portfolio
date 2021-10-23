@@ -137,12 +137,13 @@ h1 {
 
   &::before {
     content: "";
-    display: relative;
-
-    z-index: -1;
+    display: inline-block;
 
     width: 100%;
     height: 20px;
+
+    // inset: 0;
+    // z-index: 4;
 
     @include bg_animate;
   }
@@ -151,8 +152,6 @@ h1 {
       display: block;
     }
     &::before {
-      display: block;
-
       width: 200%;
       scale: 1.2;
     }

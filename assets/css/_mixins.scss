@@ -21,7 +21,7 @@
     pointer-events: none;
 }
 
-@mixin bg_animate {
+@mixin bg_gradient {
     background: linear-gradient(
         60deg,
         #f79533,
