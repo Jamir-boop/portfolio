@@ -3,246 +3,248 @@
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body {
-    font-family: "Ubuntu Mono", monospace;
-    overflow-x: hidden;
+  font-family: "Ubuntu Mono", monospace;
+  overflow-x: hidden;
 
-    background-color: $void;
-    color: #fff;
+  background-color: $void;
+  color: #fff;
 }
 
 h1 {
-    font-size: fontz(accent);
-    font-weight: bold;
+  font-size: fontz(accent);
+  font-weight: bold;
 }
 
 // ========== MAIN ==========
 .main_content {
-    @include flex_center(row);
-    width: 100%;
-    height: $main_h;
+  @include flex_center(row);
+  width: 100%;
+  height: $main_h;
 }
 
 .imagen_main {
-    img {
-        height: 100vh;
-    }
+  img {
+    height: 100vh;
+  }
 }
 
 .texto_main {
-    margin-left: -10em;
+  margin-left: -10em;
 
-    h2 {
-        font-size: fontz(title);
-        border-bottom: 2px solid $accent_color;
-    }
-    h1 {
-        margin: 0.1em 0 0.4em;
-        letter-spacing: 0.1em;
-    }
-    h1,
-    h2 {
-        @include no_touchy;
-    }
+  h2 {
+    font-size: fontz(title);
+    border-bottom: 2px solid $accent_color;
+  }
+  h1 {
+    margin: 0.1em 0 0.4em;
+    letter-spacing: 0.1em;
+  }
+  h1,
+  h2 {
+    @include no_touchy;
+  }
 }
 
 .CTA {
-    font-size: fontz(title) + 1;
-    user-select: none;
+  font-size: fontz(title) + 1;
+  user-select: none;
 
-    @include buttons;
-    color: white;
+  @include buttons;
+  color: white;
 
-    font-weight: bold;
-    letter-spacing: 0.125em;
-    text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
 
-    padding: 0.75em 1em 0.75em 0;
+  padding: 0.75em 1em 0.75em 0;
 
-    position: relative;
+  position: relative;
+  span {
+    position: absolute;
+  }
+  .CTA_gradient {
+    @include bg_animate;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: animated_gradient 3s ease alternate infinite;
+  }
+
+  span {
+    transition: all $hover_animation ease-in-out;
+  }
+
+  &:hover {
     span {
-        position: absolute;
+      letter-spacing: 0.15em;
     }
-    .CTA_gradient {
-        @include bg_animate;
-
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        animation: animated_gradient 3s ease alternate infinite;
+    .CTA_white {
+      $margen: 6px;
+      margin: -$margen $margen 0;
     }
-
-    span {
-        transition: all $hover_animation ease-in-out;
-    }
-
-    &:hover {
-        span {
-            letter-spacing: 0.15em;
-        }
-        .CTA_white {
-            $margen: 6px;
-            margin: -$margen $margen 0;
-        }
-    }
+  }
 }
 
 .nav_social {
-    font-size: fontz(title);
-    // position: fixed;
-    position: absolute;
-    bottom: 4rem;
-    right: 1rem;
+  font-size: fontz(title);
+  // position: fixed;
+  position: absolute;
+  bottom: 4rem;
+  right: 1rem;
 
-    em {
-        color: white;
-    }
+  em {
+    color: white;
+  }
 }
 
 .nav_language {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 
-    img {
-        width: 2rem;
+  img {
+    width: 2rem;
+  }
+  ul {
+    display: none;
+    transition: display 150ms ease;
+
+    li {
+      user-select: none;
+      list-style: none;
+      background-color: transparent;
+
+      cursor: pointer;
+      transition: scale $hover_animation ease; // TODO poner fondo animado
+
+      &:hover {
+        scale: 1.2;
+      }
     }
+  }
+
+  &::before {
+    content: "";
+    display: relative;
+
+    z-index: -1;
+
+    width: 100%;
+    height: 20px;
+
+    @include bg_animate;
+  }
+  &:hover {
     ul {
-        display: none;
-        transition: display 150ms ease;
-
-        li {
-            user-select: none;
-            list-style: none;
-            background-color: transparent;
-
-            cursor: pointer;
-            transition: scale $hover_animation ease; // TODO poner fondo animado
-
-            &:hover {
-                scale: 1.2;
-            }
-        }
+      display: block;
     }
-
     &::before {
-        content: "";
-        display: inline-block;
+      display: block;
 
-        z-index: -1;
-
-        width: 100%;
-        height: 20px;
-
-        @include bg_animate;
+      width: 200%;
+      scale: 1.2;
     }
-    &:hover {
-        ul {
-            display: block;
-        }
-        &::before {
-            width: 200%;
-            scale: 1.2;
-        }
-    }
+  }
 }
 
 // ========== BARRA NAVEGACION ==========
 header {
-    width: 100%;
-    height: $header_h;
+  width: 100%;
+  height: $header_h;
 
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 
-    // background-color: $accent_color;
-    @include bg_animate;
+  // background-color: $accent_color;
+  @include bg_animate;
 
-    @include flex_center(row);
+  @include flex_center(row);
 
-    .nav_menu ul {
-        @include flex(row);
-        button {
-            @include buttons;
-            font-size: fontz(normal);
-            text-transform: uppercase;
-            font-family: "Ubuntu Mono", monospace;
-            font-weight: bold;
-            text-decoration: underline 2px;
-            letter-spacing: 0.1em;
+  .nav_menu ul {
+    @include flex(row);
+    button {
+      @include buttons;
+      font-size: fontz(normal);
+      text-transform: uppercase;
+      font-family: "Ubuntu Mono", monospace;
+      font-weight: bold;
+      text-decoration: underline 2px;
+      letter-spacing: 0.1em;
 
-            margin: 0 0.5em;
+      margin: 0 0.5em;
 
-            background-color: transparent;
-            color: white;
-            border: none;
-        }
+      background-color: transparent;
+      color: white;
+      border: none;
     }
+  }
 }
 
 footer {
-    text-align: center;
+  text-align: center;
 }
 
 // ========== PROYECTOS ==========
 article {
-    width: 100%;
-    h1 {
-        font-size: fontz(super_accent);
+  width: 100%;
+  h1 {
+    font-size: fontz(super_accent);
 
+    @include no_touchy;
+    color: $gray;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin: 5vh 0;
+  }
+
+  .item_container {
+    @include flex_center(column);
+
+    .proyecto_item {
+      margin: 10vh auto;
+
+      h2,
+      p {
         @include no_touchy;
-        color: $gray;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-        margin: 5vh 0;
+      }
+
+      h2 {
+        font-size: fontz(title);
+        color: #fff;
+      }
+
+      p {
+        font-size: fontz(normal);
+      }
     }
 
-    .item_container {
-        @include flex_center(column);
-
-        .proyecto_item {
-            margin: 10vh auto;
-
-            h2,
-            p {
-                @include no_touchy;
-            }
-
-            h2 {
-                font-size: fontz(title);
-                color: #fff;
-            }
-
-            p {
-                font-size: fontz(normal);
-            }
-        }
-
-        img {
-            width: 50%;
-        }
+    img {
+      width: 50%;
     }
+  }
 }
 
 @keyframes animated_gradient {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }

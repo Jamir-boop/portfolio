@@ -156,7 +156,7 @@ h1 {
 
 .nav_language::before {
   content: "";
-  display: inline-block;
+  display: relative;
   z-index: -1;
   width: 100%;
   height: 20px;
@@ -169,6 +169,7 @@ h1 {
 }
 
 .nav_language:hover::before {
+  display: block;
   width: 200%;
   scale: 1.2;
 }
