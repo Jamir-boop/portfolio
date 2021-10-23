@@ -10,7 +10,7 @@ h1 {
   font-weight: bold;
 }
 
-main .section_home .main_content {
+.main_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,25 +28,25 @@ main .section_home .main_content {
   height: 94vh;
 }
 
-main .section_home .main_content .imagen_main img {
+.imagen_main img {
   height: 100vh;
 }
 
-main .section_home .main_content .texto_main {
+.texto_main {
   margin-left: -10em;
 }
 
-main .section_home .main_content .texto_main h2 {
+.texto_main h2 {
   font-size: 2rem;
   border-bottom: 2px solid #FD7272;
 }
 
-main .section_home .main_content .texto_main h1 {
+.texto_main h1 {
   margin: .1em 0 .4em;
   letter-spacing: .1em;
 }
 
-main .section_home .main_content .texto_main h1, main .section_home .main_content .texto_main h2 {
+.texto_main h1, .texto_main h2 {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -54,7 +54,7 @@ main .section_home .main_content .texto_main h1, main .section_home .main_conten
   pointer-events: none;
 }
 
-main .section_home .main_content .texto_main .CTA {
+.texto_main .CTA {
   font-size: 3rem;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -70,48 +70,49 @@ main .section_home .main_content .texto_main .CTA {
   position: relative;
 }
 
-main .section_home .main_content .texto_main .CTA span {
+.texto_main .CTA span {
   position: absolute;
 }
 
-main .section_home .main_content .texto_main .CTA .CTA_gradient {
+.texto_main .CTA .CTA_gradient {
   background: linear-gradient(138deg, #65fce6 10%, #3eb09f 45%, #fd7272 80%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-main .section_home .main_content .texto_main .CTA .CTA_white:hover {
-  position: absolute;
-  left: .06em;
+.texto_main .CTA:hover .CTA_white {
+  margin-left: 2em;
+  background-color: greenyellow;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
-main .section_home .nav_social, main .section_home .nav_language {
+.nav_social, .nav_language {
   font-size: 2rem;
   position: absolute;
   bottom: 4rem;
   right: 1rem;
 }
 
-main .section_home .nav_social i, main .section_home .nav_language i {
+.nav_social i, .nav_language i {
   color: white;
 }
 
-main .section_home .nav_language {
+.nav_language {
   bottom: 0;
   top: 2rem;
 }
 
-main .section_home .nav_language img {
+.nav_language img {
   width: 2rem;
 }
 
-main .section_home .nav_language ul {
+.nav_language ul {
   display: none;
 }
 
-main .section_home .nav_language ul li {
+.nav_language ul li {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -120,7 +121,7 @@ main .section_home .nav_language ul li {
   cursor: pointer;
 }
 
-main .section_home .nav_language ul li:hover {
+.nav_language ul li:hover {
   -webkit-transition: -webkit-box-shadow 0.15s ease;
   transition: -webkit-box-shadow 0.15s ease;
   transition: box-shadow 0.15s ease;
@@ -129,7 +130,7 @@ main .section_home .nav_language ul li:hover {
           box-shadow: 0px 0px 100px 20px #FD7272;
 }
 
-main .section_home .nav_language:hover ul {
+.nav_language:hover ul {
   -webkit-transition: display .2s ease-out;
   transition: display .2s ease-out;
   display: block;

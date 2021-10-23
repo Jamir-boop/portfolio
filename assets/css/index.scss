@@ -15,99 +15,98 @@ h1{
 }
 
 // MAIN
-main .section_home{
-    .main_content{
-        @include flex_center(row);
-        width: 100%;
-        height: $main_h;
+.main_content{
+    @include flex_center(row);
+    width: 100%;
+    height: $main_h;
+}
 
-        .imagen_main{
-            img{ height: 100vh; }
-        }
+.imagen_main{
+    img{ height: 100vh; }
+}
 
-        .texto_main{
-            margin-left: -10em;
+.texto_main{
+    margin-left: -10em;
 
-            h2{ 
-                font-size: fontz(title);
-                border-bottom: 2px solid $accent_color;
-             }
-            h1{
-                margin: .1em 0 .4em;
-                letter-spacing: .1em;
-            }
-            h1, h2{ @include no_touchy }
-
-            .CTA{
-                font-size: fontz(title) + 1;
-                user-select: none;
-
-                @include buttons;
-                color: white;
-
-                font-weight: bold;
-                letter-spacing: .125em;
-                text-transform: uppercase;
-
-                padding: .75em 1em .75em 0;
-
-                position: relative;
-                span{
-                  position: absolute;
-                }
-                .CTA_gradient{
-                  background: linear-gradient(138deg,#65fce6 10%, #3eb09f 45%, #fd7272 80%);
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                }
-
-                .CTA_white:hover{
-                  position: absolute;
-                  left: .06em;
-                  transition: all .2s ease-in-out;
-                }
-            }      
-        }
-    }
-
-    .nav_social{
+    h2{ 
         font-size: fontz(title);
-        // position: fixed;
-        position: absolute;
-        bottom: 4rem;
-        right: 1rem;
-
-        i{color: white;}
+        border-bottom: 2px solid $accent_color;
+      }
+    h1{
+        margin: .1em 0 .4em;
+        letter-spacing: .1em;
     }
+    h1, h2{ @include no_touchy }
 
-    .nav_language{
-      @extend .nav_social;      
-      bottom: 0;
-      top: 2rem;
-
-      img{
-        width: 2rem;
-      }
-
-      ul{
-        display: none;
-      }
-
-      ul li{
+    .CTA{
+        font-size: fontz(title) + 1;
         user-select: none;
-        list-style: none;
-        cursor: pointer;
-        &:hover{
-          transition: box-shadow 0.15s ease;
-          box-shadow: 0px 0px 100px 20px $accent_color;
-        }
-      }
 
-      &:hover ul{
-        transition: display .2s ease-out;
-        display: block;
-      }
+        @include buttons;
+        color: white;
+
+        font-weight: bold;
+        letter-spacing: .125em;
+        text-transform: uppercase;
+
+        padding: .75em 1em .75em 0;
+
+        position: relative;
+        span{
+          position: absolute;
+        }
+        .CTA_gradient{
+          background: linear-gradient(138deg,#65fce6 10%, #3eb09f 45%, #fd7272 80%);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        &:hover .CTA_white{
+          margin-left: 2em;
+          background-color: greenyellow;
+          transition: all .2s ease-in-out;
+        }
+    }      
+}
+
+.nav_social{
+    font-size: fontz(title);
+    // position: fixed;
+    position: absolute;
+    bottom: 4rem;
+    right: 1rem;
+
+    i{color: white;}
+}
+
+.nav_language{
+  @extend .nav_social;      
+  bottom: 0;
+  top: 2rem;
+
+  img{
+    width: 2rem;
+  }
+
+  ul{
+    display: none;
+  }
+
+  ul li{
+    user-select: none;
+    list-style: none;
+    cursor: pointer;
+    &:hover{
+      transition: box-shadow 0.15s ease;
+      box-shadow: 0px 0px 100px 20px $accent_color;
     }
+  }
+
+  &:hover ul{
+    transition: display .2s ease-out;
+    display: block;
+  }
 }
 
 // BARRA NAVEGACION
