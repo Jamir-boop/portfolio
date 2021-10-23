@@ -1,5 +1,5 @@
 body {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
   overflow-x: hidden;
   background-color: #0b0e11;
   color: #fff;
@@ -42,11 +42,12 @@ h1 {
 }
 
 .texto_main h1 {
-  margin: .1em 0 .4em;
-  letter-spacing: .1em;
+  margin: 0.1em 0 0.4em;
+  letter-spacing: 0.1em;
 }
 
-.texto_main h1, .texto_main h2 {
+.texto_main h1,
+.texto_main h2 {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -54,7 +55,7 @@ h1 {
   pointer-events: none;
 }
 
-.texto_main .CTA {
+.CTA {
   font-size: 3rem;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -64,28 +65,28 @@ h1 {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  letter-spacing: .125em;
+  letter-spacing: 0.125em;
   text-transform: uppercase;
-  padding: .75em 1em .75em 0;
+  padding: 0.75em 1em 0.75em 0;
   position: relative;
 }
 
-.texto_main .CTA span {
+.CTA span {
   position: absolute;
 }
 
-.texto_main .CTA .CTA_gradient {
+.CTA .CTA_gradient {
   background: linear-gradient(138deg, #65fce6 10%, #3eb09f 45%, #fd7272 80%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.texto_main .CTA:hover .CTA_white {
+.CTA:hover .CTA_white {
   margin-left: 2em;
   background-color: greenyellow;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .nav_social, .nav_language {
@@ -131,8 +132,8 @@ h1 {
 }
 
 .nav_language:hover ul {
-  -webkit-transition: display .2s ease-out;
-  transition: display .2s ease-out;
+  -webkit-transition: display 0.2s ease-out;
+  transition: display 0.2s ease-out;
   display: block;
 }
 
@@ -172,12 +173,12 @@ header .nav_menu ul button {
   text-decoration: none;
   font-size: 1rem;
   text-transform: uppercase;
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
   font-weight: bold;
   -webkit-text-decoration: underline 2px;
           text-decoration: underline 2px;
-  letter-spacing: .1em;
-  margin: 0 .5em;
+  letter-spacing: 0.1em;
+  margin: 0 0.5em;
   background-color: transparent;
   color: white;
   border: none;
@@ -201,7 +202,7 @@ article h1 {
   color: rgba(255, 255, 255, 0.3);
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: .25em;
+  letter-spacing: 0.25em;
   margin: 5vh 0;
 }
 
@@ -225,7 +226,8 @@ article .item_container .proyecto_item {
   margin: 10vh auto;
 }
 
-article .item_container .proyecto_item h2, article .item_container .proyecto_item p {
+article .item_container .proyecto_item h2,
+article .item_container .proyecto_item p {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;

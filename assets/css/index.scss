@@ -1,116 +1,128 @@
-@import './variables';
-@import './mixins';
+@import "./variables";
+@import "./mixins";
 
-body{
-    font-family: 'Ubuntu Mono', monospace;
+body {
+    font-family: "Ubuntu Mono", monospace;
     overflow-x: hidden;
 
     background-color: $void;
     color: #fff;
 }
 
-h1{
+h1 {
     font-size: fontz(accent);
     font-weight: bold;
 }
 
 // MAIN
-.main_content{
+.main_content {
     @include flex_center(row);
     width: 100%;
     height: $main_h;
 }
 
-.imagen_main{
-    img{ height: 100vh; }
+.imagen_main {
+    img {
+        height: 100vh;
+    }
 }
 
-.texto_main{
+.texto_main {
     margin-left: -10em;
 
-    h2{ 
+    h2 {
         font-size: fontz(title);
         border-bottom: 2px solid $accent_color;
-      }
-    h1{
-        margin: .1em 0 .4em;
-        letter-spacing: .1em;
     }
-    h1, h2{ @include no_touchy }
-
-    .CTA{
-        font-size: fontz(title) + 1;
-        user-select: none;
-
-        @include buttons;
-        color: white;
-
-        font-weight: bold;
-        letter-spacing: .125em;
-        text-transform: uppercase;
-
-        padding: .75em 1em .75em 0;
-
-        position: relative;
-        span{
-          position: absolute;
-        }
-        .CTA_gradient{
-          background: linear-gradient(138deg,#65fce6 10%, #3eb09f 45%, #fd7272 80%);
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        &:hover .CTA_white{
-          margin-left: 2em;
-          background-color: greenyellow;
-          transition: all .2s ease-in-out;
-        }
-    }      
+    h1 {
+        margin: 0.1em 0 0.4em;
+        letter-spacing: 0.1em;
+    }
+    h1,
+    h2 {
+        @include no_touchy;
+    }
 }
 
-.nav_social{
+.CTA {
+    font-size: fontz(title) + 1;
+    user-select: none;
+
+    @include buttons;
+    color: white;
+
+    font-weight: bold;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+
+    padding: 0.75em 1em 0.75em 0;
+
+    position: relative;
+    span {
+        position: absolute;
+    }
+    .CTA_gradient {
+        background: linear-gradient(
+            138deg,
+            #65fce6 10%,
+            #3eb09f 45%,
+            #fd7272 80%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    &:hover .CTA_white {
+        margin-left: 2em;
+        background-color: greenyellow;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.nav_social {
     font-size: fontz(title);
     // position: fixed;
     position: absolute;
     bottom: 4rem;
     right: 1rem;
 
-    i{color: white;}
+    i {
+        color: white;
+    }
 }
 
-.nav_language{
-  @extend .nav_social;      
-  bottom: 0;
-  top: 2rem;
+.nav_language {
+    @extend .nav_social;
+    bottom: 0;
+    top: 2rem;
 
-  img{
-    width: 2rem;
-  }
-
-  ul{
-    display: none;
-  }
-
-  ul li{
-    user-select: none;
-    list-style: none;
-    cursor: pointer;
-    &:hover{
-      transition: box-shadow 0.15s ease;
-      box-shadow: 0px 0px 100px 20px $accent_color;
+    img {
+        width: 2rem;
     }
-  }
 
-  &:hover ul{
-    transition: display .2s ease-out;
-    display: block;
-  }
+    ul {
+        display: none;
+    }
+
+    ul li {
+        user-select: none;
+        list-style: none;
+        cursor: pointer;
+        &:hover {
+            transition: box-shadow 0.15s ease;
+            box-shadow: 0px 0px 100px 20px $accent_color;
+        }
+    }
+
+    &:hover ul {
+        transition: display 0.2s ease-out;
+        display: block;
+    }
 }
 
 // BARRA NAVEGACION
-header{
+header {
     width: 100%;
     height: $header_h;
 
@@ -121,18 +133,18 @@ header{
 
     @include flex_center(row);
 
-    .nav_menu ul{
+    .nav_menu ul {
         @include flex(row);
-        button{
+        button {
             @include buttons;
             font-size: fontz(normal);
             text-transform: uppercase;
-            font-family: 'Ubuntu Mono', monospace;
+            font-family: "Ubuntu Mono", monospace;
             font-weight: bold;
             text-decoration: underline 2px;
-            letter-spacing: .1em;
+            letter-spacing: 0.1em;
 
-            margin: 0 .5em;
+            margin: 0 0.5em;
 
             background-color: transparent;
             color: white;
@@ -141,44 +153,47 @@ header{
     }
 }
 
-footer{
+footer {
     text-align: center;
 }
 
 // PROYECTOS
-article{
-  width: 100%;
-  h1{
-    font-size: fontz(super_accent);
+article {
+    width: 100%;
+    h1 {
+        font-size: fontz(super_accent);
 
-    @include no_touchy;
-    color: $gray;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .25em;
-    margin: 5vh 0;
-  }
-
-  .item_container{
-    @include flex_center(column);
-    
-    .proyecto_item{
-      margin: 10vh auto;
-
-      h2, p { @include no_touchy }
-
-      h2{
-        font-size: fontz(title);
-        color: #fff;
-      }
-
-      p{
-        font-size: fontz(normal);
-      }
+        @include no_touchy;
+        color: $gray;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        margin: 5vh 0;
     }
 
-    img{
-      width: 50%;
+    .item_container {
+        @include flex_center(column);
+
+        .proyecto_item {
+            margin: 10vh auto;
+
+            h2,
+            p {
+                @include no_touchy;
+            }
+
+            h2 {
+                font-size: fontz(title);
+                color: #fff;
+            }
+
+            p {
+                font-size: fontz(normal);
+            }
+        }
+
+        img {
+            width: 50%;
+        }
     }
-  }
 }
