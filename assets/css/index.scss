@@ -119,10 +119,10 @@ h1 {
 
 .language_void {
   position: relative;
-
+  padding: 8px;
   background-color: $void;
-  transition: transform $hover_animation ease-in-out;
 
+  transition: transform $hover_animation ease-in-out;
   img {
     width: 2rem;
   }
@@ -130,7 +130,7 @@ h1 {
     opacity: 0;
     transform: translateY(-40%);
 
-    transition: all $hover_animation ease-in-out;
+    transition: transform $hover_animation ease-in-out;
 
     li {
       user-select: none;
@@ -148,7 +148,7 @@ h1 {
   }
 
   &:hover {
-    transform: translateX(-1rem);
+    transform: translateX(-8px);
 
     ul {
       opacity: 1;

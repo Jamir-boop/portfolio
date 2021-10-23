@@ -132,6 +132,7 @@ h1 {
 
 .language_void {
   position: relative;
+  padding: 8px;
   background-color: #0b0e11;
   -webkit-transition: -webkit-transform 180ms ease-in-out;
   transition: -webkit-transform 180ms ease-in-out;
@@ -147,8 +148,10 @@ h1 {
   opacity: 0;
   -webkit-transform: translateY(-40%);
           transform: translateY(-40%);
-  -webkit-transition: all 180ms ease-in-out;
-  transition: all 180ms ease-in-out;
+  -webkit-transition: -webkit-transform 180ms ease-in-out;
+  transition: -webkit-transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out, -webkit-transform 180ms ease-in-out;
 }
 
 .language_void ul li {
@@ -168,8 +171,8 @@ h1 {
 }
 
 .language_void:hover {
-  -webkit-transform: translateX(-1rem);
-          transform: translateX(-1rem);
+  -webkit-transform: translateX(-8px);
+          transform: translateX(-8px);
 }
 
 .language_void:hover ul {
