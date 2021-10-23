@@ -133,8 +133,10 @@ h1 {
 .language_void {
   position: relative;
   background-color: #0b0e11;
-  -webkit-transition: right 180ms ease-in-out;
-  transition: right 180ms ease-in-out;
+  -webkit-transition: -webkit-transform 180ms ease-in-out;
+  transition: -webkit-transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out, -webkit-transform 180ms ease-in-out;
 }
 
 .language_void img {
@@ -166,7 +168,8 @@ h1 {
 }
 
 .language_void:hover {
-  right: 1rem;
+  -webkit-transform: translateX(-1rem);
+          transform: translateX(-1rem);
 }
 
 .language_void:hover ul {

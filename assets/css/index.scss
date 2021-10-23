@@ -121,7 +121,7 @@ h1 {
   position: relative;
 
   background-color: $void;
-  transition: right $hover_animation ease-in-out;
+  transition: transform $hover_animation ease-in-out;
 
   img {
     width: 2rem;
@@ -148,7 +148,7 @@ h1 {
   }
 
   &:hover {
-    right: 1rem;
+    transform: translateX(-1rem);
 
     ul {
       opacity: 1;
