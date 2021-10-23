@@ -113,7 +113,12 @@ h1 {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 1;
+
+  @include bg_gradient;
+}
+
+.language_void {
+  position: relative;
 
   background-color: $void;
   transition: right $hover_animation ease-in-out;
@@ -141,8 +146,9 @@ h1 {
       }
     }
   }
+
   &:hover {
-    right: 1.2rem;
+    right: 1rem;
 
     ul {
       opacity: 1;

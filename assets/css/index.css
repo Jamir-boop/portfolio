@@ -126,17 +126,22 @@ h1 {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  z-index: 1;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 300% 300%;
+}
+
+.language_void {
+  position: relative;
   background-color: #0b0e11;
   -webkit-transition: right 180ms ease-in-out;
   transition: right 180ms ease-in-out;
 }
 
-.nav_language img {
+.language_void img {
   width: 2rem;
 }
 
-.nav_language ul {
+.language_void ul {
   opacity: 0;
   -webkit-transform: translateY(-40%);
           transform: translateY(-40%);
@@ -144,7 +149,7 @@ h1 {
   transition: all 180ms ease-in-out;
 }
 
-.nav_language ul li {
+.language_void ul li {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -156,15 +161,15 @@ h1 {
   transition: scale 180ms ease;
 }
 
-.nav_language ul li:hover {
+.language_void ul li:hover {
   scale: 1.2;
 }
 
-.nav_language:hover {
-  right: 1.2rem;
+.language_void:hover {
+  right: 1rem;
 }
 
-.nav_language:hover ul {
+.language_void:hover ul {
   opacity: 1;
   -webkit-transform: translateY(10%);
           transform: translateY(10%);
