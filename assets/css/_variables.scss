@@ -2,20 +2,21 @@
 $void: #0b0e11;
 $dark: #4d4d4d;
 // $accent_color: #FC427B;
-$accent_color: #FD7272;
-$acc_comp1: #3EB09F;
-$acc_comp2: #AAFC7E;
-$acc_comp3: #65FCE6;
-$gray: rgba(255, 255, 255, 0.30);
+$accent_color: #fd7272;
+$acc_comp1: #3eb09f;
+$acc_comp2: #aafc7e;
+$acc_comp3: #65fce6;
+$gray: rgba(255, 255, 255, 0.3);
 
 $font-z: (
     "normal": 1rem,
     "title": 2rem,
+    "four": 4rem,
     "accent": 6rem,
-    "super_accent": 10rem
+    "super_accent": 10rem,
 );
 
-@function fontz($type){
+@function fontz($type) {
     @return map-get($font-z, $type);
 }
 
