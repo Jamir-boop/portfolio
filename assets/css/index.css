@@ -126,6 +126,10 @@ h1 {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  z-index: 1;
+  background-color: #0b0e11;
+  -webkit-transition: right 180ms ease-in-out;
+  transition: right 180ms ease-in-out;
 }
 
 .nav_language img {
@@ -133,9 +137,11 @@ h1 {
 }
 
 .nav_language ul {
-  display: none;
-  -webkit-transition: display 150ms ease;
-  transition: display 150ms ease;
+  opacity: 0;
+  -webkit-transform: translateY(-40%);
+          transform: translateY(-40%);
+  -webkit-transition: all 180ms ease-in-out;
+  transition: all 180ms ease-in-out;
 }
 
 .nav_language ul li {
@@ -154,8 +160,14 @@ h1 {
   scale: 1.2;
 }
 
+.nav_language:hover {
+  right: 1.2rem;
+}
+
 .nav_language:hover ul {
-  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(10%);
+          transform: translateY(10%);
 }
 
 header {

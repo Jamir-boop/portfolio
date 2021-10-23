@@ -73,7 +73,7 @@ h1 {
     position: absolute;
   }
   .CTA_gradient {
-    @include bg_animate;
+    @include bg_gradient;
 
     background-clip: text;
     -webkit-background-clip: text;
@@ -113,13 +113,19 @@ h1 {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  z-index: 1;
+
+  background-color: $void;
+  transition: right $hover_animation ease-in-out;
 
   img {
     width: 2rem;
   }
   ul {
-    display: none;
-    transition: display 150ms ease;
+    opacity: 0;
+    transform: translateY(-40%);
+
+    transition: all $hover_animation ease-in-out;
 
     li {
       user-select: none;
@@ -127,6 +133,7 @@ h1 {
       background-color: transparent;
 
       cursor: pointer;
+
       transition: scale $hover_animation ease; // TODO poner fondo animado
 
       &:hover {
@@ -134,26 +141,12 @@ h1 {
       }
     }
   }
-
-  &::before {
-    content: "";
-    display: inline-block;
-
-    width: 100%;
-    height: 20px;
-
-    // inset: 0;
-    // z-index: 4;
-
-    @include bg_animate;
-  }
   &:hover {
+    right: 1.2rem;
+
     ul {
-      display: block;
-    }
-    &::before {
-      width: 200%;
-      scale: 1.2;
+      opacity: 1;
+      transform: translateY(10%);
     }
   }
 }
@@ -167,7 +160,7 @@ header {
   z-index: 2;
 
   // background-color: $accent_color;
-  @include bg_animate;
+  @include bg_gradient;
 
   @include flex_center(row);
 
