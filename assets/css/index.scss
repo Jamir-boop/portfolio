@@ -1,6 +1,17 @@
 @import "./variables";
 @import "./mixins";
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 body {
     font-family: "Ubuntu Mono", monospace;
     overflow-x: hidden;
@@ -14,7 +25,7 @@ h1 {
     font-weight: bold;
 }
 
-// MAIN
+// ========== MAIN ==========
 .main_content {
     @include flex_center(row);
     width: 100%;
@@ -45,7 +56,7 @@ h1 {
 }
 
 .CTA {
-    font-size: fontz(four);
+    font-size: fontz(title) + 1;
     user-select: none;
 
     @include buttons;
@@ -62,18 +73,7 @@ h1 {
         position: absolute;
     }
     .CTA_gradient {
-        background: linear-gradient(
-            60deg,
-            #f79533,
-            #f37055,
-            #ef4e7b,
-            #a166ab,
-            #5073b8,
-            #1098ad,
-            #07b39b,
-            #6fba82
-        );
-        background-size: 300% 300%;
+        @include bg_animate;
 
         background-clip: text;
         -webkit-background-clip: text;
@@ -83,7 +83,7 @@ h1 {
     }
 
     span {
-        transition: all 0.2s ease-in-out;
+        transition: all $hover_animation ease-in-out;
     }
 
     &:hover {
@@ -104,43 +104,60 @@ h1 {
     bottom: 4rem;
     right: 1rem;
 
-    i {
+    em {
         color: white;
     }
 }
 
 .nav_language {
-    @extend .nav_social;
-    bottom: 0;
-    top: 2rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
 
     img {
         width: 2rem;
     }
-
     ul {
         display: none;
         transition: display 150ms ease;
-    }
 
-    ul li {
-        user-select: none;
-        list-style: none;
-        background-color: transparent;
+        li {
+            user-select: none;
+            list-style: none;
+            background-color: transparent;
 
-        cursor: pointer;
-        transition: box-shadow 0.15s ease; // TODO poner fondo animado
-        &:hover {
-            box-shadow: 0px 0px 100px 20px $accent_color;
+            cursor: pointer;
+            transition: scale $hover_animation ease; // TODO poner fondo animado
+
+            &:hover {
+                scale: 1.2;
+            }
         }
     }
 
-    &:hover ul {
-        display: block;
+    &::before {
+        content: "";
+        display: inline-block;
+
+        z-index: -1;
+
+        width: 100%;
+        height: 20px;
+
+        @include bg_animate;
+    }
+    &:hover {
+        ul {
+            display: block;
+        }
+        &::before {
+            width: 200%;
+            scale: 1.2;
+        }
     }
 }
 
-// BARRA NAVEGACION
+// ========== BARRA NAVEGACION ==========
 header {
     width: 100%;
     height: $header_h;
@@ -148,7 +165,8 @@ header {
     position: relative;
     z-index: 2;
 
-    background-color: $accent_color;
+    // background-color: $accent_color;
+    @include bg_animate;
 
     @include flex_center(row);
 
@@ -176,7 +194,7 @@ footer {
     text-align: center;
 }
 
-// PROYECTOS
+// ========== PROYECTOS ==========
 article {
     width: 100%;
     h1 {
