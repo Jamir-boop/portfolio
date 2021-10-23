@@ -45,7 +45,7 @@ h1 {
 }
 
 .CTA {
-    font-size: fontz(title) + 1;
+    font-size: fontz(title) + 1.5;
     user-select: none;
 
     @include buttons;
@@ -63,20 +63,33 @@ h1 {
     }
     .CTA_gradient {
         background: linear-gradient(
-            138deg,
-            #65fce6 10%,
-            #3eb09f 45%,
-            #fd7272 80%
+            60deg,
+            #f79533,
+            #f37055,
+            #ef4e7b,
+            #a166ab,
+            #5073b8,
+            #1098ad,
+            #07b39b,
+            #6fba82
         );
+        background-size: 300% 300%;
+
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+
+        animation: animated_gradient 3s ease alternate infinite;
     }
 
-    &:hover .CTA_white {
-        margin-left: 2em;
-        background-color: greenyellow;
-        transition: all 0.2s ease-in-out;
+    .CTA_white {
+        transition: margin-left 0.2s ease-in-out;
+    }
+
+    &:hover {
+        .CTA_white {
+            margin-left: 0.125em;
+        }
     }
 }
 
@@ -195,5 +208,17 @@ article {
         img {
             width: 50%;
         }
+    }
+}
+
+@keyframes animated_gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
     }
 }

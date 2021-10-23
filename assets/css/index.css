@@ -56,7 +56,7 @@ h1 {
 }
 
 .CTA {
-  font-size: 3rem;
+  font-size: 3.5rem;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -76,17 +76,22 @@ h1 {
 }
 
 .CTA .CTA_gradient {
-  background: linear-gradient(138deg, #65fce6 10%, #3eb09f 45%, #fd7272 80%);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-animation: animated_gradient 3s ease alternate infinite;
+          animation: animated_gradient 3s ease alternate infinite;
+}
+
+.CTA .CTA_white {
+  -webkit-transition: margin-left 0.2s ease-in-out;
+  transition: margin-left 0.2s ease-in-out;
 }
 
 .CTA:hover .CTA_white {
-  margin-left: 2em;
-  background-color: greenyellow;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  margin-left: 0.125em;
 }
 
 .nav_social, .nav_language {
@@ -246,5 +251,29 @@ article .item_container .proyecto_item p {
 
 article .item_container img {
   width: 50%;
+}
+
+@-webkit-keyframes animated_gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes animated_gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
 }
 /*# sourceMappingURL=index.css.map */
