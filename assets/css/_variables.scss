@@ -10,22 +10,38 @@ $gray: rgba(255, 255, 255, 0.3);
 
 $hover_animation: 180ms;
 
-$font-z: (
-    "normal": 1rem,
-    "title": 2rem,
-    "four": 4rem,
-    "accent": 6rem,
-    "super_accent": 10rem,
+$font-min: (
+    "normal": 16px,
+    "title": 18px,
+    "four": 20px,
+    "accent": 40px,
+    "super_accent": 80px,
+);
+
+$font-pref: (
+    "normal": 1vw,
+    "title": 2vw,
+    "four": 4vw,
+    "accent": 6vw,
+    "super_accent": 10vw,
+);
+
+$font-max: (
+    "normal": 20px,
+    "title": 40px,
+    "four": 80px,
+    "accent": 100px,
+    "super_accent": 300px,
 );
 
 
-
 @function fontz($type) {
-    @return map-get($font-z, $type);
+    @return clamp(
+        map-get($font-min, $type),
+        map-get($font-pref, $type),
+        map-get($font-max, $type)
+    );
 }
-
-
-
 
 $main_h: 94vh;
 $header_h: 100vh - $main_h;

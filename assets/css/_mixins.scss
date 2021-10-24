@@ -39,3 +39,9 @@
 @mixin bg_gradient_animation {
     animation: animated_gradient 3s ease alternate infinite;
 }
+
+@mixin clamp_position($sides...){
+    @each $side in $sides{
+        $side: clamp(16px, 1rem, 100px);
+    }
+}

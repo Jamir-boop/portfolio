@@ -20,11 +20,6 @@ body {
   color: #fff;
 }
 
-h1 {
-  font-size: fontz(accent);
-  font-weight: bold;
-}
-
 // ========== MAIN ==========
 .main_content {
   @include flex_center(row);
@@ -46,6 +41,9 @@ h1 {
     border-bottom: 2px solid $accent_color;
   }
   h1 {
+    font-size: fontz(accent);
+    font-weight: bold;
+
     margin: 0.1em 0 0.4em;
     letter-spacing: 0.1em;
   }
@@ -56,7 +54,7 @@ h1 {
 }
 
 .CTA {
-  font-size: fontz(title) + 1;
+  font-size: fontz(title);
   user-select: none;
 
   @include buttons;
