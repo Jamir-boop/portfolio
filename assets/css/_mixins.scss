@@ -35,3 +35,7 @@
     );
     background-size: 300% 300%;
 }
+
+@mixin bg_gradient_animation {
+    animation: animated_gradient 3s ease alternate infinite;
+}

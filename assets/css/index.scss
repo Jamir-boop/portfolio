@@ -79,7 +79,7 @@ h1 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: animated_gradient 3s ease alternate infinite;
+    @include bg_gradient_animation;
   }
 
   span {
@@ -91,7 +91,7 @@ h1 {
       letter-spacing: 0.15em;
     }
     .CTA_white {
-      $margen: 6px;
+      $margen: 5px;
       margin: -$margen $margen 0;
     }
   }
@@ -115,7 +115,7 @@ h1 {
   right: 1rem;
 
   @include bg_gradient;
-  animation: animated_gradient 3s ease alternate infinite;
+  @include bg_gradient_animation;
 }
 
 .language_void {

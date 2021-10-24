@@ -18,9 +18,14 @@ $font-z: (
     "super_accent": 10rem,
 );
 
+
+
 @function fontz($type) {
     @return map-get($font-z, $type);
 }
+
+
+
 
 $main_h: 94vh;
 $header_h: 100vh - $main_h;
