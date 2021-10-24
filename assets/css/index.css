@@ -115,8 +115,24 @@ body {
   bottom: 7vh;
 }
 
-.nav_social em {
+.nav_social a {
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav_social a em {
   color: white;
+}
+
+.nav_social a .social_void {
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: animated_gradient 3s ease alternate infinite;
+          animation: animated_gradient 3s ease alternate infinite;
 }
 
 .nav_language {

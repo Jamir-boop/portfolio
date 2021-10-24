@@ -97,14 +97,26 @@ body {
 
 .nav_social {
   font-size: fontz(title);
-  // position: fixed;
-  position: absolute;
 
+  position: absolute;
   @include clamp_position(right);
   bottom: $header_h + 1;
+  a {
+    @include buttons;
+    position: relative;
 
-  em {
-    color: white;
+    em {
+      color: white;
+    }
+    .social_void {
+      // position: absolute;
+
+      @include bg_gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      @include bg_gradient_animation;
+    }
   }
 }
 

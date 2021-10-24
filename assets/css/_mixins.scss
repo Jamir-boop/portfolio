@@ -11,7 +11,7 @@
     flex-direction: $direction;
 }
 
-@mixin buttons() {
+@mixin buttons {
     cursor: pointer;
     text-decoration: none;
 }
