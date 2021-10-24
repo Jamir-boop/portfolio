@@ -41,7 +41,20 @@
 }
 
 @mixin clamp_position($sides...){
+    $min: 16px;
+    $pref: 2vw;
+    $max: 500px;
+
     @each $side in $sides{
-        $side: clamp(16px, 1rem, 100px);
+        
+        @if $side == top {
+            top: clamp($min, $pref, $max);
+        }@else if  $side == right {
+            right: clamp($min, $pref, $max);
+        }@else if  $side == left {
+            left: clamp($min, $pref, $max);
+        }@else if  $side == bottom {
+            bottom: clamp($min, $pref, $max);
+        }
     }
 }

@@ -54,7 +54,7 @@ body {
 }
 
 .CTA {
-  font-size: fontz(title);
+  font-size: fontz(four);
   user-select: none;
 
   @include buttons;
@@ -99,8 +99,9 @@ body {
   font-size: fontz(title);
   // position: fixed;
   position: absolute;
-  bottom: 4rem;
-  right: 1rem;
+  
+  @include clamp_position(right);
+  bottom: clamp(4rem, 4rem, 4rem);
 
   em {
     color: white;
@@ -109,8 +110,7 @@ body {
 
 .nav_language {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  @include clamp_position(top, right);
 
   @include bg_gradient;
   @include bg_gradient_animation;

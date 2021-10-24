@@ -66,7 +66,7 @@ body {
 }
 
 .CTA {
-  font-size: clamp(18px, 2vw, 40px);
+  font-size: clamp(25px, 3vw, 80px);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -111,8 +111,8 @@ body {
 .nav_social {
   font-size: clamp(18px, 2vw, 40px);
   position: absolute;
-  bottom: 4rem;
-  right: 1rem;
+  right: clamp(16px, 2vw, 500px);
+  bottom: clamp(4rem, 4rem, 4rem);
 }
 
 .nav_social em {
@@ -121,8 +121,8 @@ body {
 
 .nav_language {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: clamp(16px, 2vw, 500px);
+  right: clamp(16px, 2vw, 500px);
   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
   background-size: 300% 300%;
   -webkit-animation: animated_gradient 3s ease alternate infinite;
@@ -213,7 +213,7 @@ header .nav_menu ul {
 header .nav_menu ul button {
   cursor: pointer;
   text-decoration: none;
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(16px, 1vw, 25px);
   text-transform: uppercase;
   font-family: "Ubuntu Mono", monospace;
   font-weight: bold;
@@ -283,7 +283,7 @@ article .item_container .proyecto_item h2 {
 }
 
 article .item_container .proyecto_item p {
-  font-size: clamp(16px, 1vw, 20px);
+  font-size: clamp(16px, 1vw, 25px);
 }
 
 article .item_container img {
