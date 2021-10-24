@@ -101,21 +101,32 @@ body {
   position: absolute;
   @include clamp_position(right);
   bottom: $header_h + 1;
+
+  div {
+    display: inline;
+  }
+
   a {
     @include buttons;
     em {
       color: white;
+      transition: transform $hover_animation ease-in-out;
     }
-    .social_void {
-      position: absolute;
-      z-index: -1;
 
-      @include bg_gradient;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      @include bg_gradient_animation;
+    &:hover em {
+      transform: translateX(-15%) translateY(-15%);
     }
+  }
+
+  .social_void {
+    position: absolute;
+    z-index: -1;
+
+    @include bg_gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @include bg_gradient_animation;
   }
 }
 

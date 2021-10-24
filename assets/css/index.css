@@ -66,7 +66,7 @@ body {
 }
 
 .CTA {
-  font-size: clamp(25px, 3vw, 80px);
+  font-size: clamp(25px, 3vw, 60px);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -115,6 +115,10 @@ body {
   bottom: 7vh;
 }
 
+.nav_social div {
+  display: inline;
+}
+
 .nav_social a {
   cursor: pointer;
   text-decoration: none;
@@ -122,9 +126,18 @@ body {
 
 .nav_social a em {
   color: white;
+  -webkit-transition: -webkit-transform 180ms ease-in-out;
+  transition: -webkit-transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out;
+  transition: transform 180ms ease-in-out, -webkit-transform 180ms ease-in-out;
 }
 
-.nav_social a .social_void {
+.nav_social a:hover em {
+  -webkit-transform: translateX(-15%) translateY(-15%);
+          transform: translateX(-15%) translateY(-15%);
+}
+
+.nav_social .social_void {
   position: absolute;
   z-index: -1;
   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
