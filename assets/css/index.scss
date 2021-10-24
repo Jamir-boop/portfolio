@@ -115,6 +115,7 @@ h1 {
   right: 1rem;
 
   @include bg_gradient;
+  animation: animated_gradient 3s ease alternate infinite;
 }
 
 .language_void {
@@ -130,7 +131,7 @@ h1 {
     opacity: 0;
     transform: translateY(-40%);
 
-    transition: transform $hover_animation ease-in-out;
+    transition: all $hover_animation ease-in-out;
 
     li {
       user-select: none;
@@ -148,7 +149,7 @@ h1 {
   }
 
   &:hover {
-    transform: translateX(-8px);
+    transform: translateX(-6px);
 
     ul {
       opacity: 1;
