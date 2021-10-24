@@ -103,13 +103,12 @@ body {
   bottom: $header_h + 1;
   a {
     @include buttons;
-    position: relative;
-
     em {
       color: white;
     }
     .social_void {
-      // position: absolute;
+      position: absolute;
+      z-index: -1;
 
       @include bg_gradient;
       background-clip: text;

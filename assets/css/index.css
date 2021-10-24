@@ -118,7 +118,6 @@ body {
 .nav_social a {
   cursor: pointer;
   text-decoration: none;
-  position: relative;
 }
 
 .nav_social a em {
@@ -126,6 +125,8 @@ body {
 }
 
 .nav_social a .social_void {
+  position: absolute;
+  z-index: -1;
   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
   background-size: 300% 300%;
   background-clip: text;
