@@ -101,7 +101,7 @@ body {
   position: absolute;
 
   @include clamp_position(right);
-  bottom: clamp(4rem, 4rem, 4rem);
+  bottom: $header_h + 1;
 
   em {
     color: white;

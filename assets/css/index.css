@@ -112,7 +112,7 @@ body {
   font-size: clamp(18px, 2vw, 40px);
   position: absolute;
   right: clamp(16px, 2vw, 500px);
-  bottom: clamp(4rem, 4rem, 4rem);
+  bottom: 7vh;
 }
 
 .nav_social em {
