@@ -99,7 +99,7 @@ body {
   font-size: fontz(title);
   // position: fixed;
   position: absolute;
-  
+
   @include clamp_position(right);
   bottom: clamp(4rem, 4rem, 4rem);
 
@@ -161,7 +161,9 @@ header {
   width: 100%;
   height: $header_h;
 
-  position: relative;
+  position: sticky;
+  top: 0;
+
   z-index: 2;
 
   // background-color: $accent_color;
