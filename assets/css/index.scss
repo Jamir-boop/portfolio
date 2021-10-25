@@ -35,6 +35,8 @@ body {
 
 .texto_main {
   margin-left: -10em;
+  // margin-left: -10vw;
+  // transform: translateX(-10%);
 
   h2 {
     font-size: fontz(title);
@@ -97,6 +99,7 @@ body {
 }
 
 .nav_social {
+  user-select: none;
   font-size: fontz(title);
 
   position: absolute;
@@ -132,6 +135,7 @@ body {
 }
 
 .nav_language {
+  user-select: none;
   position: absolute;
   @include clamp_position(top, right);
 
