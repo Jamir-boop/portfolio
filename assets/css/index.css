@@ -96,8 +96,8 @@ body {
 }
 
 .CTA span {
-  -webkit-transition: all 180ms ease-in-out;
-  transition: all 180ms ease-in-out;
+  -webkit-transition: letter-spacing 180ms ease-in-out, margin 180ms ease-in-out;
+  transition: letter-spacing 180ms ease-in-out, margin 180ms ease-in-out;
 }
 
 .CTA:hover span {

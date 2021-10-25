@@ -81,7 +81,8 @@ body {
   }
 
   span {
-    transition: all $hover_animation ease-in-out;
+    transition: letter-spacing $hover_animation ease-in-out,
+      margin $hover_animation ease-in-out;
   }
 
   &:hover {
