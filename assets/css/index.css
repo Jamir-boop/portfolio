@@ -68,6 +68,7 @@ body {
 .CTA {
   font-size: clamp(25px, 3vw, 60px);
   font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -75,8 +76,7 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: white;
-  font-weight: bold;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.75em 1em 0.75em 0;
   position: relative;
@@ -102,7 +102,7 @@ body {
 }
 
 .CTA:hover span {
-  letter-spacing: 0.15em;
+  letter-spacing: 0.125em;
 }
 
 .CTA:hover .CTA_white {

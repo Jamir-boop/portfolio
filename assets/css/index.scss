@@ -60,13 +60,13 @@ body {
 .CTA {
   font-size: fontz(four);
   font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
   user-select: none;
 
   @include buttons;
   color: white;
 
-  font-weight: bold;
-  letter-spacing: 0.125em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 
   padding: 0.75em 1em 0.75em 0;
@@ -92,7 +92,7 @@ body {
 
   &:hover {
     span {
-      letter-spacing: 0.15em;
+      letter-spacing: 0.125em;
     }
     .CTA_white {
       $margen: 5px;
