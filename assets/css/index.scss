@@ -14,6 +14,8 @@ body {
 
 body {
   font-family: "Ubuntu Mono", monospace;
+  // font-family: "Ubuntu", sans-serif;
+
   overflow-x: hidden;
 
   background-color: $void;
@@ -57,6 +59,7 @@ body {
 
 .CTA {
   font-size: fontz(four);
+  font-family: "Ubuntu", sans-serif;
   user-select: none;
 
   @include buttons;
@@ -227,6 +230,8 @@ article {
   width: 100%;
   h1 {
     font-size: fontz(super_accent);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
 
     @include no_touchy;
     color: $gray;
