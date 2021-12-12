@@ -1,3 +1,5 @@
+@import "./reset.scss";
+@import "./responsive.scss";
 @import "./variables";
 @import "./mixins";
 
@@ -23,19 +25,19 @@ body {
 }
 
 // ========== MAIN ==========
-.main_content {
+.home__content {
   @include flex_center(row);
   width: 100%;
   height: $main_h;
 }
 
-.imagen_main {
+.home__image {
   img {
     height: 100vh;
   }
 }
 
-.texto_main {
+.home__text {
   margin-left: -10em;
   // margin-left: -10vw;
   // transform: translateX(-10%);
@@ -57,13 +59,13 @@ body {
   }
 }
 
-.CTA {
+.home__CTA {
+  @include buttons;
   font-size: fontz(four);
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   user-select: none;
 
-  @include buttons;
   color: white;
 
   letter-spacing: 0.1em;
@@ -115,12 +117,11 @@ body {
 
   a {
     @include buttons;
-    em {
-      color: white;
+    img {
       transition: transform $hover_animation ease-in-out;
     }
 
-    &:hover em {
+    &:hover img {
       transform: translateX(-15%) translateY(-15%);
     }
   }
@@ -205,6 +206,7 @@ header {
     @include flex(row);
     button {
       @include buttons;
+
       font-size: fontz(normal);
       text-transform: uppercase;
       font-family: "Ubuntu Mono", monospace;

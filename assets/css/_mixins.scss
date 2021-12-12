@@ -12,6 +12,8 @@
 }
 
 @mixin buttons {
+    all: unset;
+    
     cursor: pointer;
     text-decoration: none;
 }

@@ -1,3 +1,72 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media all and (max-width: 900px) {
+  .main_content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .texto_main {
+    padding: 0 1em;
+    margin-left: 0;
+    -webkit-transform: translateY(-160%);
+            transform: translateY(-160%);
+  }
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
   display: none;
@@ -18,7 +87,7 @@ body {
   color: #fff;
 }
 
-.main_content {
+.home__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,28 +105,28 @@ body {
   height: 94vh;
 }
 
-.imagen_main img {
+.home__image img {
   height: 100vh;
 }
 
-.texto_main {
+.home__text {
   margin-left: -10em;
 }
 
-.texto_main h2 {
+.home__text h2 {
   font-size: clamp(18px, 2vw, 40px);
   border-bottom: 2px solid #fd7272;
 }
 
-.texto_main h1 {
+.home__text h1 {
   font-size: clamp(40px, 6vw, 100px);
   font-weight: bold;
   margin: 0.1em 0 0.4em;
   letter-spacing: 0.1em;
 }
 
-.texto_main h1,
-.texto_main h2 {
+.home__text h1,
+.home__text h2 {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -65,7 +134,10 @@ body {
   pointer-events: none;
 }
 
-.CTA {
+.home__CTA {
+  all: unset;
+  cursor: pointer;
+  text-decoration: none;
   font-size: clamp(25px, 3vw, 60px);
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
@@ -73,8 +145,6 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  cursor: pointer;
-  text-decoration: none;
   color: white;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -82,11 +152,11 @@ body {
   position: relative;
 }
 
-.CTA span {
+.home__CTA span {
   position: absolute;
 }
 
-.CTA .CTA_gradient {
+.home__CTA .CTA_gradient {
   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
   background-size: 300% 300%;
   background-clip: text;
@@ -96,16 +166,16 @@ body {
           animation: animated_gradient 3s ease alternate infinite;
 }
 
-.CTA span {
+.home__CTA span {
   -webkit-transition: letter-spacing 180ms ease-in-out, margin 180ms ease-in-out;
   transition: letter-spacing 180ms ease-in-out, margin 180ms ease-in-out;
 }
 
-.CTA:hover span {
+.home__CTA:hover span {
   letter-spacing: 0.125em;
 }
 
-.CTA:hover .CTA_white {
+.home__CTA:hover .CTA_white {
   margin: -5px 5px 0;
 }
 
@@ -125,19 +195,19 @@ body {
 }
 
 .nav_social a {
+  all: unset;
   cursor: pointer;
   text-decoration: none;
 }
 
-.nav_social a em {
-  color: white;
+.nav_social a img {
   -webkit-transition: -webkit-transform 180ms ease-in-out;
   transition: -webkit-transform 180ms ease-in-out;
   transition: transform 180ms ease-in-out;
   transition: transform 180ms ease-in-out, -webkit-transform 180ms ease-in-out;
 }
 
-.nav_social a:hover em {
+.nav_social a:hover img {
   -webkit-transform: translateX(-15%) translateY(-15%);
           transform: translateX(-15%) translateY(-15%);
 }
@@ -252,6 +322,7 @@ header .nav_menu ul {
 }
 
 header .nav_menu ul button {
+  all: unset;
   cursor: pointer;
   text-decoration: none;
   font-size: clamp(16px, 1vw, 25px);
