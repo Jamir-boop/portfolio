@@ -105,12 +105,15 @@ body {
   height: 94vh;
 }
 
-.home__image img {
-  height: 100vh;
+canvas {
+  position: absolute;
+  outline: none;
+  top: 0;
+  left: 0;
 }
 
 .home__text {
-  margin-left: -10em;
+  margin: 0 5vw;
 }
 
 .home__text h2 {
