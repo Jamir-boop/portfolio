@@ -80,8 +80,8 @@ let init = () => {
 	composer = new EffectComposer( renderer );
 	composer.addPass( new RenderPass(scene, camera))
 	composer.setSize( window.innerWidth, window.innerHeight );
-	composer.addPass( new UnrealBloomPass( {x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.7) );
-	composer.addPass( new GlitchPass());
+	composer.addPass( new UnrealBloomPass( {x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.4) );
+	// composer.addPass( new GlitchPass() );
 
 	renderer.shadowMap.enabled = true;
 	renderer.setPixelRatio( window.devicePixelRatio );
