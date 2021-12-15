@@ -14,7 +14,9 @@ import {SSAOPass} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/po
 
 import {LuminosityShader} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/shaders/LuminosityShader.js';
 
-// Scene + Camera + Renderer
+/*
+	Scene + Camera + Renderer
+*/
 const scene = new THREE.Scene();
 let camera, renderer, controls, importedModule, composer;
 let isMobile;
@@ -52,7 +54,9 @@ let init = () => {
 	// const spaceTexture = new THREE.TextureLoader().load('assets/image/texture/space.jpg');
 	// scene.background = spaceTexture;
 
-	// LUCES
+	/*
+		LIGHTs
+	*/
 	// var ambientLight = new THREE.AmbientLight( 0xffffff, 1)
 	// scene.add( ambientLight )
 
@@ -71,16 +75,18 @@ let init = () => {
 	const helperPoint = new THREE.PointLightHelper(pointLight);
 	pointLight.add(helperPoint);
 
-	// RENDER & POST PROCESING
+	/*
+		RENDER & POST PROCESING
+	*/
 	renderer = new THREE.WebGLRenderer({
-		antialias: true,
+		// antialias: true,
 		alpha: true,
 		canvas: home__scene
 	});
 	composer = new EffectComposer( renderer );
 	composer.addPass( new RenderPass(scene, camera))
 	composer.setSize( window.innerWidth, window.innerHeight );
-	composer.addPass( new UnrealBloomPass( {x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.4) );
+	composer.addPass( new UnrealBloomPass( {x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.425 ) );
 	// composer.addPass( new GlitchPass() );
 
 	renderer.shadowMap.enabled = true;
@@ -101,14 +107,18 @@ let init = () => {
 	tick();
 }
 
-// 	TEXTURE LOADERS
+/*
+ 	TEXTURE LOADERS
+*/
 const texture_loader = new THREE.TextureLoader();
 const texture = texture_loader.load('assets/image/texture/base.jpg');
 const height = texture_loader.load('assets/image/texture/height2.png');
 const normal = texture_loader.load('assets/image/texture/normal.jpg');
 const alpha = texture_loader.load('assets/image/texture/alpha.png');
 
-// TUNNEL PLANES
+/*
+	TUNNEL PLANES
+*/
 const geometry = new THREE.PlaneBufferGeometry( 60, 80, 100, 100);
 const material = new THREE.MeshStandardMaterial( {
 	color: 0x5F4CA4,
