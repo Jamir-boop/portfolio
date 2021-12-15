@@ -16,7 +16,7 @@ import {LuminosityShader} from 'https://cdn.jsdelivr.net/npm/three@0.122/example
 
 // Scene + Camera + Renderer
 const scene = new THREE.Scene();
-let camera, renderer, controls, importedModule;
+let camera, renderer, controls, importedModule, composer;
 let isMobile;
 // const gui = new DAT.GUI();
 
@@ -77,10 +77,11 @@ let init = () => {
 		alpha: true,
 		canvas: home__scene
 	});
-	const composer = new EffectComposer( renderer );
+	composer = new EffectComposer( renderer );
 	composer.addPass( new RenderPass(scene, camera))
-	composer.addPass( new UnrealBloomPass({x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.7));
-	// composer.addPass( new GlitchPass());
+	composer.setSize( window.innerWidth, window.innerHeight );
+	composer.addPass( new UnrealBloomPass( {x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.7) );
+	composer.addPass( new GlitchPass());
 
 	renderer.shadowMap.enabled = true;
 	renderer.setPixelRatio( window.devicePixelRatio );
@@ -97,24 +98,6 @@ let init = () => {
 		renderer.setSize( window.innerWidth, window.innerHeight );
 	}
 	
-	/**
-	 * Updates objects on each frame
-	 */
-	const clock = new THREE.Clock();
-	const tick = () => {
-		// const elapsedTime = clock.getElapsedTime();
-		if( material.displacementScale <= 30){
-			material.displacementScale += 0.01;
-		}else{
-			material.displacementScale = 20;
-		}
-		// camera.position.z += 0.1;
-		// console.log(camera.position.z);
-		// renderer.render( scene, camera );
-		composer.render();
-		window.requestAnimationFrame( tick );
-	}
-
 	tick();
 }
 
@@ -165,6 +148,24 @@ function addStar(){
 	scene.add(star);
 }
 Array(300).fill().forEach(addStar);
+
+/**
+ * Updates objects on each frame
+ */
+const clock = new THREE.Clock();
+let tick = () => {
+	// const elapsedTime = clock.getElapsedTime();
+	if( material.displacementScale <= 30){
+		material.displacementScale += 0.01;
+	}else{
+		material.displacementScale = 20;
+	}
+	// camera.position.z += 0.1;
+	// console.log(camera.position.z);
+	// renderer.render( scene, camera );
+	composer.render();
+	window.requestAnimationFrame( tick );
+}
 
 /**
   * Handles window resize events
