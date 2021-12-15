@@ -42,7 +42,7 @@ let init = () => {
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
 	// camera.position.set(0, 0, 1);
 	camera.position.set(0, 0, 30);
-	scene.add(camera);
+	scene.add( camera );
 
 	// Axes Helper
 	const axesHelper = new THREE.AxesHelper( 3 );
@@ -56,31 +56,31 @@ let init = () => {
 	// var ambientLight = new THREE.AmbientLight( 0xffffff, 1)
 	// scene.add( ambientLight )
 
-	const directionalLight = new THREE.DirectionalLight(0xA2F5F0, 0.2)
-	directionalLight.rotation.z = 10
-	scene.add(directionalLight)
-	const helperDirectional = new THREE.DirectionalLightHelper(directionalLight)
-	scene.add(helperDirectional)
+	const directionalLight = new THREE.DirectionalLight(0xA2F5F0, 0.2);
+	directionalLight.rotation.z = 10;
+	scene.add(directionalLight);
+	const helperDirectional = new THREE.DirectionalLightHelper( directionalLight );
+	scene.add(helperDirectional);
 
-	const hemisphereLigth =  new THREE.HemisphereLight( 0xffffff, 0x5F4CA4, .7)
-	scene.add( hemisphereLigth )
+	const hemisphereLigth =  new THREE.HemisphereLight( 0xffffff, 0x5F4CA4, 0.7 );
+	scene.add( hemisphereLigth );
 
-	const pointLight = new THREE.PointLight( 0xFF001E, 1 )
-	pointLight.position.set( 0, 0, 0 )
-	scene.add( pointLight )
+	const pointLight = new THREE.PointLight( 0xFF001E, 1 );
+	pointLight.position.set( 0, 0, 0 );
+	scene.add( pointLight );
 	const helperPoint = new THREE.PointLightHelper(pointLight);
 	pointLight.add(helperPoint);
 
 	// RENDER & POST PROCESING
-	renderer = new THREE.WebGLRenderer({ 
-		antialias: true, 
-		alpha: true, 
-		canvas: home__scene 
+	renderer = new THREE.WebGLRenderer({
+		antialias: true,
+		alpha: true,
+		canvas: home__scene
 	});
-	const composer = new EffectComposer(renderer);
+	const composer = new EffectComposer( renderer );
 	composer.addPass( new RenderPass(scene, camera))
-	// composer.addPass( new UnrealBloomPass({x: 1024, y: 1024}, 2.0, 0.0, 0.7));
-	composer.addPass( new GlitchPass());
+	composer.addPass( new UnrealBloomPass({x: window.innerWidth, y: window.innerHeight}, 2.0, 0.4, 0.7));
+	// composer.addPass( new GlitchPass());
 
 	renderer.shadowMap.enabled = true;
 	renderer.setPixelRatio( window.devicePixelRatio );
@@ -96,6 +96,7 @@ let init = () => {
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.setSize( window.innerWidth, window.innerHeight );
 	}
+	
 	/**
 	 * Updates objects on each frame
 	 */
@@ -114,7 +115,7 @@ let init = () => {
 		window.requestAnimationFrame( tick );
 	}
 
-	setInterval(1000, tick());
+	tick();
 }
 
 // 	TEXTURE LOADERS
@@ -174,6 +175,7 @@ let onWindowResize = () => {
 
 	renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize( window.innerWidth, window.innerHeight );
+	composer.setSize( window.innerWidth, window.innerHeight );
 }
 
 init();
