@@ -109,10 +109,10 @@ body {
 }
 
 canvas {
-  position: absolute;
+  position: fixed;
   outline: none;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: -1;
 }
 
 .home__text {

@@ -3,7 +3,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.118/build/three.mod
 
 // import { FBXLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/FBXLoader.js';
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js";
 import { RectAreaLightUniformsLib } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/lights/RectAreaLightUniformsLib.js";
 import { RectAreaLightHelper } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/helpers/RectAreaLightHelper.js";
 // import * as dat from 'https://cdn.jsdelivr.net/npm/dat.gui@0.7.7/build/dat.gui.min.js';
@@ -49,9 +49,8 @@ let init = () => {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
-	// camera.position.set( 0, 0, 1 );
-	camera.position.set(0, 0, 30);
-	// camera.rotation.set(180, 0, 0);
+	camera.position.set(0, 0, 1);
+	// camera.position.set(0, 0, 30);
 	scene.add(camera);
 
 	// Axes Helper
@@ -67,7 +66,8 @@ let init = () => {
 	*/
 	// var ambientLight = new THREE.AmbientLight( 0xffffff, 1)
 	// scene.add( ambientLight )
-	// AREA LIGHT
+
+	// DIRECITONAL LIGHT
 	const directionalLight = new THREE.DirectionalLight(0xff001e, 0.2);
 	directionalLight.rotation.z = 10;
 	scene.add(directionalLight);
@@ -76,12 +76,13 @@ let init = () => {
 	);
 	scene.add(helperDirectional);
 
+	// HEMISPHERE LIGHT
 	const hemisphereLigth = new THREE.HemisphereLight(0xffffff, 0x5f4ca4, 0.7);
 	scene.add(hemisphereLigth);
 
 	// AREA LIGHT
-	const area_width = 1.0,
-		area_height = 10.0;
+	const area_width = 0.6,
+		area_height = 5.0;
 	RectAreaLightUniformsLib.init();
 	const areaLigth = new THREE.RectAreaLight(
 		0xffffff,
@@ -89,7 +90,7 @@ let init = () => {
 		area_width,
 		area_height
 	);
-	areaLigth.position.set(0, 0, 0);
+	areaLigth.position.set(0, 0, -10);
 	areaLigth.lookAt(0, 0, 1);
 	scene.add(areaLigth);
 	const rectLightHelper = new RectAreaLightHelper(areaLigth);
@@ -127,8 +128,9 @@ let init = () => {
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
-	controls = new OrbitControls(camera, renderer.domElement);
+	// controls = new OrbitControls(camera, renderer.domElement);
 	window.addEventListener("resize", onWindowResize, false);
+	window.addEventListener("scroll", updateCamera);
 
 	if (isMobile) {
 		camera.position.set(0, 0, 0);
@@ -213,6 +215,13 @@ let tick = () => {
 	// renderer.render( scene, camera );
 	composer.render();
 	window.requestAnimationFrame(tick);
+};
+
+/**
+ * Updates camera on scroll
+ */
+let updateCamera = () => {
+	camera.position.z = 10 + window.scrollY / 300.0;
 };
 
 /**
