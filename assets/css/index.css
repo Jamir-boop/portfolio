@@ -87,6 +87,9 @@ body {
   color: #fff;
 }
 
+/*
+  ========== MAIN ==========
+*/
 .home__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -290,6 +293,9 @@ canvas {
           transform: translateY(10%);
 }
 
+/*
+  ========== BARRA NAVEGACION ==========
+*/
 header {
   width: 100%;
   height: 6vh;
@@ -341,10 +347,9 @@ header .nav_menu ul button {
   border: none;
 }
 
-footer {
-  text-align: center;
-}
-
+/*
+  ========== PROYECTOS ==========
+*/
 article {
   width: 100%;
 }
@@ -405,6 +410,13 @@ article .item_container .proyecto_item p {
 
 article .item_container img {
   width: 50%;
+}
+
+/*
+  ========== FOOTER ==========
+*/
+footer {
+  text-align: center;
 }
 
 @-webkit-keyframes animated_gradient {
