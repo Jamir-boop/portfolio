@@ -1,0 +1,123 @@
+---
+import BaseComponent from "../components/base.astro";
+import HeaderComponent from "../components/header.astro";
+import FooterComponent from "../components/footer.astro";
+---
+
+<BaseComponent estilo="../styles/index.scss" title="Jeiser Vargas Portfolio">
+	<!--
+		================= MAIN ================= 
+	-->
+	<main>
+		<section class="section section_home">
+			<canvas id="home__scene"></canvas>
+
+			<div class="home__content">
+				<div class="home__text">
+					<h2>Jeiser Vargas</h2>
+					<h1>Programador_ y Diseñador Web</h1>
+
+					<a href="#" class="home__CTA">
+						<span class="CTA_gradient"> hablemos! </span>
+						<span class="CTA_white"> hablemos! </span>
+					</a>
+				</div>
+			</div>
+
+			<div class="menu_btn">
+				<span class="btn_burger"></span>
+			</div>
+
+			<nav class="nav_language" aria-label="Language links">
+				<div class="language_void">
+					<div class="selected_language">
+						<img
+							src="assets/image/spain-flag.svg"
+							alt="language spanish"
+						/>
+					</div>
+					<ul>
+						<li>
+							<a href="index-en.html">
+								<img
+									src="assets/image/usa-flag.svg"
+									alt="language english"
+								/>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<nav class="nav nav_social" aria-label="Social links">
+				<div>
+					<img src="assets/image/github.svg" alt="github" />
+
+					<a href="#">
+						<img src="assets/image/github.svg" alt="github" />
+					</a>
+				</div>
+				<div>
+					<em class="fab fa-instagram social_void"></em>
+					<a href="#">
+						<em class="fab fa-instagram"></em>
+					</a>
+				</div>
+				<div>
+					<em class="fab fa-youtube social_void"></em>
+					<a href="#">
+						<em class="fab fa-youtube"></em>
+					</a>
+				</div>
+			</nav>
+		</section>
+	</main>
+	
+	<!--
+		================= BARRA NAVEGACION ================= 
+	°-->
+	<HeaderComponent></HeaderComponent>
+
+	<!--
+		================= PROJECTS ================= 
+	-->
+	<article>
+		<section class="section_proyectos">
+			<h1>proyectos</h1>
+
+			<div class="item_container">
+				<div class="proyecto_item">
+					<h2>Lorem ipsum dolor sit amet.</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing
+						elit. Ducimus voluptatum fugiat architecto tenetur,
+						veniam saepe error tempora reprehenderit soluta
+						ratione.
+					</p>
+					<img
+						src="assets/image/project_demo.png"
+						alt="project image"
+					/>
+				</div>
+				<div class="proyecto_item">
+					<h2>Lorem ipsum dolor sit amet.</h2>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing
+						elit. Ducimus voluptatum fugiat architecto tenetur,
+						veniam saepe error tempora reprehenderit soluta
+						ratione.
+					</p>
+					<img
+						src="assets/image/project_demo.png"
+						alt="project image"
+					/>
+				</div>
+			</div>
+		</section>
+	</article>
+
+	<!-- 
+		================= FOOTER ================= 
+	-->
+	<FooterComponent></FooterComponent>
+</BaseComponent>

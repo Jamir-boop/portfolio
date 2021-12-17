@@ -1,23 +1,21 @@
-import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js";
+import * as THREE from "three";
 // import * as DAT from 'https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.js';
 
 // import { FBXLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/FBXLoader.js';
-import { OBJLoader } from "https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/OBJLoader.js";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
 // import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/GLTFLoader.js';
-import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js";
-import { RectAreaLightUniformsLib } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/lights/RectAreaLightUniformsLib.js";
-import { RectAreaLightHelper } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/helpers/RectAreaLightHelper.js";
-// import * as dat from 'https://cdn.jsdelivr.net/npm/dat.gui@0.7.7/build/dat.gui.min.js';
-// import * as dat from 'https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.js';
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
+import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
 
-import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import {GlitchPass} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/GlitchPass.js';
-// import {ShaderPass} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/ShaderPass.js';
-// import {SSAOPass} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/postprocessing/SSAOPass.js';
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+// import {GlitchPass} from 'three/examples/jsm/postprocessing/GlitchPass.js';
+// import {ShaderPass} from 'three/examples/jsm/postprocessing/ShaderPass.js';
+// import {SSAOPass} from 'three/examples/jsm/postprocessing/SSAOPass.js';
 
-// import {LuminosityShader} from 'https://cdn.jsdelivr.net/npm/three@0.122/examples/jsm/shaders/LuminosityShader.js';
+// import {LuminosityShader} from 'three/examples/jsm/shaders/LuminosityShader.js';
 
 /*
 	Scene + Camera + Renderer
@@ -46,7 +44,7 @@ let init = () => {
 		VIEW_ANGLE = 45,
 		ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT,
 		NEAR = 0.1,
-		FAR = 20000;
+		FAR = 2000;
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
