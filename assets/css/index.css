@@ -112,7 +112,6 @@ canvas {
   position: fixed;
   outline: none;
   inset: 0;
-  z-index: -1;
 }
 
 .home__text {
