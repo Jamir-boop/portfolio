@@ -31,17 +31,12 @@ canvas {
 	inset: 0;
 	// top: 0;
 	// left: 0;
-	z-index: -1;
+	// z-index: -1;
 }
 
 /*
   ========== MAIN ==========
 */
-// .section_home{
-// 	position: relative;
-// 	z-index: 1;
-// }
-
 .home_content {
 	@include flex_center(row);
 	width: 100%;
