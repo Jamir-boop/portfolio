@@ -1,5 +1,5 @@
 import * as THREE from "three";
-// import * as DAT from 'https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.js';
+import { GUI } from "dat.gui";
 
 // import { FBXLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/FBXLoader.js';
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
@@ -11,11 +11,11 @@ import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHel
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import {GlitchPass} from 'three/examples/jsm/postprocessing/GlitchPass.js';
-// import {ShaderPass} from 'three/examples/jsm/postprocessing/ShaderPass.js';
-// import {SSAOPass} from 'three/examples/jsm/postprocessing/SSAOPass.js';
+// import {GlitchPass} from "three/examples/jsm/postprocessing/GlitchPass.js";
+// import {ShaderPass} from "three/examples/jsm/postprocessing/ShaderPass.js";
+// import {SSAOPass} from "three/examples/jsm/postprocessing/SSAOPass.js";
 
-// import {LuminosityShader} from 'three/examples/jsm/shaders/LuminosityShader.js';
+// import {LuminosityShader} from "three/examples/jsm/shaders/LuminosityShader.js";
 
 /*
 	Scene + Camera + Renderer
@@ -23,7 +23,7 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 const scene = new THREE.Scene();
 let camera, renderer, controls, importedModule, composer;
 let isMobile;
-// const gui = new dat.GUI();
+const gui = new GUI();
 
 /**
  * Init basic 3D Scene Elements
@@ -48,8 +48,13 @@ let init = () => {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
-	// camera.position.set(0, 0, 1);
-	camera.position.set(0, 0, 30);
+	camera.position.set(0, 0, 1);
+	// camera.position.set(0, 0, 30);
+	const cameraFolder = gui.addFolder("Camera");
+	cameraFolder.add(camera.position, "x", 0, 60).step(0.001);
+	cameraFolder.add(camera.position, "y", 0, 60).step(0.001);
+	cameraFolder.add(camera.position, "z", 0, 60).step(0.001);
+	cameraFolder.open();
 	scene.add(camera);
 
 	// Axes Helper
@@ -121,7 +126,7 @@ let init = () => {
 			0.375
 		)
 	);
-	// composer.addPass( new GlitchPass() );
+	composer.addPass(new GlitchPass(64));
 
 	renderer.shadowMap.enabled = true;
 	renderer.setPixelRatio(window.devicePixelRatio);
@@ -183,7 +188,9 @@ plane.rotation.x = 29.9;
 
 const objLoader = new OBJLoader();
 objLoader.load("assets/models/untitled.obj", (obj) => {
-	// obj.scale.set(0.01, 0.01, 0.01);
+	obj.scale.set(0.1, 0.1, 0.1);
+	obj.position.set(-0.3, -0.206, 0);
+
 	const material_statue = new THREE.MeshStandardMaterial({
 		color: 0xffffff,
 		roughness: 0.001,
@@ -194,7 +201,6 @@ objLoader.load("assets/models/untitled.obj", (obj) => {
 		c.castShadow = true;
 		c.material = material_statue;
 	});
-	// const statue = new THREE.Mesh(obj, material_statue);
 
 	scene.add(obj);
 });
@@ -227,8 +233,9 @@ let tick = () => {
 	} else {
 		material.displacementScale = 20;
 	}
-	// camera.position.z += 0.1;
-	// console.log(camera.position.z);
+
+	obj.rotiation.z += 0.01;
+
 	// renderer.render( scene, camera );
 	composer.render();
 	window.requestAnimationFrame(tick);

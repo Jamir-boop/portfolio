@@ -22,15 +22,7 @@ body {
 
 	background-color: $void;
 	color: #fff;
-}
-
-/*
-  ========== MAIN ==========
-*/
-.home__content {
-	@include flex_center(row);
-	width: 100%;
-	height: $main_h;
+	border: 3px solid $accent_color;
 }
 
 canvas {
@@ -39,13 +31,27 @@ canvas {
 	inset: 0;
 	// top: 0;
 	// left: 0;
-	// z-index: -1;
+	z-index: -1;
 }
 
-.home__text {
+/*
+  ========== MAIN ==========
+*/
+// .section_home{
+// 	position: relative;
+// 	z-index: 1;
+// }
+
+.home_content {
+	@include flex_center(row);
+	width: 100%;
+	height: 100vh;
+}
+
+.home_content__text {
 	margin: 0 5vw;
 	// margin-left: -10em;
-	// margin-left: -10vw;
+	margin-left: 30vw;
 	// transform: translateX(-10%);
 
 	h2 {
@@ -65,7 +71,7 @@ canvas {
 	}
 }
 
-.home__CTA {
+.home_content__CTA {
 	@include buttons;
 	font-size: fontz(four);
 	font-family: "Ubuntu", sans-serif;
@@ -115,7 +121,7 @@ canvas {
 
 	position: absolute;
 	@include clamp_position(right);
-	bottom: $header_h + 1;
+	bottom: 0;
 
 	div {
 		display: inline;
@@ -148,15 +154,14 @@ canvas {
 	user-select: none;
 	position: absolute;
 	@include clamp_position(top, right);
-
-	@include bg_gradient;
-	@include bg_gradient_animation;
 }
 
-.language_void {
+.language__void {
 	position: relative;
 	padding: 8px;
-	background-color: $void;
+	// @include bg_gradient;
+	// @include bg_gradient_animation;
+	// transform: rotateY(85deg);
 
 	transition: transform $hover_animation ease-in-out;
 	img {
@@ -165,16 +170,13 @@ canvas {
 	ul {
 		opacity: 0;
 		transform: translateY(-40%);
-
 		transition: all $hover_animation ease-in-out;
 
 		li {
 			user-select: none;
 			list-style: none;
 			background-color: transparent;
-
 			cursor: pointer;
-
 			transition: scale $hover_animation ease; // TODO poner fondo animado
 
 			&:hover {
@@ -185,7 +187,6 @@ canvas {
 
 	&:hover {
 		transform: translateX(-6px);
-
 		ul {
 			opacity: 1;
 			transform: translateY(10%);
@@ -194,11 +195,11 @@ canvas {
 }
 
 /*
-  ========== BARRA NAVEGACION ==========
+  ========== BARRA NAVEGACION / HEADER ==========
 */
 header {
 	width: 100%;
-	height: $header_h;
+	height: clamp(50px, 5vh, 6vh);
 
 	position: sticky;
 	top: 0;
@@ -206,7 +207,9 @@ header {
 	z-index: 2;
 
 	// background-color: $accent_color;
-	@include bg_gradient;
+	// @include bg_gradient;
+	border-top: 3px solid $accent_color;
+	border-bottom: 3px solid $accent_color;
 
 	@include flex_center(row);
 
@@ -232,7 +235,7 @@ header {
 }
 
 /*
-  ========== PROYECTOS ==========
+  ========== PROJECTS ==========
 */
 article {
 	width: 100%;

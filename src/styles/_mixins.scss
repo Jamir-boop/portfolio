@@ -1,62 +1,53 @@
 @mixin flex_center($direction) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-    flex-direction: $direction;
+	flex-direction: $direction;
 }
 
 @mixin flex($direction) {
-    display: flex;
-    flex-direction: $direction;
+	display: flex;
+	flex-direction: $direction;
 }
 
 @mixin buttons {
-    all: unset;
-    
-    cursor: pointer;
-    text-decoration: none;
+	all: unset;
+	// background: unset;
+	// border: unset;
+
+	cursor: pointer;
+	text-decoration: none;
 }
 
 @mixin no_touchy {
-    user-select: none;
-    pointer-events: none;
+	user-select: none;
+	pointer-events: none;
 }
 
 @mixin bg_gradient {
-    background: linear-gradient(
-        60deg,
-        #f79533,
-        #f37055,
-        #ef4e7b,
-        #a166ab,
-        #5073b8,
-        #1098ad,
-        #07b39b,
-        #6fba82
-    );
-    background-size: 300% 300%;
+	background: linear-gradient(60deg, #f79533, #ff16c1, #ff1154, #1160ff);
+	background-size: 300% 300%;
 }
 
 @mixin bg_gradient_animation {
-    animation: animated_gradient 3s ease alternate infinite;
+	animation: animated_gradient 3s ease alternate infinite;
 }
 
-@mixin clamp_position($sides...){
-    $min: 16px;
-    $pref: 2vw;
-    $max: 500px;
+@mixin clamp_position($sides...) {
+	$min: 16px;
+	$pref: 2vw;
+	$max: 500px;
 
-    @each $side in $sides{
-        
-        @if $side == top {
-            top: clamp($min, $pref, $max);
-        }@else if  $side == right {
-            right: clamp($min, $pref, $max);
-        }@else if  $side == left {
-            left: clamp($min, $pref, $max);
-        }@else if  $side == bottom {
-            bottom: clamp($min, $pref, $max);
-        }
-    }
+	@each $side in $sides {
+		@if $side == top {
+			top: clamp($min, $pref, $max);
+		} @else if $side == right {
+			right: clamp($min, $pref, $max);
+		} @else if $side == left {
+			left: clamp($min, $pref, $max);
+		} @else if $side == bottom {
+			bottom: clamp($min, $pref, $max);
+		}
+	}
 }

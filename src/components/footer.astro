@@ -1,2 +1,6 @@
-<footer>&copyCopyright Jeiser Vargas 2021</footer>
+<footer>&copyCopyright Jeiser Vargas <span id="year"></span></footer>
+<script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
+
 <script src={Astro.resolve("../components/index.js")} type="module"></script>

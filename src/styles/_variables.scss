@@ -1,8 +1,8 @@
 //  VARIABLES
 $void: #0b0e11;
 $dark: #4d4d4d;
-// $accent_color: #FC427B;
-$accent_color: #fd7272;
+$accent_color: #ff3b76;
+// $accent_color: #1160ff;
 $acc_comp1: #3eb09f;
 $acc_comp2: #aafc7e;
 $acc_comp3: #65fce6;
@@ -11,37 +11,33 @@ $gray: rgba(255, 255, 255, 0.3);
 $hover_animation: 180ms;
 
 $font-min: (
-    "normal": 16px,
-    "title": 18px,
-    "four": 25px,
-    "accent": 40px,
-    "super_accent": 80px,
+	"normal": 16px,
+	"title": 18px,
+	"four": 18px,
+	"accent": 20px,
+	"super_accent": 25px,
 );
 
 $font-pref: (
-    "normal": 1vw,
-    "title": 2vw,
-    "four": 3vw,
-    "accent": 6vw,
-    "super_accent": 10vw,
+	"normal": 1vw,
+	"title": 2vw,
+	"four": 3vw,
+	"accent": 7vw,
+	"super_accent": 10vw,
 );
 
 $font-max: (
-    "normal": 25px,
-    "title": 40px,
-    "four": 60px,
-    "accent": 100px,
-    "super_accent": 300px,
+	"normal": 25px,
+	"title": 40px,
+	"four": 60px,
+	"accent": 100px,
+	"super_accent": 300px,
 );
 
-
 @function fontz($type) {
-    @return clamp(
-        map-get($font-min, $type),
-        map-get($font-pref, $type),
-        map-get($font-max, $type)
-    );
+	@return clamp(
+		map-get($font-min, $type),
+		map-get($font-pref, $type),
+		map-get($font-max, $type)
+	);
 }
-
-$main_h: 94vh;
-$header_h: 100vh - $main_h;
