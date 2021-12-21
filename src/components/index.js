@@ -151,8 +151,9 @@ function createLighting() {
 	pointLight.add(helperPoint);
 }
 
-let planeMaterial;
-var statue;
+let planeMaterial,
+	planeMaterialScale = true,
+	statue;
 function loadObjects() {
 	/*
  	TEXTURE LOADERS
@@ -301,7 +302,7 @@ function tick() {
 	/*
 		STATUE 
 	*/
-	statue.rotation.y = 0.1 * elapsedTime;
+	statue.rotation.y += 0.125 * elapsedTime;
 
 	targetX = mouseX * 0.001;
 	targetY = mouseY * 0.001;
@@ -311,10 +312,23 @@ function tick() {
 	/*
 		PLANES 
 	*/
-	if (planeMaterial.displacementScale <= 30) {
-		planeMaterial.displacementScale += 0.01;
+	if (
+		planeMaterial.displacementScale >= 29 &&
+		planeMaterial.displacementScale <= 30
+	) {
+		planeMaterialScale = true;
+	}
+	if (
+		planeMaterial.displacementScale >= 19 &&
+		planeMaterial.displacementScale <= 20
+	) {
+		planeMaterialScale = false;
+	}
+
+	if (planeMaterialScale) {
+		planeMaterial.displacementScale -= 0.01;
 	} else {
-		planeMaterial.displacementScale = 20;
+		planeMaterial.displacementScale += 0.01;
 	}
 
 	/*
