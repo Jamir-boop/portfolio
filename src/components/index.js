@@ -28,40 +28,7 @@ function init() {
 	createLighting();
 	loadObjects();
 	createPrimitive();
-	createGUI();
-	// tick();
 }
-
-/*
-	Loading Manager
-*/
-const manager = new THREE.LoadingManager();
-manager.onStart = function (url, itemsLoaded, itemsTotal) {
-	console.log(
-		"Started loading file: " +
-			url +
-			".\nLoaded " +
-			itemsLoaded +
-			" of " +
-			itemsTotal +
-			" files."
-	);
-};
-manager.onProgress = function (url, itemsLoaded, itemsTotal) {
-	console.log(
-		"Loading file: " +
-			url +
-			".\nLoaded " +
-			itemsLoaded +
-			" of " +
-			itemsTotal +
-			" files."
-	);
-};
-manager.onLoad = function () {
-	console.log("Loading complete!");
-	tick();
-};
 
 /*
 	Global Variables
@@ -140,6 +107,7 @@ function createScene() {
 	}
 
 	window.addEventListener("resize", onWindowResize, false);
+	window.addEventListener("mousemove", moveStatue, false);
 }
 
 function createLighting() {
@@ -183,7 +151,7 @@ function createLighting() {
 	pointLight.add(helperPoint);
 }
 
-let plane_material;
+let planeMaterial;
 var statue;
 function loadObjects() {
 	/*
@@ -199,7 +167,7 @@ function loadObjects() {
 	TUNNEL PLANES
 	*/
 	const geometry = new THREE.PlaneBufferGeometry(60, 80, 100, 100);
-	plane_material = new THREE.MeshStandardMaterial({
+	planeMaterial = new THREE.MeshStandardMaterial({
 		color: 0x5f4ca4,
 		// color: 'gray',
 		side: THREE.DoubleSide,
@@ -215,8 +183,8 @@ function loadObjects() {
 		flatShading: true,
 	});
 
-	const plane = new THREE.Mesh(geometry, plane_material);
-	const plane2 = new THREE.Mesh(geometry, plane_material);
+	const plane = new THREE.Mesh(geometry, planeMaterial);
+	const plane2 = new THREE.Mesh(geometry, planeMaterial);
 	scene.add(plane, plane2);
 	plane.position.set(0, -4, 0);
 	plane2.position.set(0, 4, 0);
@@ -327,21 +295,26 @@ Array(300).fill().forEach(addStar);
  */
 const clock = new THREE.Clock();
 function tick() {
-	// const elapsedTime = clock.getElapsedTime();
+	const elapsedTime = clock.getElapsedTime();
 	var performance = Date.now() * 0.003;
 
 	/*
 		STATUE 
 	*/
-	// statue.scene.rotiation.z += 0.01;
+	statue.rotation.y = 0.1 * elapsedTime;
+
+	targetX = mouseX * 0.001;
+	targetY = mouseY * 0.001;
+	statue.rotation.y += 0.5 * (targetX - statue.rotation.y);
+	statue.rotation.x += 0.01 * (targetY - statue.rotation.x);
 
 	/*
 		PLANES 
 	*/
-	if (plane_material.displacementScale <= 30) {
-		plane_material.displacementScale += 0.01;
+	if (planeMaterial.displacementScale <= 30) {
+		planeMaterial.displacementScale += 0.01;
 	} else {
-		plane_material.displacementScale = 20;
+		planeMaterial.displacementScale = 20;
 	}
 
 	/*
@@ -369,6 +342,20 @@ function tick() {
 	// renderer.render( scene, camera );
 	composer.render();
 	window.requestAnimationFrame(tick);
+}
+
+/**
+ * Updates statue on mouse move
+ */
+let mouseX = 0,
+	mouseY = 0,
+	targetX = 0,
+	targetY = 0;
+const windowX = window.innerWidth / 2,
+	windowY = window.innerHeight / 2;
+function moveStatue(event) {
+	mouseX = event.clientX - windowX;
+	mouseY = event.clientY - windowY;
 }
 
 /**
@@ -439,4 +426,40 @@ function createGUI() {
 	primitivePosGUI.add(_primitive.mesh.position, "y", 0.0, 20.0).step(0.001);
 	primitivePosGUI.add(_primitive.mesh.position, "z", 0.0, 20.0).step(0.001);
 	primitivePosGUI.open();
+
+	var statueGUI = gui.addFolder("Statue");
+	statueGUI.add(statue.rotation, "y", -1.0, 1.0).step(0.001);
+	statueGUI.open();
 }
+
+/*
+	Loading Manager
+*/
+const manager = new THREE.LoadingManager();
+manager.onStart = function (url, itemsLoaded, itemsTotal) {
+	console.log(
+		"Started loading file: " +
+			url +
+			".\nLoaded " +
+			itemsLoaded +
+			" of " +
+			itemsTotal +
+			" files."
+	);
+};
+manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+	console.log(
+		"Loading file: " +
+			url +
+			".\nLoaded " +
+			itemsLoaded +
+			" of " +
+			itemsTotal +
+			" files."
+	);
+};
+manager.onLoad = function () {
+	console.log("Loading complete!");
+	tick();
+	createGUI();
+};
