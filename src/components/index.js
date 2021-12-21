@@ -3,9 +3,9 @@ window.addEventListener("load", init, false);
 import * as THREE from "three";
 import { GUI } from "dat.gui";
 
-// import { FBXLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/FBXLoader.js';
-import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
-// import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118.1/examples/jsm/loaders/GLTFLoader.js';
+// import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
+// import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
 import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
@@ -29,9 +29,39 @@ function init() {
 	loadObjects();
 	createPrimitive();
 	createGUI();
-
-	tick();
+	// tick();
 }
+
+/*
+	Loading Manager
+*/
+const manager = new THREE.LoadingManager();
+manager.onStart = function (url, itemsLoaded, itemsTotal) {
+	console.log(
+		"Started loading file: " +
+			url +
+			".\nLoaded " +
+			itemsLoaded +
+			" of " +
+			itemsTotal +
+			" files."
+	);
+};
+manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+	console.log(
+		"Loading file: " +
+			url +
+			".\nLoaded " +
+			itemsLoaded +
+			" of " +
+			itemsTotal +
+			" files."
+	);
+};
+manager.onLoad = function () {
+	console.log("Loading complete!");
+	tick();
+};
 
 /*
 	Global Variables
@@ -40,10 +70,9 @@ function init() {
 const scene = new THREE.Scene();
 let camera, renderer, controls, composer;
 let start = Date.now();
-let gui = new GUI();
-let isMobile;
 let _width, _height;
-let material;
+let isMobile;
+let gui = new GUI();
 
 // Checks if app is running on a mobile device
 function checkMobile() {
@@ -154,12 +183,14 @@ function createLighting() {
 	pointLight.add(helperPoint);
 }
 
+let plane_material;
+var statue;
 function loadObjects() {
 	/*
  	TEXTURE LOADERS
 	*/
 	const texture_loader = new THREE.TextureLoader();
-	const texture = texture_loader.load("assets/image/texture/base.jpg");
+	// const texture = texture_loader.load("assets/image/texture/base.jpg");
 	const height = texture_loader.load("assets/image/texture/height2.png");
 	const normal = texture_loader.load("assets/image/texture/normal.jpg");
 	const alpha = texture_loader.load("assets/image/texture/alpha.png");
@@ -168,7 +199,7 @@ function loadObjects() {
 	TUNNEL PLANES
 	*/
 	const geometry = new THREE.PlaneBufferGeometry(60, 80, 100, 100);
-	material = new THREE.MeshStandardMaterial({
+	plane_material = new THREE.MeshStandardMaterial({
 		color: 0x5f4ca4,
 		// color: 'gray',
 		side: THREE.DoubleSide,
@@ -184,8 +215,8 @@ function loadObjects() {
 		flatShading: true,
 	});
 
-	const plane = new THREE.Mesh(geometry, material);
-	const plane2 = new THREE.Mesh(geometry, material);
+	const plane = new THREE.Mesh(geometry, plane_material);
+	const plane2 = new THREE.Mesh(geometry, plane_material);
 	scene.add(plane, plane2);
 	plane.position.set(0, -4, 0);
 	plane2.position.set(0, 4, 0);
@@ -194,23 +225,26 @@ function loadObjects() {
 	plane2.rotation.z = 180;
 	plane.rotation.x = 29.9;
 
-	const objLoader = new OBJLoader();
-	objLoader.load("assets/models/untitled.obj", (obj) => {
-		obj.scale.set(0.1, 0.1, 0.1);
-		obj.position.set(-0.3, -0.206, 0);
+	/*
+		STATUE
+	*/
+	const gltfLoader = new GLTFLoader(manager);
+	gltfLoader.load("assets/models/statue.glb", (gltf) => {
+		statue = gltf.scene;
+		statue.scale.set(0.1, 0.1, 0.1);
+		statue.position.set(-0.3, -0.21, 0);
 
-		const material_statue = new THREE.MeshStandardMaterial({
+		const material_gltf = new THREE.MeshStandardMaterial({
 			color: 0xffffff,
 			roughness: 0.001,
 			metalness: 0.4,
 			flatShading: true,
 		});
-		obj.traverse((c) => {
+		statue.traverse((c) => {
 			c.castShadow = true;
-			c.material = material_statue;
+			c.material = material_gltf;
 		});
-
-		scene.add(obj);
+		scene.add(statue);
 	});
 }
 
@@ -294,9 +328,25 @@ Array(300).fill().forEach(addStar);
 const clock = new THREE.Clock();
 function tick() {
 	// const elapsedTime = clock.getElapsedTime();
-
 	var performance = Date.now() * 0.003;
 
+	/*
+		STATUE 
+	*/
+	// statue.scene.rotiation.z += 0.01;
+
+	/*
+		PLANES 
+	*/
+	if (plane_material.displacementScale <= 30) {
+		plane_material.displacementScale += 0.01;
+	} else {
+		plane_material.displacementScale = 20;
+	}
+
+	/*
+		PRIMITIVE
+	*/
 	_primitive.mesh.rotation.y += options.perlin.vel;
 	_primitive.mesh.rotation.x =
 		(Math.sin(performance * options.spin.sinVel) *
@@ -313,14 +363,9 @@ function tick() {
 	mat.uniforms["fragment"].value = options.perlin.fragment;
 	mat.uniforms["redhell"].value = options.perlin.redhell;
 
-	if (material.displacementScale <= 30) {
-		material.displacementScale += 0.01;
-	} else {
-		material.displacementScale = 20;
-	}
-
-	// obj.rotiation.z += 0.01;
-
+	/*
+		RENDER
+	*/
 	// renderer.render( scene, camera );
 	composer.render();
 	window.requestAnimationFrame(tick);
@@ -368,9 +413,9 @@ var options = {
 };
 function createGUI() {
 	const cameraFolder = gui.addFolder("Camera");
-	cameraFolder.add(camera.position, "x", 0.00, 60.00).step(0.001);
-	cameraFolder.add(camera.position, "y", 0.00, 60.00).step(0.001);
-	cameraFolder.add(camera.position, "z", 0.00, 60.00).step(0.001);
+	cameraFolder.add(camera.position, "x", 0.0, 60.0).step(0.001);
+	cameraFolder.add(camera.position, "y", 0.0, 60.0).step(0.001);
+	cameraFolder.add(camera.position, "z", 0.0, 60.0).step(0.001);
 	cameraFolder.open();
 
 	// var mathGUI = gui.addFolder("Math Options");
@@ -390,8 +435,8 @@ function createGUI() {
 	// perlinGUI.open();
 
 	var primitivePosGUI = gui.addFolder("Primitive POS");
-	primitivePosGUI.add(_primitive.mesh.position, "x", 0.00, 20.00).step(0.001);
-	primitivePosGUI.add(_primitive.mesh.position, "y", 0.00, 20.00).step(0.001);
-	primitivePosGUI.add(_primitive.mesh.position, "z", 0.00, 20.00).step(0.001);
+	primitivePosGUI.add(_primitive.mesh.position, "x", 0.0, 20.0).step(0.001);
+	primitivePosGUI.add(_primitive.mesh.position, "y", 0.0, 20.0).step(0.001);
+	primitivePosGUI.add(_primitive.mesh.position, "z", 0.0, 20.0).step(0.001);
 	primitivePosGUI.open();
 }
