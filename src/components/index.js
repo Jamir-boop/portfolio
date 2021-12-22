@@ -35,11 +35,10 @@ function init() {
 	Scene + Camera + Renderer
 */
 const scene = new THREE.Scene();
-let camera, renderer, controls, composer;
+let camera, renderer, controls, composer, gui;
 let start = Date.now();
 let _width, _height;
 let isMobile;
-let gui = new GUI();
 
 // Checks if app is running on a mobile device
 function checkMobile() {
@@ -108,6 +107,7 @@ function createScene() {
 
 	window.addEventListener("resize", onWindowResize, false);
 	window.addEventListener("mousemove", moveStatue, false);
+	// window.addEventListener("scroll", updateCamera, false);
 }
 
 function createLighting() {
@@ -317,8 +317,7 @@ function tick() {
 		planeMaterial.displacementScale <= 30
 	) {
 		planeMaterialScale = true;
-	}
-	if (
+	} else if (
 		planeMaterial.displacementScale >= 19 &&
 		planeMaterial.displacementScale <= 20
 	) {
@@ -376,7 +375,12 @@ function moveStatue(event) {
  * Updates camera on scroll
  */
 function updateCamera() {
-	camera.position.z = 10 + window.scrollY / 300.0;
+	let scroll = window.scrollY;
+	if (scroll > window.scrollY) {
+		camera.position.z += window.scrollY / 200.0;
+	}else{
+		camera.position.z -= window.scrollY / 200.0;
+	}
 }
 
 /**
@@ -413,6 +417,8 @@ var options = {
 	},
 };
 function createGUI() {
+	gui = new GUI();
+
 	const cameraFolder = gui.addFolder("Camera");
 	cameraFolder.add(camera.position, "x", 0.0, 60.0).step(0.001);
 	cameraFolder.add(camera.position, "y", 0.0, 60.0).step(0.001);
@@ -475,5 +481,5 @@ manager.onProgress = function (url, itemsLoaded, itemsTotal) {
 manager.onLoad = function () {
 	console.log("Loading complete!");
 	tick();
-	createGUI();
+	// createGUI();
 };

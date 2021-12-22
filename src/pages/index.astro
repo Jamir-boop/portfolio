@@ -1,23 +1,24 @@
 ---
 import BaseComponent from "../components/base.astro";
-import HeaderComponent from "../components/header.astro";
+// import HeaderComponent from "../components/header.astro";
 import FooterComponent from "../components/footer.astro";
 ---
 
 <BaseComponent estilo="../styles/index.scss" title="Jeiser Vargas Portfolio">
+	<article>
+	
 	<!--
 		================= MAIN ================= 
 	-->
-	<main>
-		<section class="section section_home">
-			<canvas id="home__scene"></canvas>
-
-			<div class="home_content">
-				<div class="home_content__text">
+	<section class="section section_main">
+		<canvas id="home__scene"></canvas>
+		<main>
+			<div class="main_content">
+				<div class="main_content__text">
 					<h2>Jeiser Vargas</h2>
 					<h1>Programador_ y Diseñador Web</h1>
 
-					<a href="#" class="home_content__CTA">
+					<a href="#" class="main_content__CTA">
 						<span class="CTA_gradient"> muestrame! </span>
 						<span class="CTA_white"> muestrame! </span>
 					</a>
@@ -66,54 +67,49 @@ import FooterComponent from "../components/footer.astro";
 					</a>
 				</div>
 			</nav> -->
-		</section>
-	</main>
+		</main>
+	</section>
 	
 	<!--
 		================= BARRA NAVEGACION ================= 
 	°-->
-	<HeaderComponent></HeaderComponent>
+	<!-- <HeaderComponent></HeaderComponent> -->
 
 	<!--
 		================= PROJECTS ================= 
 	-->
-	<article>
-		<section class="section_proyectos">
-			<h1>proyectos</h1>
+	<section class="section section_proyectos">
+		<h1>proyectos</h1>
 
-			<div class="item_container">
-				<div class="proyecto_item">
-					<h2>Lorem ipsum dolor sit amet.</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Ducimus voluptatum fugiat architecto tenetur,
-						veniam saepe error tempora reprehenderit soluta
-						ratione.
-					</p>
-					<img
-						src="assets/image/project_demo.png"
-						alt="project image"
-					/>
-				</div>
-				<div class="proyecto_item">
-					<h2>Lorem ipsum dolor sit amet.</h2>
-					<p>
-						Lorem ipsum dolor sit amet consectetur adipisicing
-						elit. Ducimus voluptatum fugiat architecto tenetur,
-						veniam saepe error tempora reprehenderit soluta
-						ratione.
-					</p>
-					<img
-						src="assets/image/project_demo.png"
-						alt="project image"
-					/>
-				</div>
+		<div class="item_container">
+			<div class="proyecto_item">
+				<h2>Lorem ipsum dolor sit amet.</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Ducimus voluptatum fugiat architecto tenetur,
+					veniam saepe error tempora reprehenderit soluta
+					ratione.
+				</p>
+				<img
+					src="assets/image/project_demo.png"
+					alt="project image"
+				/>
 			</div>
-		</section>
-	</article>
+		</div>
+	</section>
+	
+
+	<!--
+		================= ABOUT ME ================= 
+	-->
+	<section class="section section_me">
+		<h1>sobre mi</h1>
+	</section>
 
 	<!-- 
 		================= FOOTER ================= 
 	-->
 	<FooterComponent></FooterComponent>
+
+	</article>
 </BaseComponent>

@@ -3,8 +3,9 @@
 @import "./variables";
 @import "./mixins";
 
-html{
+html {
 	scroll-behavior: smooth;
+	box-sizing: border-box;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -22,14 +23,43 @@ body {
 	font-family: "Ubuntu Mono", monospace;
 	// font-family: "Ubuntu", sans-serif;
 
+	width: 100vw;
+	height: 100vh;
 	overflow-x: hidden;
 
 	background-color: $void;
 	color: #fff;
-	border: 3px solid $accent_color;
+	// border: 3px solid $accent_color;
 }
 
-canvas {
+article {
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
+	overflow-y: scroll;
+
+	section {
+		width: 100vw;
+		height: 100vh;
+		scroll-snap-align: start;
+
+		&:nth-child(1) {
+			background: hsla(113, 100%, 50%, 0.15);
+		}
+		&:nth-child(2) {
+			background: hsla(0, 100%, 50%, 0.15);
+		}
+		&:nth-child(3) {
+			background: rgba(0, 162, 255, 0.15);
+		}
+	}
+}
+
+/*
+  ========== MAIN ==========
+*/
+#home__scene {
 	position: fixed;
 	outline: none;
 	inset: 0;
@@ -38,16 +68,11 @@ canvas {
 	z-index: -1;
 }
 
-/*
-  ========== MAIN ==========
-*/
-.home_content {
+.section_main {
 	@include flex_center(row);
-	width: 100%;
-	height: 100vh;
 }
 
-.home_content__text {
+.main_content__text {
 	margin: 0 5vw;
 	// margin-left: -10em;
 	margin-left: 30vw;
@@ -70,7 +95,7 @@ canvas {
 	}
 }
 
-.home_content__CTA {
+.main_content__CTA {
 	@include buttons;
 	font-size: fontz(four);
 	font-family: "Ubuntu", sans-serif;
@@ -236,8 +261,7 @@ header {
 /*
   ========== PROJECTS ==========
 */
-article {
-	width: 100%;
+.section_proyectos {
 	h1 {
 		font-size: fontz(super_accent);
 		font-family: "Ubuntu", sans-serif;
@@ -275,6 +299,24 @@ article {
 		img {
 			width: 50%;
 		}
+	}
+}
+
+/*
+  ========== ABOUT ME ==========
+*/
+.section_me {
+	h1 {
+		font-size: fontz(super_accent);
+		font-family: "Ubuntu", sans-serif;
+		font-weight: bold;
+
+		@include no_touchy;
+		color: $gray;
+		text-align: center;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		margin: 5vh 0;
 	}
 }
 
