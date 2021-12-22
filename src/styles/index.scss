@@ -29,6 +29,7 @@ body {
 
 	background-color: $void;
 	color: #fff;
+	box-sizing: border-box;
 	// border: 3px solid $accent_color;
 }
 
@@ -45,7 +46,7 @@ article {
 		scroll-snap-align: start;
 
 		&:nth-child(1) {
-			background: hsla(113, 100%, 50%, 0.15);
+			background: hsla(46, 100%, 50%, 0.15);
 		}
 		&:nth-child(2) {
 			background: hsla(0, 100%, 50%, 0.15);
