@@ -1,5 +1,7 @@
 @media all and (max-width: 900px) {
-  // ========== MAIN ==========
+  /*
+  ========== MAIN ==========
+*/
   .main_content {
     flex-direction: column;
   }
@@ -10,4 +12,13 @@
     margin-left: 0;
     transform: translateY(-160%);
   }
+
+  /*
+    ========== FOOTER ==========
+  */
+  footer {
+		small {
+			display: none;
+		}
+	}
 }

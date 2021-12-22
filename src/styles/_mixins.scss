@@ -34,6 +34,20 @@
 	animation: animated_gradient 3s ease alternate infinite;
 }
 
+@mixin h1_title{
+	all: unset;
+	display: block;
+	font-size: fontz(super_accent);
+	font-family: "Ubuntu", sans-serif;
+	font-weight: bold;
+
+	@include no_touchy;
+	color: $gray;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.25em;
+}
+
 @mixin clamp_position($sides...) {
 	$min: 16px;
 	$pref: 2vw;
