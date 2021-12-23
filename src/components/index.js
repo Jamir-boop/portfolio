@@ -2,6 +2,7 @@ window.addEventListener("load", init, false);
 
 import * as THREE from "three";
 import { GUI } from "dat.gui";
+import Bowser from "bowser";
 
 // import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
 // import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader.js";
@@ -38,7 +39,8 @@ const scene = new THREE.Scene();
 let camera, renderer, controls, composer, gui;
 let start = Date.now();
 let _width, _height;
-let isMobile;
+let isMobile = false,
+	isChromium = false; // check client browser
 
 // Checks if app is running on a mobile device
 function checkMobile() {
@@ -378,7 +380,7 @@ function updateCamera() {
 	let scroll = window.scrollY;
 	if (scroll > window.scrollY) {
 		camera.position.z += window.scrollY / 200.0;
-	}else{
+	} else {
 		camera.position.z -= window.scrollY / 200.0;
 	}
 }
@@ -393,6 +395,7 @@ function onWindowResize() {
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	composer.setSize(window.innerWidth, window.innerHeight);
+	checkClient();
 }
 
 /**
@@ -480,6 +483,28 @@ manager.onProgress = function (url, itemsLoaded, itemsTotal) {
 };
 manager.onLoad = function () {
 	console.log("Loading complete!");
+	checkClient();
 	tick();
 	// createGUI();
 };
+
+function checkClient() {
+	// instancia de bowser
+	let result = Bowser.getParser(navigator.userAgent).getResult();
+	console.table(result);
+	/*
+		FIX SCROLL SNAP CROMIUM BASED BROWSERS
+	*/
+	isChromium = !!window.chrome;
+	if (result.platform.type == "mobile") {
+		isMobile = true;
+	}
+	// Quitar scroll-snap si el cliente es cromium y no es mobil
+	if (isChromium && !isMobile) {
+		const elements = document.querySelectorAll(".section");
+		elements.forEach((element) => {
+			element.classList.replace("section", "section_noscroll");
+		});
+	}
+	// console.log({ isChromium, isMobile });
+}

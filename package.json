@@ -13,6 +13,7 @@
     "sass": "^1.45.0"
   },
   "dependencies": {
+    "bowser": "^2.11.0",
     "dat.gui": "^0.7.7",
     "three": "^0.135.0"
   }
