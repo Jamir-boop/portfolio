@@ -24,7 +24,7 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 	Init function
 */
 function init() {
-	checkMobile();
+	checkClient();
 	createScene();
 	createLighting();
 	loadObjects();
@@ -42,24 +42,9 @@ let _width, _height;
 let isMobile = false,
 	isChromium = false; // check client browser
 
-// Checks if app is running on a mobile device
-function checkMobile() {
-	isMobile = false;
-	if (
-		/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-			navigator.userAgent
-		)
-	) {
-		isMobile = true;
-	}
-}
-
 function createScene() {
-	_width = window.innerWidth;
-	_height = window.innerHeight;
-
-	let SCREEN_WIDTH = _width,
-		SCREEN_HEIGHT = _height,
+	let SCREEN_WIDTH = window.innerWidth,
+		SCREEN_HEIGHT = window.innerHeight,
 		VIEW_ANGLE = 45,
 		ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT,
 		NEAR = 0.1,
@@ -98,14 +83,6 @@ function createScene() {
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	document.body.appendChild(renderer.domElement);
 	controls = new OrbitControls(camera, renderer.domElement);
-
-	if (isMobile) {
-		camera.position.set(0, 0, 0);
-		camera.aspect = window.innerWidth / window.innerHeight;
-		camera.updateProjectionMatrix();
-		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(window.innerWidth, window.innerHeight);
-	}
 
 	window.addEventListener("resize", onWindowResize, false);
 	window.addEventListener("mousemove", moveStatue, false);
@@ -203,7 +180,8 @@ function loadObjects() {
 	gltfLoader.load("assets/models/statue.glb", (gltf) => {
 		statue = gltf.scene;
 		statue.scale.set(0.1, 0.1, 0.1);
-		statue.position.set(-0.3, -0.21, 0);
+		// statue.position.set(-0.3, -0.21, 0);
+		_placeStatue();
 
 		const material_gltf = new THREE.MeshStandardMaterial({
 			color: 0xffffff,
@@ -217,6 +195,16 @@ function loadObjects() {
 		});
 		scene.add(statue);
 	});
+}
+
+function _placeStatue() {
+	let width = window.innerWidth;
+	// width = (width / 3) * .001;
+	width = (width / 3) * 0.0005;
+	if (width < 0.16) width = 0;
+	if (width > 0.5) width = 0.2;
+	statue.position.set(-width, -0.21, 0);
+	console.log(statue.position.x);
 }
 
 var mat;
@@ -389,13 +377,14 @@ function updateCamera() {
  * Handles window resize events
  */
 function onWindowResize() {
+	_placeStatue();
+
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 
 	renderer.setPixelRatio(window.devicePixelRatio);
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	composer.setSize(window.innerWidth, window.innerHeight);
-	checkClient();
 }
 
 /**
@@ -426,7 +415,7 @@ function createGUI() {
 	cameraFolder.add(camera.position, "x", 0.0, 60.0).step(0.001);
 	cameraFolder.add(camera.position, "y", 0.0, 60.0).step(0.001);
 	cameraFolder.add(camera.position, "z", 0.0, 60.0).step(0.001);
-	cameraFolder.open();
+	// cameraFolder.open();
 
 	// var mathGUI = gui.addFolder("Math Options");
 	// mathGUI.add(options.spin, "sinVel", 0.0, 0.5).name("Sine").listen();
@@ -448,10 +437,12 @@ function createGUI() {
 	primitivePosGUI.add(_primitive.mesh.position, "x", 0.0, 20.0).step(0.001);
 	primitivePosGUI.add(_primitive.mesh.position, "y", 0.0, 20.0).step(0.001);
 	primitivePosGUI.add(_primitive.mesh.position, "z", 0.0, 20.0).step(0.001);
-	primitivePosGUI.open();
+	// primitivePosGUI.open();
 
-	var statueGUI = gui.addFolder("Statue");
-	statueGUI.add(statue.rotation, "y", -1.0, 1.0).step(0.001);
+	var statueGUI = gui.addFolder("Statue Pos");
+	statueGUI.add(statue.position, "x", -1.0, 1.0).step(0.001);
+	statueGUI.add(statue.position, "y", -1.0, 1.0).step(0.001);
+	statueGUI.add(statue.position, "z", -1.0, 1.0).step(0.001);
 	statueGUI.open();
 }
 
@@ -483,7 +474,6 @@ manager.onProgress = function (url, itemsLoaded, itemsTotal) {
 };
 manager.onLoad = function () {
 	console.log("Loading complete!");
-	checkClient();
 	tick();
 	// createGUI();
 };
@@ -491,7 +481,7 @@ manager.onLoad = function () {
 function checkClient() {
 	// instancia de bowser
 	let result = Bowser.getParser(navigator.userAgent).getResult();
-	console.table(result);
+	// console.table(result);
 	/*
 		FIX SCROLL SNAP CROMIUM BASED BROWSERS
 	*/

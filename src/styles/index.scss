@@ -40,6 +40,17 @@ article {
 	overflow-x: hidden;
 	overflow-y: scroll;
 
+	section{
+		&:nth-child(1){
+			background: rgba(70, 218, 255, 0.233);
+		}
+		&:nth-child(2){
+			background: rgba(156, 70, 255, 0.233);
+		}
+		&:nth-child(3){
+			background: rgba(255, 70, 70, 0.233);
+		}
+	}
 	.section {
 		width: 100vw;
 		height: 100vh;
