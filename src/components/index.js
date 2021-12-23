@@ -63,7 +63,7 @@ function createScene() {
 	renderer = new THREE.WebGLRenderer({
 		// antialias: true,
 		alpha: true,
-		canvas: home__scene,
+		canvas: main__canvas,
 	});
 	composer = new EffectComposer(renderer);
 	composer.addPass(new RenderPass(scene, camera));
@@ -84,9 +84,11 @@ function createScene() {
 	document.body.appendChild(renderer.domElement);
 	controls = new OrbitControls(camera, renderer.domElement);
 
+	// Event listeners
 	window.addEventListener("resize", onWindowResize, false);
 	window.addEventListener("mousemove", moveStatue, false);
-	// window.addEventListener("scroll", updateCamera, false);
+	const scroll_aricle = document.getElementById("articlescroll");
+	scroll_aricle.addEventListener("scroll", updateCameraOnScroll, false);
 }
 
 function createLighting() {
@@ -199,12 +201,11 @@ function loadObjects() {
 
 function _placeStatue() {
 	let width = window.innerWidth;
-	// width = (width / 3) * .001;
 	width = (width / 3) * 0.0005;
 	if (width < 0.16) width = 0;
 	if (width > 0.5) width = 0.2;
 	statue.position.set(-width, -0.21, 0);
-	console.log(statue.position.x);
+	// console.log(statue.position.x);
 }
 
 var mat;
@@ -364,13 +365,15 @@ function moveStatue(event) {
 /**
  * Updates camera on scroll
  */
-function updateCamera() {
-	let scroll = window.scrollY;
-	if (scroll > window.scrollY) {
-		camera.position.z += window.scrollY / 200.0;
-	} else {
-		camera.position.z -= window.scrollY / 200.0;
-	}
+function updateCameraOnScroll() {
+	const scroll_aricle = document.getElementById("articlescroll");
+	let pos = scroll_aricle.scrollTop / 200;
+	if (pos < 1) pos = 1;
+	camera.position.z = pos;
+	console.log({
+		raw: scroll_aricle.scrollTop,
+		new: camera.position.z,
+	});
 }
 
 /**
@@ -486,9 +489,7 @@ function checkClient() {
 		FIX SCROLL SNAP CROMIUM BASED BROWSERS
 	*/
 	isChromium = !!window.chrome;
-	if (result.platform.type == "mobile") {
-		isMobile = true;
-	}
+	if (result.platform.type == "mobile") isMobile = true;
 	// Quitar scroll-snap si el cliente es cromium y no es mobil
 	if (isChromium && !isMobile) {
 		const elements = document.querySelectorAll(".section");

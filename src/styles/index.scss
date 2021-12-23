@@ -40,14 +40,14 @@ article {
 	overflow-x: hidden;
 	overflow-y: scroll;
 
-	section{
-		&:nth-child(1){
+	section {
+		&:nth-child(1) {
 			background: rgba(70, 218, 255, 0.233);
 		}
-		&:nth-child(2){
+		&:nth-child(2) {
 			background: rgba(156, 70, 255, 0.233);
 		}
-		&:nth-child(3){
+		&:nth-child(3) {
 			background: rgba(255, 70, 70, 0.233);
 		}
 	}
@@ -58,7 +58,7 @@ article {
 		border: none;
 	}
 
-	.section_noscroll{
+	.section_noscroll {
 		width: 100vw;
 		height: 100vh;
 		border: none;
@@ -68,7 +68,7 @@ article {
 /*
   ========== MAIN ==========
 */
-#home__scene {
+#main__canvas {
 	position: fixed;
 	outline: none;
 	inset: 0;
@@ -81,7 +81,7 @@ article {
 	@include flex_center(row);
 }
 
-.main_content__text {
+.main__text {
 	margin: 0 5vw;
 	// margin-left: -10em;
 	margin-left: 30vw;
@@ -104,7 +104,7 @@ article {
 	}
 }
 
-.main_content__CTA {
+.main__button {
 	@include buttons;
 	font-size: fontz(four);
 	font-family: "Ubuntu", sans-serif;
@@ -122,7 +122,7 @@ article {
 	span {
 		position: absolute;
 	}
-	.CTA_gradient {
+	.button__gradient {
 		@include bg_gradient;
 
 		background-clip: text;
@@ -141,7 +141,7 @@ article {
 		span {
 			letter-spacing: 0.125em;
 		}
-		.CTA_white {
+		.button__white {
 			$margen: 5px;
 			margin: -$margen $margen 0;
 		}
@@ -183,7 +183,7 @@ article {
 	}
 }
 
-.nav_language {
+.language {
 	user-select: none;
 	position: absolute;
 	@include clamp_position(top, right);
@@ -275,10 +275,10 @@ header {
 		@include h1_title;
 	}
 
-	.item_container {
+	.proyecto {
 		@include flex_center(column);
 
-		.proyecto_item {
+		.proyecto__item {
 			margin: 10vh auto;
 
 			h2,
@@ -295,17 +295,13 @@ header {
 				font-size: fontz(normal);
 			}
 		}
-
-		img {
-			width: 50%;
-		}
 	}
 }
 
 /*
   ========== ABOUT ME ==========
 */
-.section_me {
+.section_aboutme {
 	h1 {
 		@include h1_title;
 	}
