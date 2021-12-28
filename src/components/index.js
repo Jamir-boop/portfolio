@@ -52,7 +52,7 @@ function createScene() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
-	camera.position.set(0, 0, 1);
+	camera.position.set(0, 0, 0);
 	// camera.position.set(0, 0, 30);
 	scene.add(camera);
 
@@ -99,10 +99,10 @@ function createLighting() {
 	const directionalLight = new THREE.DirectionalLight(0xff001e, 0.2);
 	directionalLight.rotation.z = 10;
 	scene.add(directionalLight);
-	const helperDirectional = new THREE.DirectionalLightHelper(
-		directionalLight
-	);
-	scene.add(helperDirectional);
+	// const helperDirectional = new THREE.DirectionalLightHelper(
+	// 	directionalLight
+	// );
+	// scene.add(helperDirectional);
 
 	// HEMISPHERE LIGHT
 	const hemisphereLigth = new THREE.HemisphereLight(0xffffff, 0x5f4ca4, 0.7);
@@ -128,8 +128,8 @@ function createLighting() {
 	const pointLight = new THREE.PointLight(0xff001e, 1);
 	pointLight.position.set(-2.47, 0, -15);
 	scene.add(pointLight);
-	const helperPoint = new THREE.PointLightHelper(pointLight);
-	pointLight.add(helperPoint);
+	// const helperPoint = new THREE.PointLightHelper(pointLight);
+	// pointLight.add(helperPoint);
 }
 
 let planeMaterial,
@@ -204,7 +204,7 @@ function _placeStatue() {
 	width = (width / 3) * 0.00005;
 	if (width < 0.16) width = 0;
 	if (width > 0.5) width = 0.2;
-	statue.position.set(-width, -0.446, 0.8);
+	statue.position.set(-width, -0.446, -0.2);
 	// console.log(statue.position.x);
 }
 
@@ -368,12 +368,12 @@ function moveStatue(event) {
 function updateCameraOnScroll() {
 	const scroll_aricle = document.getElementById("articlescroll");
 	let pos = scroll_aricle.scrollTop / 200;
-	if (pos < 1) pos = 1;
+	// if (pos < 1) pos = 1;
 	camera.position.z = pos;
-	console.log({
-		raw: scroll_aricle.scrollTop,
-		new: camera.position.z,
-	});
+	// console.log({
+	// 	raw: scroll_aricle.scrollTop,
+	// 	new: camera.position.z,
+	// });
 }
 
 /**

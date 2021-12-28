@@ -16,7 +16,16 @@ import FooterComponent from "../components/footer.astro";
 			<div class="main__content">
 				<h2>Jeiser Vargas</h2>
 				<img src="assets/image/intro.png" alt="intro">
-				<a href="#" class="start_button">⚡proyectos</a>
+				<a href="#" class="start_button" id="start_button"><span id="emoji">⚡</span>proyectos</a>
+				<script>
+					const emojis = ['⚡', '😜', '🤯', '🤓', '💖', '😎', '🧐', '🙃', '😳'];
+					const emoji_span = document.getElementById("emoji");
+					emoji_span.innerHTML = emojis[0];
+					document.getElementById("start_button").addEventListener("mouseenter", () => {
+						emoji_span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+					});
+
+				</script>
 			</div>
 		</div>
 
@@ -73,7 +82,17 @@ import FooterComponent from "../components/footer.astro";
 		================= PROJECTS ================= 
 	-->
 	<section class="section section_proyectos">
-		<h1>proyectos</h1>
+		<div class="title">
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+			<h1><span>#proyectos</span></h1>
+		</div>
 
 		<div class="proyecto">
 			<div class="proyecto__item">
@@ -84,11 +103,6 @@ import FooterComponent from "../components/footer.astro";
 					veniam saepe error tempora reprehenderit soluta
 					ratione.
 				</p>
-				<!-- <img
-					src="assets/image/project_demo.png"
-					alt="project image"
-					width= "100%"
-				/> -->
 			</div>
 		</div>
 	</section>
@@ -98,7 +112,17 @@ import FooterComponent from "../components/footer.astro";
 		================= ABOUT ME ================= 
 	-->
 	<section class="section section_aboutme">
-		<h1>sobre mi</h1>
+		<div class="title">
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+			<h1><span>#sobre&nbsp;mi</span></h1>
+		</div>
 	</section>
 
 	<!-- 

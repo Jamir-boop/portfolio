@@ -6,7 +6,7 @@ $accent_color: #ff3b76;
 $acc_comp1: #3eb09f;
 $acc_comp2: #aafc7e;
 $acc_comp3: #65fce6;
-$gray: rgba(255, 255, 255, 0.3);
+$gray: transparentize($void, 0.7);
 
 $hover_animation: 180ms;
 
@@ -14,7 +14,7 @@ $font-min: (
 	"normal": 16px,
 	"title": 20px,
 	"four": 20px,
-	"accent": 20px,
+	"accent": 25px,
 	"super_accent": 25px,
 );
 
@@ -30,7 +30,7 @@ $font-max: (
 	"normal": 25px,
 	"title": 120px,
 	"four": 120px,
-	"accent": 120px,
+	"accent": 320px,
 	"super_accent": 320px,
 );
 

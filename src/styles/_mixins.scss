@@ -48,18 +48,15 @@
 	animation: animated_gradient 3s ease alternate infinite;
 }
 
-@mixin h1_title {
+@mixin h1_title() {
 	all: unset;
 	display: block;
-	font-size: fontz(super_accent);
+	font-size: fontz(four);
 	font-family: "Ubuntu", sans-serif;
 	font-weight: bold;
 
-	@include no_touchy;
-	color: $gray;
-	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 0.25em;
+	letter-spacing: 0.1em;
 }
 
 @mixin clamp_position($sides...) {
@@ -77,5 +74,17 @@
 		} @else if $side == bottom {
 			bottom: clamp($min, $pref, $max);
 		}
+	}
+}
+
+@keyframes animated_gradient {
+	0% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0 50%;
 	}
 }

@@ -108,11 +108,17 @@ article {
 	letter-spacing: 0.125em;
 	user-select: none;
 
-	padding: 0.1em;
-	margin: 5vw 0;
+	padding: 0.2em;
+	margin: 4vw 0;
 
 	text-align: center;
-	background: $void;
+	background: $accent_color;
+
+	transition: transform $hover_animation ease-in-out;
+
+	&:hover{
+		transform: scale(1.2);
+	}
 }
 
 .nav_social {
@@ -234,45 +240,69 @@ header {
 	}
 }
 
-/*
-  ========== PROJECTS ==========
-*/
-.section_proyectos {
+/**/
+/*========== PROJECTS ==========*/
+/**/
+
+.title {
+	@include flex(row);
+	position: relative;
+	// transform: translateX(-180%);
+	animation: infinite_title 50s infinite linear both;
+	padding: 5% 0;
 	h1 {
 		@include h1_title;
-	}
+		@include no_touchy;
+		color: transparentize(white, 0.3);
+		padding: 0 2rem;
 
-	.proyecto {
-		@include flex_center(column);
-
-		.proyecto__item {
-			margin: 10vh auto;
-
-			h2,
-			p {
-				@include no_touchy;
-			}
-
-			h2 {
-				font-size: fontz(title);
-				color: #fff;
-			}
-
-			p {
-				font-size: fontz(normal);
-			}
+		span {
+			border: max(0.01em, 2px) solid $accent_color;
+			padding: max(0.01em, 5px);
+			// background: $void;
 		}
+	}
+}
+
+.proyecto {
+	@include flex_center(column);
+
+	.proyecto__item {
+		margin: 10vh auto;
+
+		h2,
+		p {
+			@include no_touchy;
+		}
+
+		h2 {
+			font-size: fontz(title);
+			color: #fff;
+		}
+
+		p {
+			font-size: fontz(normal);
+		}
+	}
+}
+
+@keyframes infinite_title {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-2000px);
 	}
 }
 
 /*
   ========== ABOUT ME ==========
 */
-.section_aboutme {
-	h1 {
-		@include h1_title;
-	}
-}
+// .section_aboutme {
+// 	h1 {
+// 		font-size: fontz(four);
+// 	}
+// }
 
 /*
   ========== FOOTER ==========
@@ -312,18 +342,6 @@ footer {
 			right: 5px;
 			font-weight: bold;
 		}
-	}
-}
-
-@keyframes animated_gradient {
-	0% {
-		background-position: 0 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0 50%;
 	}
 }
 
