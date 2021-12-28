@@ -109,12 +109,12 @@ function createLighting() {
 	scene.add(hemisphereLigth);
 
 	// AREA LIGHT
-	const area_width = 0.6,
-		area_height = 5.0;
+	const area_width = 0.5,
+		area_height = 3.0;
 	RectAreaLightUniformsLib.init();
 	const areaLigth = new THREE.RectAreaLight(
 		0xffffff,
-		0.8,
+		0.7,
 		area_width,
 		area_height
 	);
@@ -126,7 +126,7 @@ function createLighting() {
 
 	// POINT LIGHT
 	const pointLight = new THREE.PointLight(0xff001e, 1);
-	pointLight.position.set(0, 0, 0);
+	pointLight.position.set(-2.47, 0, -15);
 	scene.add(pointLight);
 	const helperPoint = new THREE.PointLightHelper(pointLight);
 	pointLight.add(helperPoint);
@@ -155,7 +155,7 @@ function loadObjects() {
 		side: THREE.DoubleSide,
 		// map: texture,
 		displacementMap: height,
-		displacementScale: 20,
+		displacementScale: 10,
 		normalMap: normal,
 		alphaMap: alpha,
 		transparent: true,
@@ -168,11 +168,10 @@ function loadObjects() {
 	const plane = new THREE.Mesh(geometry, planeMaterial);
 	const plane2 = new THREE.Mesh(geometry, planeMaterial);
 	scene.add(plane, plane2);
-	plane.position.set(0, -4, 0);
-	plane2.position.set(0, 4, 0);
+	plane.position.set(0, -2.5, 0);
+	plane2.position.set(0, 2.5, 0);
 
-	plane2.rotation.x = -30;
-	plane2.rotation.z = 180;
+	plane2.rotation.set(-1.65, 3.257, 0);
 	plane.rotation.x = 29.9;
 
 	/*
@@ -201,10 +200,11 @@ function loadObjects() {
 
 function _placeStatue() {
 	let width = window.innerWidth;
-	width = (width / 3) * 0.0005;
+	// width = (width / 3) * 0.0005;
+	width = (width / 3) * 0.00005;
 	if (width < 0.16) width = 0;
 	if (width > 0.5) width = 0.2;
-	statue.position.set(-width, -0.21, 0);
+	statue.position.set(-width, -0.446, 0.8);
 	// console.log(statue.position.x);
 }
 
@@ -262,7 +262,7 @@ var _primitive;
 function createPrimitive() {
 	_primitive = new primitiveElement();
 	// _primitive.mesh.scale.set(0.08, 0.08, 0.08);
-	scene.add(_primitive.mesh);
+	// scene.add(_primitive.mesh);
 }
 
 /**
@@ -304,21 +304,21 @@ function tick() {
 		PLANES 
 	*/
 	if (
-		planeMaterial.displacementScale >= 29 &&
-		planeMaterial.displacementScale <= 30
+		planeMaterial.displacementScale >= 12 &&
+		planeMaterial.displacementScale <= 13
 	) {
 		planeMaterialScale = true;
 	} else if (
-		planeMaterial.displacementScale >= 19 &&
-		planeMaterial.displacementScale <= 20
+		planeMaterial.displacementScale >= 9 &&
+		planeMaterial.displacementScale <= 10
 	) {
 		planeMaterialScale = false;
 	}
 
 	if (planeMaterialScale) {
-		planeMaterial.displacementScale -= 0.01;
+		planeMaterial.displacementScale -= 0.003;
 	} else {
-		planeMaterial.displacementScale += 0.01;
+		planeMaterial.displacementScale += 0.003;
 	}
 
 	/*
@@ -358,8 +358,8 @@ let mouseX = 0,
 const windowX = window.innerWidth / 2,
 	windowY = window.innerHeight / 2;
 function moveStatue(event) {
-	mouseX = event.clientX - windowX;
-	mouseY = event.clientY - windowY;
+	mouseX = (event.clientX - windowX) / 2;
+	mouseY = (event.clientY - windowY) / 8;
 }
 
 /**
@@ -446,7 +446,7 @@ function createGUI() {
 	statueGUI.add(statue.position, "x", -1.0, 1.0).step(0.001);
 	statueGUI.add(statue.position, "y", -1.0, 1.0).step(0.001);
 	statueGUI.add(statue.position, "z", -1.0, 1.0).step(0.001);
-	statueGUI.open();
+	// statueGUI.open();
 }
 
 /*
