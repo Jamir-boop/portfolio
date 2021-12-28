@@ -1,5 +1,4 @@
 @import "./reset.scss";
-@import "./responsive.scss";
 @import "./variables";
 @import "./mixins";
 
@@ -75,11 +74,11 @@ article {
 	z-index: -1;
 }
 
-.main__text {
+.main__content {
 	@include flex_center(column);
-	@include window_wh();
-	// max-width: 100%;
-	// margin: 5vw 5vw;
+	height: 100vh;
+	width: 80%;
+	margin: 0 auto;
 
 	h2 {
 		display: inline;
@@ -87,11 +86,11 @@ article {
 		font-size: fontz(title);
 		padding: 0.5em 2em;
 
-		border-bottom: clamp(5px, 0.5vw, 10px) solid white;
+		border-bottom: max(5px, 0.1vh) solid white;
 	}
 
 	img {
-		width: 95%;
+		width: 100%;
 	}
 
 	h2,
@@ -100,62 +99,20 @@ article {
 	}
 }
 
-.start_button{
-	@include buttons; 
-	font-size: fontz(four);
-	font-family: "Ubuntu", sans-serif;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	user-select: none;
-	
-	padding: 1em 1em 0.5em;
-
-	-webkit-text-stroke: 2px transparentize($void, 0.2);
-}
-
-.main__button {
+.start_button {
 	@include buttons;
 	font-size: fontz(four);
 	font-family: "Ubuntu", sans-serif;
 	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.125em;
 	user-select: none;
 
-	color: white;
+	padding: 0.1em;
+	margin: 5vw 0;
 
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-
-	padding: 0.75em 1em 0.75em;
-
-	position: relative;
-	span {
-		position: absolute;
-	}
-	.button__gradient {
-		@include bg_gradient;
-
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-
-		@include bg_gradient_animation;
-	}
-
-	span {
-		transition: letter-spacing $hover_animation ease-in-out,
-			margin $hover_animation ease-in-out;
-	}
-
-	&:hover {
-		span {
-			letter-spacing: 0.125em;
-		}
-		.button__white {
-			$margen: 5px;
-			margin: -$margen $margen 0;
-		}
-	}
+	text-align: center;
+	background: $void;
 }
 
 .nav_social {
@@ -367,5 +324,26 @@ footer {
 	}
 	100% {
 		background-position: 0 50%;
+	}
+}
+
+/*============*/
+/* RESPONSIVE */
+/*============*/
+@media all and (max-width: 600px) {
+	/*
+    	========== MAIN ==========
+  	*/
+	.main__content {
+		width: 100%;
+	}
+
+	/*
+    	========== FOOTER ==========
+  	*/
+	footer {
+		small {
+			display: none;
+		}
 	}
 }

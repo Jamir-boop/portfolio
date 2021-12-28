@@ -1,4 +1,4 @@
-@mixin window_wh(){
+@mixin window_wh() {
 	width: 100vw;
 	height: 100vh;
 }
@@ -15,7 +15,7 @@
 	flex-direction: $direction;
 }
 
-@mixin grid_center(){
+@mixin grid_center() {
 	display: grid;
 	place-items: center;
 }
@@ -34,6 +34,11 @@
 	pointer-events: none;
 }
 
+@mixin bg_text {
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 @mixin bg_gradient {
 	background: linear-gradient(60deg, #f79533, #ff16c1, #ff1154, #1160ff);
 	background-size: 300% 300%;
@@ -43,7 +48,7 @@
 	animation: animated_gradient 3s ease alternate infinite;
 }
 
-@mixin h1_title{
+@mixin h1_title {
 	all: unset;
 	display: block;
 	font-size: fontz(super_accent);
