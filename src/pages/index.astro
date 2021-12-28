@@ -10,43 +10,42 @@ import FooterComponent from "../components/footer.astro";
 	<!--
 		================= MAIN ================= 
 	-->
-	<section class="section section_main">
+	<main class="section section_main">
 		<canvas id="main__canvas"></canvas>
-		<main>
-			<div class="main">
-				<div class="main__text">
-					<h2>Jeiser Vargas</h2>
-					<h1>Programador_ y Diseñador Web</h1>
-
-					<a href="#" class="button main__button">
-						<span class="button__gradient"> muestrame! </span>
-						<span class="button__white"> muestrame! </span>
-					</a>
-				</div>
+		<div class="main">
+			<div class="main__text">
+				<h2>Jeiser Vargas</h2>
+				<img src="assets/image/intro.png" alt="intro">
+				<!-- <a href="#" class="button main__button">
+					<span class="button__gradient"> muestrame! </span>
+					<span class="button__white"> muestrame! </span>
+				</a> -->
+				<a href="#" class="start_button">muestrame!</a>
 			</div>
+		</div>
 
-			<nav class="language" aria-label="Language links">
-				<div class="language__void">
-					<div class="selected_language">
-						<img
-							src="assets/image/spain-flag.svg"
-							alt="spanish"
-						/>
-					</div>
-					<ul>
-						<li>
-							<a href="index-en.html">
-								<img
-									src="assets/image/usa-flag.svg"
-									alt="english"
-								/>
-							</a>
-						</li>
-					</ul>
+		<nav class="language" aria-label="Language links">
+			<div class="language__void">
+				<div class="selected_language">
+					<img
+						src="assets/image/spain-flag.svg"
+						alt="spanish"
+					/>
 				</div>
-			</nav>
+				<ul>
+					<li>
+						<a href="index-en.html">
+							<img
+								src="assets/image/usa-flag.svg"
+								alt="english"
+							/>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 
-			<!-- <nav class="nav nav_social" aria-label="Social links">
+		<!-- <nav class="nav nav_social" aria-label="Social links">
 				<div>
 					<img src="assets/image/github.svg" alt="github" />
 
@@ -67,8 +66,7 @@ import FooterComponent from "../components/footer.astro";
 					</a>
 				</div>
 			</nav> -->
-		</main>
-	</section>
+	</main>
 	
 	<!--
 		================= BARRA NAVEGACION ================= 

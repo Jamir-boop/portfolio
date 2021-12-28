@@ -1,3 +1,7 @@
+@mixin window_wh(){
+	width: 100vw;
+	height: 100vh;
+}
 @mixin flex_center($direction) {
 	display: flex;
 	justify-content: center;
@@ -9,6 +13,11 @@
 @mixin flex($direction) {
 	display: flex;
 	flex-direction: $direction;
+}
+
+@mixin grid_center(){
+	display: grid;
+	place-items: center;
 }
 
 @mixin buttons {

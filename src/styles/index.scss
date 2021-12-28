@@ -52,15 +52,13 @@ article {
 	// 	}
 	// }
 	.section {
-		width: 100vw;
-		height: 100vh;
+		@include window_wh();
 		scroll-snap-align: start;
 		border: none;
 	}
 
 	.section_noscroll {
-		width: 100vw;
-		height: 100vh;
+		@include window_wh();
 		border: none;
 	}
 }
@@ -77,31 +75,43 @@ article {
 	z-index: -1;
 }
 
-.section_main {
-	@include flex_center(row);
-}
-
 .main__text {
-	margin: 0 5vw;
-	// margin-left: -10em;
-	margin-left: 30vw;
-	// transform: translateX(-10%);
+	@include flex_center(column);
+	@include window_wh();
+	// max-width: 100%;
+	// margin: 5vw 5vw;
 
 	h2 {
+		display: inline;
+
 		font-size: fontz(title);
-		border-bottom: 2px solid $accent_color;
-	}
-	h1 {
-		font-size: fontz(accent);
-		font-weight: bold;
+		padding: 0.5em 2em;
 
-		margin: 0.1em 0 0.4em;
-		letter-spacing: 0.1em;
+		border-bottom: clamp(5px, 0.5vw, 10px) solid white;
 	}
-	h1,
-	h2 {
+
+	img {
+		width: 95%;
+	}
+
+	h2,
+	img {
 		@include no_touchy;
 	}
+}
+
+.start_button{
+	@include buttons; 
+	font-size: fontz(four);
+	font-family: "Ubuntu", sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	user-select: none;
+	
+	padding: 1em 1em 0.5em;
+
+	-webkit-text-stroke: 2px transparentize($void, 0.2);
 }
 
 .main__button {
@@ -116,7 +126,7 @@ article {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 
-	padding: 0.75em 1em 0.75em 0;
+	padding: 0.75em 1em 0.75em;
 
 	position: relative;
 	span {
