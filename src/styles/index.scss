@@ -113,8 +113,8 @@ article {
 	overflow: hidden;
 
 	text-align: center;
-	background: $accent_color;
-	// background: $acc_comp1;
+	color: $void;
+	background: $acc_comp3;
 	border-radius: 20px;
 
 	transition: transform $hover_animation_time ease-in-out;
