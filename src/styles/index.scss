@@ -113,8 +113,8 @@ article {
 	overflow: hidden;
 
 	text-align: center;
-	color: $void;
-	background: $acc_comp3;
+	// color: $void;
+	// background: $acc_comp1;
 	border-radius: 20px;
 
 	transition: transform $hover_animation_time ease-in-out;
@@ -136,7 +136,7 @@ article {
 
 		transform: rotate(40deg) translate(-50vh, -20vh);
 	}
-	// uso animation en el hover porque 
+	// uso animation en el hover porque
 	// hover con translate el psudo-element
 	// va y regresa
 	&:hover:before {
@@ -145,8 +145,12 @@ article {
 		animation-duration: $hover_animation_time + 300ms;
 		animation-fill-mode: backwards;
 	}
-	&:hover {
+	&:hover,
+	&:focus {
 		transform: scale(1.1);
+	}
+	&:focus {
+		border: 3px solid $accent_color;
 	}
 }
 @keyframes start_button_shine {
@@ -390,7 +394,7 @@ footer {
 		width: 100%;
 	}
 
-	// start_button shine keyframe 
+	// start_button shine keyframe
 	@keyframes start_button_shine {
 		to {
 			transform: rotate(40deg) translate(0, -30vh);
