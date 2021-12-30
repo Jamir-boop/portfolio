@@ -137,9 +137,12 @@ article {
 
 		transform: rotate(40deg) translate(-50vh, -20vh);
 	}
-	// uso animation en el hover porque
-	// hover con translate el psudo-element
-	// va y regresa
+
+	/* 
+		usando propiedad "animation" en el hover porque
+		hover con "tranform: translate" el pseudo-element
+		va y regresa
+	*/
 	&:hover:before {
 		opacity: 1;
 		animation-name: start_button_shine;
@@ -148,9 +151,10 @@ article {
 	}
 	&:hover,
 	&:focus {
-		animation: unset;
-		transform: scale(1.1);
+		// transform: scale(1.1);
+		animation-play-state: paused;
 	}
+
 	&:focus {
 		border: 3px solid $accent_color;
 	}
@@ -160,12 +164,8 @@ article {
 		transform: rotate(40deg) translate(15vh, -30vh);
 	}
 }
-
-@keyframes start_button_breathe{
-	// from{
-	// 	transform: scale(1);
-	// }
-	to{
+@keyframes start_button_breathe {
+	to {
 		transform: scale(1.02);
 	}
 }
@@ -294,21 +294,21 @@ header {
 /**/
 
 .title {
+	@include no_touchy;
 	@include flex(row);
 	position: relative;
-	// transform: translateX(-180%);
 	animation: infinite_title 50s infinite linear both;
 	padding: 5% 0;
 	h1 {
 		@include h1_title;
-		@include no_touchy;
-		color: transparentize(white, 0.3);
+		color: transparentize(white, 0.5);
 		padding: 0 2rem;
+		// text-shadow: $accent_color 2px 2px 0px;
+		text-shadow: $accent_color 2px 2px 0px, $acc_comp4 4px 4px 0px;
 
 		span {
-			border: max(0.01em, 2px) solid $accent_color;
+			// border: max(0.01em, 2px) solid $accent_color;
 			padding: max(0.01em, 5px);
-			// background: $void;
 		}
 	}
 }
