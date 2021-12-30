@@ -136,8 +136,9 @@ article {
 
 		transform: rotate(40deg) translate(-50vh, -20vh);
 	}
-	// usé animation en el hover porque 
-	// hover con trnaslate retorna la animacion
+	// uso animation en el hover porque 
+	// hover con translate el psudo-element
+	// va y regresa
 	&:hover:before {
 		opacity: 1;
 		animation-name: start_button_shine;
