@@ -118,6 +118,7 @@ article {
 	border-radius: 20px;
 
 	transition: transform $hover_animation_time ease-in-out;
+	animation: start_button_breathe 1s alternate infinite ease-in-out;
 
 	span {
 		font-weight: normal;
@@ -147,6 +148,7 @@ article {
 	}
 	&:hover,
 	&:focus {
+		animation: unset;
 		transform: scale(1.1);
 	}
 	&:focus {
@@ -156,6 +158,15 @@ article {
 @keyframes start_button_shine {
 	to {
 		transform: rotate(40deg) translate(15vh, -30vh);
+	}
+}
+
+@keyframes start_button_breathe{
+	// from{
+	// 	transform: scale(1);
+	// }
+	to{
+		transform: scale(1.02);
 	}
 }
 
