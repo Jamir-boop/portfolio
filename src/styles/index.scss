@@ -108,16 +108,49 @@ article {
 	letter-spacing: 0.125em;
 	user-select: none;
 
-	padding: 0.2em;
+	padding: 0.4em;
 	margin: 4vw 0;
+	overflow: hidden;
 
 	text-align: center;
 	background: $accent_color;
+	// background: $acc_comp1;
+	border-radius: 20px;
 
-	transition: transform $hover_animation ease-in-out;
+	transition: transform $hover_animation_time ease-in-out;
 
-	&:hover{
-		transform: scale(1.2);
+	span {
+		font-weight: normal;
+	}
+
+	&:before {
+		content: "";
+		position: absolute;
+		height: 100vh;
+		width: 0.8em;
+		opacity: 0;
+
+		background: white;
+		box-shadow: 0 0 15px white;
+		filter: blur(1px);
+
+		transform: rotate(40deg) translate(-50vh, -20vh);
+	}
+	// usé animation en el hover porque 
+	// hover con trnaslate retorna la animacion
+	&:hover:before {
+		opacity: 1;
+		animation-name: start_button_shine;
+		animation-duration: $hover_animation_time + 300ms;
+		animation-fill-mode: backwards;
+	}
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+@keyframes start_button_shine {
+	to {
+		transform: rotate(40deg) translate(15vh, -30vh);
 	}
 }
 
@@ -136,7 +169,7 @@ article {
 	a {
 		@include buttons;
 		img {
-			transition: transform $hover_animation ease-in-out;
+			transition: transform $hover_animation_time ease-in-out;
 		}
 
 		&:hover img {
@@ -169,21 +202,21 @@ article {
 	// @include bg_gradient_animation;
 	// transform: rotateY(85deg);
 
-	transition: transform $hover_animation ease-in-out;
+	transition: transform $hover_animation_time ease-in-out;
 	img {
 		width: 2rem;
 	}
 	ul {
 		opacity: 0;
 		transform: translateY(-40%);
-		transition: all $hover_animation ease-in-out;
+		transition: all $hover_animation_time ease-in-out;
 
 		li {
 			user-select: none;
 			list-style: none;
 			background-color: transparent;
 			cursor: pointer;
-			transition: scale $hover_animation ease; // TODO poner fondo animado
+			transition: scale $hover_animation_time ease; // TODO poner fondo animado
 
 			&:hover {
 				scale: 1.2;
@@ -354,6 +387,13 @@ footer {
   	*/
 	.main__content {
 		width: 100%;
+	}
+
+	// start_button shine keyframe 
+	@keyframes start_button_shine {
+		to {
+			transform: rotate(40deg) translate(0, -30vh);
+		}
 	}
 
 	/*
