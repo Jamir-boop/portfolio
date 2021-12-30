@@ -1,7 +1,8 @@
-@mixin window_wh() {
+@mixin fullscreensize() {
 	width: 100vw;
 	height: 100vh;
 }
+
 @mixin flex_center($direction) {
 	display: flex;
 	justify-content: center;
