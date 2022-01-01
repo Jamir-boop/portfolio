@@ -41,9 +41,9 @@ article {
 	}
 }
 
-/*
-  ========== MAIN ==========
-*/
+/**/
+//  ========== MAIN ==========
+/**/
 #main__canvas {
 	position: fixed;
 	outline: none;
@@ -228,9 +228,9 @@ article {
 	}
 }
 
-/*
-  ========== BARRA NAVEGACION / HEADER ==========
-*/
+/**/
+//  ========== BARRA NAVEGACION / HEADER ==========
+/**/
 header {
 	width: 100%;
 	height: clamp(50px, 5vh, 6vh);
@@ -353,9 +353,9 @@ header {
 	}
 }
 
-/*
-  ========== ABOUT ME ==========
-*/
+/**/
+//   ========== ABOUT ME ==========
+/**/
 .aboutme {
 	@include flex_center(row);
 
@@ -367,9 +367,9 @@ header {
 	}
 }
 
-/*
-  ========== FOOTER ==========
-*/
+/**/
+//  ========== FOOTER ==========
+/**/
 footer {
 	position: relative;
 	.conejo_container {
