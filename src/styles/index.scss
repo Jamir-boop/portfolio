@@ -273,46 +273,32 @@ header {
 /**/
 
 .title {
-	@include no_touchy;
-	@include flex(row);
+	// @include no_touchy;
+	display: inline-flex;
+	flex-direction: column;
 	position: sticky;
+	top: 0;
 	z-index: 0;
 
-	animation: infinite_title 220s infinite linear both;
-	padding: 2vh 0;
-	h1 {
-		all: unset;
-		display: block;
+	// animation: infinite_title 220s infinite linear both;
+	span {
 		font-size: fontz(normal);
 		font-family: "Ubuntu", sans-serif;
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
-
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
+		writing-mode: vertical-lr;
+		text-orientation: upright;
 
 		color: transparentize(white, 0.6);
-		// text-shadow: $accent_color 2px 2px 0px;
-		// text-shadow: $accent_color 2px 2px 0px, $acc_comp4 4px 4px 0px;
+		padding: max(0.2em, 20px);
+	}
+}
 
-		span {
-			// border: max(0.01em, 2px) solid $accent_color;
-			padding: max(0.4em, 20px);
-		}
-	}
-}
-.title--top {
-	top: 0;
-}
-.title--bottom {
-	bottom: 0;
-}
 @keyframes infinite_title {
-	from {
-		transform: translateX(0);
-	}
 	to {
-		transform: translateX(-2000px);
+		transform: translateY(-2000px);
 	}
 }
 
@@ -342,7 +328,8 @@ header {
 				margin-left: 50%;
 			}
 			.client {
-				position: absolute;				display: block;
+				position: absolute;
+				display: block;
 				font-weight: bold;
 			}
 		}
