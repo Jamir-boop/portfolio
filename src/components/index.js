@@ -368,7 +368,6 @@ function moveStatue(event) {
 function updateCameraOnScroll() {
 	const scroll_aricle = document.getElementById("articlescroll");
 	let pos = scroll_aricle.scrollTop / 200;
-	// if (pos < 1) pos = 1;
 	camera.position.z = pos;
 	// console.log({
 	// 	raw: scroll_aricle.scrollTop,

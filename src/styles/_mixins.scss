@@ -28,6 +28,7 @@
 
 	cursor: pointer;
 	text-decoration: none;
+	text-rendering: optimizeLegibility;
 }
 
 @mixin no_touchy {
