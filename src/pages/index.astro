@@ -2,6 +2,7 @@
 import BaseComponent from "../components/base.astro";
 // import HeaderComponent from "../components/header.astro";
 import FooterComponent from "../components/footer.astro";
+import VerticalComponent from "../components/vertical.astro";
 ---
 
 <BaseComponent estilo="../styles/index.scss" title="Jeiser Vargas Portfolio">
@@ -83,18 +84,7 @@ import FooterComponent from "../components/footer.astro";
 	<!-- -->
 	<nav class="proyectos">
 
-		<div class="title_absolute">
-		<div class="title">
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-			<span>#proyectos</span>
-		</div>
-		</div>
+		<VerticalComponent text="#projects"></VerticalComponent>
 
 		<section class="section section_project">
 			<div class="project__text">
@@ -127,18 +117,7 @@ import FooterComponent from "../components/footer.astro";
 	<!-- ================= ABOUT ME =================  -->
 	<!-- -->
 	<nav class="aboutme">
-		<div class="title_absolute">
-		<div class="title">
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-			<span>#sobre&nbsp;mi</span>
-		</div>
-		</div>
+		<VerticalComponent text="#sobre&nbsp;mi"></VerticalComponent>
 
 		<section class="section section_project">
 			<div class="project__text">
@@ -165,10 +144,14 @@ import FooterComponent from "../components/footer.astro";
 			<img src="https://placeimg.com/640/480/any" alt="demo">
 		</section>
 	</nav>
+	<script>
+		const scroll_title = document.getElementById("infinite_vertical");
+		// scroll_title.style.display = "none";
+	</script>
 	<!-- -->
 	<!-- ================= FOOTER =================  -->
 	<!-- -->
-	<!-- <FooterComponent></FooterComponent> -->
+	<FooterComponent></FooterComponent>
 
 	</article>
 </BaseComponent>
