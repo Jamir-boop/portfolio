@@ -52,7 +52,7 @@ function createScene() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
-	camera.position.set(0, 0, 0);
+	camera.position.set(0, 0, 0); //testing
 	// camera.position.set(0, 0, 30);
 	scene.add(camera);
 
@@ -275,7 +275,7 @@ function addStar() {
 
 	const [x, y, z] = Array(3)
 		.fill()
-		.map(() => THREE.MathUtils.randFloatSpread(100));
+		.map(() => THREE.MathUtils.randFloatSpread(60));
 
 	star.position.set(x, y, z);
 	scene.add(star);
