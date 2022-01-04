@@ -70,11 +70,11 @@ article {
 
 	h2 {
 		display: inline;
-
 		font-size: fontz(title);
-		padding: 0.5em 2em;
+		font-weight: 200;
 
-		border-bottom: max(5px, 0.1vh) solid white;
+		padding: 0.5em 2em;
+		border-bottom: max(3px, 0.01vh) solid darken(white, 20%);
 	}
 
 	img {
@@ -281,8 +281,8 @@ header {
 /*========== PROJECTS ==========*/
 /**/
 .proyectos,
-.aboutme{
-	 overflow: clip;
+.aboutme {
+	overflow: clip;
 }
 
 .title {
@@ -291,19 +291,19 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: -10;
-	
-	animation: infinite_title 230s infinite linear both;
+
+	animation: infinite_title 200s infinite linear both;
 	span {
-		font-size: fontz(title);
+		font-size: 10vh;
 		font-family: "Inter", sans-serif;
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
 		text-transform: uppercase;
-		letter-spacing: 0.1em;
+		letter-spacing: -2vh;
 		writing-mode: vertical-lr;
 		text-orientation: upright;
 
-		color: transparentize(white, 0.6);
+		color: transparentize(white, 0.8);
 		padding: max(0.2em, 20px);
 		padding-left: 10vw;
 		width: 100%;
@@ -312,7 +312,7 @@ header {
 
 @keyframes infinite_title {
 	to {
-		transform: translateY(-1500px);
+		transform: translateY(-200vh);
 	}
 }
 
@@ -320,6 +320,28 @@ header {
 	@include flex_center(row);
 	width: 85% !important;
 	margin: 0 auto;
+	position: relative;
+
+	.project__details {
+		display: none;
+		
+		@include fullscreensize();
+		position: absolute;
+		z-index: 2;
+		overflow: hidden;
+
+		background: firebrick;
+		img{
+			position: absolute;
+			top: -60vh;
+		}
+		.details{
+			position: relative;
+			top: 60vh;
+			font-size: fontz(accent);
+			font-weight: bold;
+		}
+	}
 
 	.project__text {
 		.project__name {
@@ -329,11 +351,20 @@ header {
 			font-size: fontz(accent);
 			font-weight: bold;
 			width: 160%;
+			color: white;
+			cursor: pointer;
+
+			&:hover {
+				color: darken(white, 10%);
+			}
 		}
 
 		.project__desc {
 			position: relative;
 			padding: 2em 1em 0;
+
+			color: darken(white, 30%);
+
 			p {
 				font-size: fontz(normal);
 				line-height: 1.2em;
@@ -348,9 +379,9 @@ header {
 			}
 		}
 	}
-
 	img {
 		width: 100%;
+		cursor: pointer;
 	}
 }
 

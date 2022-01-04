@@ -1,11 +1,15 @@
 ---
-import BaseComponent from "../components/base.astro";
-// import HeaderComponent from "../components/header.astro";
-import FooterComponent from "../components/footer.astro";
-import VerticalComponent from "../components/vertical.astro";
+	import "../styles/index.scss";
+	import BaseComponent from "../components/base.astro";
+	// import HeaderComponent from "../components/header.astro";
+	import FooterComponent from "../components/footer.astro";
+	import VerticalComponent from "../components/vertical.astro";
+
+	import MainImage from "/assets/image/intro.png";
+	import DemoImage from "/assets/image/demo.png";
 ---
 
-<BaseComponent estilo="../styles/index.scss" title="Jeiser Vargas Portfolio">
+<BaseComponent title="Jeiser Vargas Portfolio">	
 	<article id="articlescroll">
 	
 	<!-- -->
@@ -16,7 +20,7 @@ import VerticalComponent from "../components/vertical.astro";
 		<div class="main">
 			<div class="main__content">
 				<h2>Jeiser Vargas</h2>
-				<img src="assets/image/intro.png" alt="intro">
+				<img src={MainImage} alt="intro">
 				<a href="#" class="start_button" id="start_button"><span id="emoji">🔥</span>proyectos</a>
 				<script>
 					const emojis = ['⚡', '😜', '🤯', '🤓', '💖', '😎', '🧐', '🙃', '😳', '🔥'];
@@ -83,9 +87,16 @@ import VerticalComponent from "../components/vertical.astro";
 	<!-- ================= PROJECTS =================  -->
 	<!-- -->
 	<nav class="proyectos">
-		<VerticalComponent text="#projects"></VerticalComponent>
+		<VerticalComponent text="proyectos"></VerticalComponent>
 
 		<section class="section section_project">
+			<div class="project__details" id="project__details">
+				<img src="assets/image/demo.png" alt="project">
+				<div class="details">
+					<h1>Lorem, ipsum dolor.</h1>
+				</div>
+			</div>
+
 			<div class="project__text">
 				<h1 class="project__name">Lorem, ipsum dolor sit amet.</h1>
 				<div class="project__desc">
@@ -95,9 +106,16 @@ import VerticalComponent from "../components/vertical.astro";
 					</p>
 				</div>
 			</div>
-			<img src="https://placeimg.com/640/480/any" alt="demo">
+			<img src={DemoImage} alt="demo">
 		</section>
 		<section class="section section_project">
+			<div class="project__details" id="project__details">
+				<img src="assets/image/demo.png" alt="project">
+				<div class="details">
+					<h1>Lorem, ipsum dolor.</h1>
+				</div>
+			</div>
+
 			<div class="project__text">
 				<h1 class="project__name">Lorem, ipsum dolor sit amet.</h1>
 				<div class="project__desc">
@@ -107,7 +125,7 @@ import VerticalComponent from "../components/vertical.astro";
 					</p>
 				</div>
 			</div>
-			<img src="https://placeimg.com/640/480/any" alt="demo">
+			<img src={DemoImage} alt="demo">
 		</section>
 	</nav>
 	
@@ -116,9 +134,16 @@ import VerticalComponent from "../components/vertical.astro";
 	<!-- ================= ABOUT ME =================  -->
 	<!-- -->
 	<nav class="aboutme">
-		<VerticalComponent text="#sobre&nbsp;mi"></VerticalComponent>
+		<VerticalComponent text="sobre&nbsp;mi"></VerticalComponent>
 
 		<section class="section section_project">
+			<div class="project__details" id="project__details">
+				<img src="assets/image/demo.png" alt="project">
+				<div class="details">
+					<h1>Lorem, ipsum dolor.</h1>
+				</div>
+			</div>
+
 			<div class="project__text">
 				<h1 class="project__name">Lorem, ipsum dolor sit amet.</h1>
 				<div class="project__desc">
@@ -128,9 +153,16 @@ import VerticalComponent from "../components/vertical.astro";
 					</p>
 				</div>
 			</div>
-			<img src="https://placeimg.com/640/480/any" alt="demo">
+			<img src={DemoImage} alt="demo">
 		</section>
 		<section class="section section_project">
+			<div class="project__details" id="project__details">
+				<img src="assets/image/demo.png" alt="project">
+				<div class="details">
+					<h1>Lorem, ipsum dolor.</h1>
+				</div>
+			</div>
+
 			<div class="project__text">
 				<h1 class="project__name">Lorem, ipsum dolor sit amet.</h1>
 				<div class="project__desc">
@@ -140,17 +172,13 @@ import VerticalComponent from "../components/vertical.astro";
 					</p>
 				</div>
 			</div>
-			<img src="https://placeimg.com/640/480/any" alt="demo">
+			<img src={DemoImage} alt="demo">
 		</section>
 	</nav>
-	<script>
-		const scroll_title = document.getElementById("infinite_vertical");
-		// scroll_title.style.display = "none";
-	</script>
 	<!-- -->
 	<!-- ================= FOOTER =================  -->
 	<!-- -->
-	<!-- <FooterComponent></FooterComponent> -->
+	<FooterComponent></FooterComponent>
 
 	</article>
 </BaseComponent>

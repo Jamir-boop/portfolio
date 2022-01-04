@@ -1,5 +1,4 @@
 ---
-	let {estilo} = Astro.props;
 	let {title} = Astro.props;
 ---
 
@@ -12,8 +11,6 @@
 		<link rel="shortcut icon" href="fire.ico" type="image/x-icon" />
 
 		<title>{title}</title>
-
-		<link rel="stylesheet" type="text/css" href={Astro.resolve(estilo)} />
 	</head>
 	<body>
         <slot></slot>
