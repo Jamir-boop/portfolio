@@ -73,16 +73,16 @@ article {
 	left: 3vw;
 
 	font-size: fontz(mini);
-	writing-mode: vertical-lr;
+	writing-mode: sideways-lr;
 	text-rendering: optimizeLegibility;
 	letter-spacing: 2px;
 	padding: 4px;
 
 	border-left: 2px solid transparent;
 
-	transition: border-left $hover_animation_time ease-in-out;
+	transition: border-right $hover_animation_time ease-in-out;
 	&:hover {
-		border-left: 2px solid white;
+		border-right: 2px solid white;
 	}
 }
 
