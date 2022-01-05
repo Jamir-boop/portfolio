@@ -23,8 +23,6 @@
 
 @mixin buttons {
 	all: unset;
-	// background: unset;
-	// border: unset;
 
 	cursor: pointer;
 	text-decoration: none;
@@ -89,4 +87,8 @@
 	100% {
 		background-position: 0 50%;
 	}
+}
+
+@mixin bordertest {
+	border: 1px solid red;
 }

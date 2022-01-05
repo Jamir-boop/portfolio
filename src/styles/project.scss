@@ -1,0 +1,167 @@
+@import "./reset.scss";
+@import "./variables";
+@import "./mixins";
+@font-face {
+	font-family: "Inter", sans-serif;
+	src: url("/assets/font/Inter-Black.ttf") format("truetype"),
+		url("/assets/font/Inter-Bold.ttf") format("truetype"),
+		url("/assets/font/Inter-ExtraBold.ttf") format("truetype"),
+		url("/assets/font/Inter-ExtraLight.ttf") format("truetype"),
+		url("/assets/font/Inter-Light.ttf") format("truetype"),
+		url("/assets/font/Inter-Medium.ttf") format("truetype"),
+		url("/assets/font/Inter-Regular.ttf") format("truetype"),
+		url("/assets/font/Inter-SemiBold.ttf") format("truetype"),
+		url("/assets/font/Inter-Thin.ttf") format("truetype");
+}
+body {
+	@include fullscreensize();
+	font-family: "Inter", sans-serif;
+
+	background-color: $void;
+	color: white;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+.project {
+	section {
+		@include fullscreensize();
+		background: $void;
+	}
+	.main {
+		position: relative;
+		overflow: hidden;
+		&__img {
+			height: 120vh;
+		}
+		&__title {
+			position: absolute;
+			bottom: 10vw;
+			right: 5vw;
+
+			font-size: 6vw;
+			font-weight: bold;
+			text-transform: capitalize;
+		}
+	}
+
+	.details {
+		@include flex_center(column);
+		background-color: lighten($void, 5%);
+
+		&__content {
+			width: 50%;
+		}
+		&__title {
+			font-size: fontz(accent);
+			font-weight: bold;
+
+			padding-bottom: 10vh;
+		}
+
+		&__container {
+			@include flex(row);
+			$p-bottom: 6vh;
+
+			.left,
+			.right {
+				font-size: fontz(normal);
+			}
+
+			.left {
+				min-width: 40%;
+				ul {
+					padding-bottom: $p-bottom;
+				}
+				&__links {
+					li {
+						padding-bottom: 0.5rem;
+					}
+					a {
+						@include buttons;
+
+						text-decoration: underline;
+						transition: text-decoration $hover_animation_time
+							ease-in-out;
+						&:hover,
+						&:focus {
+							text-decoration: underline $accent_color;
+						}
+					}
+				}
+				&__client,
+				&__tecno {
+					font-weight: 200;
+
+					.left__title {
+						font-weight: 400;
+						padding-bottom: 0.5rem;
+					}
+				}
+			}
+			.right {
+				&__subtitle,
+				p {
+					padding-bottom: $p-bottom;
+				}
+
+				&__subtitle {
+					// font-size: fontz(title);
+					font-size: clamp(14px, 1.5rem, 30px);
+					font-weight: 500;
+				}
+				p {
+					font-weight: 200;
+				}
+			}
+		}
+	}
+
+	.tousers {
+		@include flex_center(column);
+		height: auto !important;
+		padding-top: 20vh;
+
+		&__content {
+			width: 70%;
+			.tousers__demovideo {
+				width: 100%;
+			}
+			.tousers__paragraph {
+				font-size: fontz(normal);
+				text-align: center;
+
+				padding: 7vh 0;
+				h1 {
+					font-size: fontz(title);
+					font-weight: 500;
+					padding-bottom: 2vh;
+				}
+				p {
+					font-weight: 200;
+				}
+			}
+		}
+		&__fullscreen {
+			width: 100vw;
+		}
+	}
+
+	.next {
+		height: 80vh !important;
+		background: transparent;
+		&__content {
+			position: relative;
+		}
+
+		&__demo {
+			height: 100vh;
+			opacity: 50%;
+
+			position: fixed;
+			bottom: 0;
+			z-index: -1;
+		}
+	}
+}

@@ -4,14 +4,15 @@ $dark: #4d4d4d;
 $accent_color: #ff3b76;
 $acc_comp1: #3eb09f;
 $acc_comp2: #aafc7e;
-$acc_comp5: #00FF85;
-$acc_comp4: #00F1FF;
+$acc_comp5: #00ff85;
+$acc_comp4: #00f1ff;
 $acc_comp3: #65fce6;
 $gray: transparentize($void, 0.7);
 
 $hover_animation_time: 180ms;
 
 $font-min: (
+	"mini": 10px,
 	"normal": 16px,
 	"title": 20px,
 	"four": 20px,
@@ -20,6 +21,7 @@ $font-min: (
 );
 
 $font-pref: (
+	"mini": 0.5rem,
 	"normal": 1vw,
 	"title": 2vw,
 	"four": 3vw,
@@ -28,6 +30,7 @@ $font-pref: (
 );
 
 $font-max: (
+	"mini": 16px,
 	"normal": 25px,
 	"title": 120px,
 	"four": 120px,

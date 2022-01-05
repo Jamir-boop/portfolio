@@ -1,8 +1,100 @@
 ---
-    import "../../styles/demo.scss";
+    import "../../styles/project.scss";
     import BaseComponent from "../../components/base.astro";
+    import DemoImage from "/assets/image/demo.png";
 ---
 
 <BaseComponent>
-    <h1>Lorem ipsum dolor sit, amet consectetur</h1>
+    <article class="project">
+        <section class="main">
+            <h1 class="main__title">Lorem ipsum dolor sit, amet.</h1>
+            <img class="main__img" src={DemoImage} alt="project">
+        </section>
+        
+        <section class="details">
+            <div class="details__content">
+                <h1 class="details__title">Lorem ipsum</h1>
+                
+                <div class="details__container">
+                    <div class="left">
+                        <ul class="left__links">
+                            <li><a href="#">Visitar Sitio</a></li>
+                            <li><a href="#">Ver codigo</a></li>
+                        </ul>
+                        <ul class="left__client">
+                            <li class="left__title">Cliente</li>
+                            <li>lorem Ipsum</li>
+                        </ul>
+                        <ul class="left__tecno">
+                            <li class="left__title">Tecnologias</li>
+                            <li>lorem Ipsum</li>
+                            <li>lorem</li>
+                            <li>lem</li>
+                            <li>Ipsum</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h2 class="right__subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque officia repellendus quia esse et omnis.</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque consectetur dolorum aut nisi officiis, quos nihil quidem facere temporibus alias quia, vel veritatis quaerat ab.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta non asperiores eius saepe modi tenetur aut accusantium deserunt cum consectetur assumenda animi possimus hic provident libero, accusamus reiciendis praesentium ad?</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="tousers">
+            <div class="tousers__content">
+                <img class="tousers__demovideo" src={DemoImage} alt="project">
+                <div class="tousers__paragraph">
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate recusandae voluptatibus ratione nulla illo dolorum, provident labore in quasi!lorem50 et ipsum dolor sit amet consectetur adipis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tousers">
+            <img class="tousers__fullscreen" src={DemoImage} alt="project">
+            <div class="tousers__content">
+                <div class="tousers__paragraph">
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate recusandae voluptatibus ratione nulla illo dolorum, provident labore in quasi!</p>
+                </div>
+                <img class="tousers__demovideo" src={DemoImage} alt="project">
+                <div class="tousers__paragraph" >
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis voluptate recusandae voluptatibus ratione nulla illo dolorum, provident labore in quasi!lorem50 et ipsum dolor sit amet consectetur adipis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="next">
+        <div class="next__content">
+            <img class="next__demo" src={DemoImage} alt="project">
+        </div>
+        </section>
+    </article>
+    <script>
+        // modern Chrome requires { passive: false } when adding event
+        var supportsPassive = false;
+        try {
+        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+            get: function () { supportsPassive = true; } 
+        }));
+        } catch(e) {}
+        
+        const wheelOpt = supportsPassive ? { passive: false } : false;
+        const MAX = window.scrollMaxY;
+        function siguiente() {
+            if(Math.round(window.scrollY) == MAX) {
+                document.location.href = "/project/two";
+                console.log("cambio!");
+            }
+        }
+
+        window.addEventListener('DOMMouseScroll', siguiente, false); // older FF
+        window.addEventListener('touchmove', siguiente, wheelOpt); // mobile
+        window.addEventListener('keydown', siguiente, false);
+
+    </script>
 </BaseComponent>
