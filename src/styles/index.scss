@@ -62,6 +62,30 @@ article {
 	z-index: -20;
 }
 
+.main {
+	position: relative;
+}
+
+.main__about {
+	@include buttons;
+	position: absolute;
+	top: 50vh;
+	left: 3vw;
+
+	font-size: fontz(mini);
+	writing-mode: vertical-lr;
+	text-rendering: optimizeLegibility;
+	letter-spacing: 2px;
+	padding: 4px;
+
+	border-left: 2px solid transparent;
+
+	transition: border-left $hover_animation_time ease-in-out;
+	&:hover {
+		border-left: 2px solid white;
+	}
+}
+
 .main__content {
 	@include flex_center(column);
 	height: 100vh;
@@ -324,18 +348,18 @@ header {
 
 	.project__details {
 		display: none;
-		
+
 		@include fullscreensize();
 		position: absolute;
 		z-index: 2;
 		overflow: hidden;
 
 		background: firebrick;
-		img{
+		img {
 			position: absolute;
 			top: -60vh;
 		}
-		.details{
+		.details {
 			position: relative;
 			top: 60vh;
 			font-size: fontz(accent);
