@@ -6,6 +6,7 @@
 
 <BaseComponent>
     <article class="project">
+    <a href="/?one" class="close">Cerrar</a>
         <section class="main">
             <h1 class="main__title">Lorem ipsum dolor sit, amet.</h1>
             <img class="main__img" src={DemoImage} alt="project">
@@ -80,36 +81,37 @@
     </article>
     <script>
         window.onload = () => {
-            window.addEventListener("scroll", () => {
+        window.addEventListener("scroll", () => {
+            const MAX =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            if (Math.round(window.scrollY) == MAX) {
+                setTimeout(() => {
+                    document.location.href = "/project/three";
+                    console.log("cambio!");
+                }, 300);
+            }
 
-                const MAX = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                if(Math.round(window.scrollY) == MAX) {
-                    setTimeout(() => {
-                        document.location.href = "/project/three";
-                        console.log("cambio!");
-                    }, 300);
-                }
+            // calculando el 15% final del scroll de la pagina
+            // el scale de la imagen
+            const next__img = document.querySelector(".next__demo");
+            const partial = MAX - (MAX * 15) / 100;
+            // se activa cuando el scroll alcanza el 90%
+            if (Math.round(window.scrollY) >= Math.round(partial)) {
+                let scale = window.scrollY / 3000 - 0.02;
+                next__img.style.transform = "scale(" + scale + ")";
+            }
+        });
 
-                // calculando el 15% final del scroll de la pagina
-                // el scale de la imagen
-                const next__img = document.querySelector(".next__demo");
-                const partial = MAX - (MAX * 15 / 100);
-                // se activa cuando el scroll alcanza el 90%
-                if(Math.round(window.scrollY) >= Math.round(partial)){
-                    let scale = (window.scrollY / 3000) - 0.02;
-                    next__img.style.transform = "scale("+ scale +")";
-                }
-            });
-
-            // Añade clase a main image para que cargue
-            const mainimage = document.querySelector('.main__img');
-            const maintext = document.querySelector('.main__title');
-            console.log(maintext);
-            mainimage.classList.add('main__img--fadein');
-            setTimeout(() => {
-                console.log(maintext, "asdasdasdasd");
-                maintext.classList.add('main__title--fadeinleft');
-            }, 250);
-        }
+        // Añade clase a main image para que cargue
+        const mainimage = document.querySelector(".main__img");
+        const maintext = document.querySelector(".main__title");
+        console.log(maintext);
+        mainimage.classList.add("main__img--fadein");
+        setTimeout(() => {
+            console.log(maintext, "asdasdasdasd");
+            maintext.classList.add("main__title--fadeinleft");
+        }, 250);
+    };
     </script>
 </BaseComponent>

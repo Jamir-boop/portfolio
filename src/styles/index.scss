@@ -457,11 +457,12 @@ footer {
 /* RESPONSIVE */
 /*============*/
 @media all and (max-width: 600px) {
-	/*
-    	========== MAIN ==========
-  	*/
 	.main__content {
 		width: 100%;
+	}
+	.main__about{
+		top: 30vh;
+		left: 0;
 	}
 
 	// start_button shine keyframe
@@ -469,6 +470,23 @@ footer {
 		to {
 			transform: rotate(40deg) translate(0, -30vh);
 		}
+	}
+
+	.section_project {
+		@include flex_center(column);
+	}
+	.section_project img {
+		width: 100%;
+	}
+	.section_project .project__text .project__desc {
+		padding: 2em 1em;
+	}
+	.section_project .project__text .project__desc .desc {
+		margin-left: auto;
+		margin: 1rem 0 0 0;
+	}
+	.section_project .project__text .project__name {
+		width: 100%;
 	}
 
 	/*

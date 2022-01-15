@@ -24,6 +24,23 @@ body {
 	scroll-behavior: smooth;
 }
 
+.close {
+	@include buttons;
+
+	position: fixed;
+	top: 2rem;
+	right: 2rem;
+
+	z-index: 3;
+	text-decoration: underline $accent_color;
+	transition: text-decoration $hover_animation_time ease-in-out,
+		letter-spacing $hover_animation_time ease-in-out;
+	&:hover {
+		text-decoration: underline lighten($accent_color, 10%);
+		letter-spacing: 1px;
+	}
+}
+
 .project {
 	section {
 		@include fullscreensize();
@@ -216,7 +233,7 @@ body {
 	.project .details__title {
 		padding-bottom: 5vh;
 	}
-	.project .details__content{
+	.project .details__content {
 		width: 90%;
 	}
 	.project .details__container {
@@ -227,13 +244,12 @@ body {
 		padding-bottom: 2vh;
 	}
 
-	.left{
+	.left {
 		@include flex(row);
 		flex-wrap: wrap;
 	}
 	.project .details__container .left ul {
 		padding: 3vh 5vw;
-
 	}
 	.project .main__title {
 		text-align: right;
@@ -252,12 +268,18 @@ body {
 		width: 85%;
 	}
 
-
 	.next {
 		&__demo {
 			width: auto !important;
 			height: 100vh;
 			left: -50%;
 		}
+	}
+}
+@media all and (min-width: 4000px) {
+	.close {
+		font-size: fontz(title);
+		top: 5rem;
+		right: 5rem;
 	}
 }
