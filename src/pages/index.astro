@@ -5,7 +5,6 @@
 	import FooterComponent from "../components/footer.astro";
 	import VerticalComponent from "../components/vertical.astro";
 
-	import MainImage from "/assets/image/intro.png";
 	import DemoImage from "/assets/image/demo.png";
 ---
 
@@ -21,7 +20,7 @@
 			<a class="main__about" href="/project/one"><small>about</small></a>
 			<div class="main__content">
 				<h2>Jeiser Vargas</h2>
-				<img src={MainImage} alt="intro">
+				<img src="assets/image/intro.png" alt="intro">
 				<a href="#" class="start_button" id="start_button"><span id="emoji">🔥</span>proyectos</a>
 				<script>
 					const emojis = ['⚡', '😜', '🤯', '🤓', '💖', '😎', '🧐', '🙃', '😳', '🔥'];
@@ -179,7 +178,7 @@
 	<!-- -->
 	<!-- ================= FOOTER =================  -->
 	<!-- -->
-	<FooterComponent></FooterComponent>
+	<!-- <FooterComponent></FooterComponent> -->
 
 	</article>
 </BaseComponent>

@@ -316,9 +316,9 @@ header {
 	top: 0;
 	z-index: -10;
 
-	animation: infinite_title 200s infinite linear both;
+	// animation: infinite_title 200s infinite linear both;
 	span {
-		font-size: 10vh;
+		font-size: 8vh;
 		font-family: "Inter", sans-serif;
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
@@ -382,7 +382,6 @@ header {
 				color: darken(white, 10%);
 			}
 		}
-
 		.project__desc {
 			position: relative;
 			padding: 2em 1em 0;
@@ -404,7 +403,7 @@ header {
 		}
 	}
 	img {
-		width: 100%;
+		width: 50vw;
 		cursor: pointer;
 	}
 }

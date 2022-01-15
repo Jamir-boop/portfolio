@@ -70,31 +70,46 @@
 
         <section class="next">
         <div class="next__content">
+            <div class="next__text">
+                <span class="next__siguiente">Siguiente</span>
+                <span class="next__nombre">Lorem, ipsum dolor.</span>
+            </div>
             <img class="next__demo" src={DemoImage} alt="project">
         </div>
         </section>
     </article>
     <script>
-        // modern Chrome requires { passive: false } when adding event
-        var supportsPassive = false;
-        try {
-        window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
-            get: function () { supportsPassive = true; } 
-        }));
-        } catch(e) {}
-        
-        const wheelOpt = supportsPassive ? { passive: false } : false;
-        const MAX = window.scrollMaxY;
-        function siguiente() {
-            if(Math.round(window.scrollY) == MAX) {
-                document.location.href = "/project/two";
-                console.log("cambio!");
-            }
+        window.onload = () => {
+            window.addEventListener("scroll", () => {
+
+                const MAX = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                if(Math.round(window.scrollY) == MAX) {
+                    setTimeout(() => {
+                        document.location.href = "/project/two";
+                        console.log("cambio!");
+                    }, 300);
+                }
+
+                // calculando el 15% final del scroll de la pagina
+                // el scale de la imagen
+                const next__img = document.querySelector(".next__demo");
+                const partial = MAX - (MAX * 15 / 100);
+                // se activa cuando el scroll alcanza el 90%
+                if(Math.round(window.scrollY) >= Math.round(partial)){
+                    let scale = (window.scrollY / 3000) - 0.02;
+                    next__img.style.transform = "scale("+ scale +")";
+                }
+            });
+
+            // Añade clase a main image para que cargue
+            const mainimage = document.querySelector('.main__img');
+            const maintext = document.querySelector('.main__title');
+            console.log(maintext);
+            mainimage.classList.add('main__img--fadein');
+            setTimeout(() => {
+                console.log(maintext, "asdasdasdasd");
+                maintext.classList.add('main__title--fadeinleft');
+            }, 250);
         }
-
-        window.addEventListener('DOMMouseScroll', siguiente, false); // older FF
-        window.addEventListener('touchmove', siguiente, wheelOpt); // mobile
-        window.addEventListener('keydown', siguiente, false);
-
     </script>
 </BaseComponent>
