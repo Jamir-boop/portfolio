@@ -218,34 +218,30 @@ article {
 }
 
 .language {
+	font-size: fontz(normal);
+	text-transform: uppercase;
 	user-select: none;
 	position: absolute;
 	@include clamp_position(top, right);
 }
 
-.language__void {
+.language__container {
 	position: relative;
-	padding: 8px;
-	// @include bg_gradient;
-	// @include bg_gradient_animation;
-	// transform: rotateY(85deg);
-
+	padding: 10px;
 	transition: transform $hover_animation_time ease-in-out;
-	img {
-		width: 2rem;
-	}
 	ul {
 		opacity: 0;
 		transform: translateY(-40%);
 		transition: all $hover_animation_time ease-in-out;
-
 		li {
 			user-select: none;
 			list-style: none;
 			background-color: transparent;
 			cursor: pointer;
-			transition: scale $hover_animation_time ease; // TODO poner fondo animado
-
+			transition: scale $hover_animation_time ease;
+			.change_language {
+				@include buttons;
+			}
 			&:hover {
 				scale: 1.2;
 			}
@@ -323,7 +319,7 @@ header {
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
 		text-transform: uppercase;
-		letter-spacing: -2vh;
+		letter-spacing: -1vh;
 		writing-mode: vertical-lr;
 		text-orientation: upright;
 
@@ -456,11 +452,11 @@ footer {
 /*============*/
 /* RESPONSIVE */
 /*============*/
-@media all and (max-width: 600px) {
+@media all and (max-width: 800px) {
 	.main__content {
 		width: 100%;
 	}
-	.main__about{
+	.main__about {
 		top: 30vh;
 		left: 0;
 	}
@@ -496,5 +492,12 @@ footer {
 		small {
 			display: none;
 		}
+	}
+}
+
+@media all and (min-width: 3500px) {
+	.language,
+	.main__about small {
+		font-size: fontz(title);
 	}
 }

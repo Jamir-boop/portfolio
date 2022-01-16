@@ -3,8 +3,6 @@
 	import BaseComponent from "../components/base.astro";
 	// import HeaderComponent from "../components/header.astro";
 	import FooterComponent from "../components/footer.astro";
-	import VerticalComponent from "../components/vertical.astro";
-
 	import DemoImage from "/assets/image/demo.png";
 ---
 
@@ -16,45 +14,31 @@
 	<!-- -->
 	<main class="section section_main">
 		<canvas id="main__canvas"></canvas>
+		<div style="position: relative; z-index: 5;">
+		<nav class="language" aria-label="Language links">
+			<div class="language__container">
+				<div class="selected_language">
+					ES
+				</div>
+				<ul>
+					<li>
+						<button class="change_language" onclick="languageto(this.innerHTML)">
+							EN
+						</button>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		</div>
+
 		<div class="main">
 			<a class="main__about" href="/project/one"><small>about</small></a>
 			<div class="main__content">
 				<h2>Jeiser Vargas</h2>
 				<img src="assets/image/intro.png" alt="intro">
 				<a href="#" class="start_button" id="start_button"><span id="emoji">🔥</span>proyectos</a>
-				<script>
-					const emojis = ['⚡', '😜', '🤯', '🤓', '💖', '😎', '🧐', '🙃', '😳', '🔥'];
-					const emoji_span = document.getElementById("emoji");
-					emoji_span.innerHTML = emojis[0];
-					document.getElementById("start_button").addEventListener("mouseenter", () => {
-						emoji_span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-					});
-
-				</script>
 			</div>
 		</div>
-
-		<nav class="language" aria-label="Language links">
-			<div class="language__void">
-				<div class="selected_language">
-					<img
-						src="assets/image/spain-flag.svg"
-						alt="spanish"
-					/>
-				</div>
-				<ul>
-					<li>
-						<a href="index-en.html">
-							<img
-								src="assets/image/usa-flag.svg"
-								alt="english"
-							/>
-						</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-
 		<!-- <nav class="nav nav_social" aria-label="Social links">
 				<div>
 					<img src="assets/image/github.svg" alt="github" />
@@ -87,7 +71,9 @@
 	<!-- ================= PROJECTS =================  -->
 	<!-- -->
 	<nav class="proyectos">
-		<VerticalComponent text="proyectos"></VerticalComponent>
+		<div class='title' id="infinite_vertical">
+			<span>proyectos</span>
+		</div>
 
 		<section class="section section_project">
 			<div class="project__details" id="project__details">
@@ -134,7 +120,9 @@
 	<!-- ================= ABOUT ME =================  -->
 	<!-- -->
 	<nav class="aboutme">
-		<VerticalComponent text="sobre&nbsp;mi"></VerticalComponent>
+		<div class='title' id="infinite_vertical">
+			<span>sobre&nbsp;mi</span>
+		</div>
 
 		<section class="section section_project">
 			<div class="project__details" id="project__details">
@@ -181,4 +169,5 @@
 	<!-- <FooterComponent></FooterComponent> -->
 
 	</article>
+	<script src={Astro.resolve("../components/language.js")}></script>
 </BaseComponent>
