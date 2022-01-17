@@ -46,8 +46,7 @@ function languageto(selection) {
 	const currentLang = document.querySelector(".selected_language");
 	currentLang.innerHTML = selection;
 	changeToLang.innerHTML = alternative;
-	console.log({ selection, alternative });
-
+	
 	document.querySelector("html").lang = selection;
 	document.querySelector("#start_button").innerHTML =
 		"<span id='emoji'>🤓</span>" + data[selection].calltoaction;

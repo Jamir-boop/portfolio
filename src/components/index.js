@@ -14,11 +14,10 @@ import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHel
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
+import { GlitchPass } from "three/examples/jsm/postprocessing/GlitchPass.js";
+import { FilmPass } from "three/examples/jsm/postprocessing/FilmPass.js";
 // import {ShaderPass} from "three/examples/jsm/postprocessing/ShaderPass.js";
-// import {SSAOPass} from "three/examples/jsm/postprocessing/SSAOPass.js";
-
-// import {LuminosityShader} from "three/examples/jsm/shaders/LuminosityShader.js";
+// import { SSAOPass } from "three/examples/jsm/postprocessing/SSAOPass.js";
 
 /*
 	Init function
@@ -38,7 +37,6 @@ function init() {
 const scene = new THREE.Scene();
 let camera, renderer, controls, composer, gui;
 let start = Date.now();
-let _width, _height;
 let isMobile = false,
 	isChromium = false; // check client browser
 
@@ -76,7 +74,9 @@ function createScene() {
 			0.375
 		)
 	);
-	// composer.addPass(new GlitchPass(69));
+	// composer.addPass(new GlitchPass(10));
+	composer.addPass(new FilmPass(0.8, 0.325, 300, false));
+	// composer.addPass(new SSAOPass(scene, camera, false, true));
 
 	renderer.shadowMap.enabled = true;
 	renderer.setPixelRatio(window.devicePixelRatio);
