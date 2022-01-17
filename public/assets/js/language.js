@@ -46,7 +46,7 @@ function languageto(selection) {
 	const currentLang = document.querySelector(".selected_language");
 	currentLang.innerHTML = selection;
 	changeToLang.innerHTML = alternative;
-	
+
 	document.querySelector("html").lang = selection;
 	document.querySelector("#start_button").innerHTML =
 		"<span id='emoji'>🤓</span>" + data[selection].calltoaction;
@@ -70,4 +70,20 @@ function calltoaction_hover() {
 			emoji_span.innerHTML =
 				emojis[Math.floor(Math.random() * emojis.length)];
 		});
+
+	window.onfocus = () => {
+		const start_button = document.getElementById("start_button");
+		const before = window.getComputedStyle(start_button, ":before");
+
+		start_button.style.setProperty("--opacity", "1");
+		start_button.style.setProperty(
+			"--animation",
+			"start_button_shine 480ms backwards"
+		);
+		console.log(before.opacity);
+		setTimeout(() => {
+			start_button.style.setProperty("--opacity", "0");
+			start_button.style.setProperty("--animation", "none");
+		}, 500);
+	};
 }

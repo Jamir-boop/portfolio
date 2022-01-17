@@ -141,18 +141,19 @@ article {
 		position: absolute;
 		height: 100vh;
 		width: 0.8em;
-		opacity: 0;
+		opacity: var(--opacity, 0);
 
 		background: white;
 		box-shadow: 0 0 15px white;
 		filter: blur(1px);
 
 		transform: rotate(40deg) translate(-50vh, -20vh);
+		animation: var(--animation, none);
 	}
 
 	/* 
 		usando propiedad "animation" en el hover porque
-		hover con "tranform: translate" el pseudo-element
+		hover con "transform: translate" el pseudo-element
 		va y regresa
 	*/
 	&:hover:before {
