@@ -1,43 +1,24 @@
-# Astro Starter Kit: Minimal
+[<img align="center" alt="threejs" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.QYcEJLNj2QSD-ehAxuOIugHaC2%26pid%3DApi&f=1" />][website]
+# Portfolio Jamir Vargas [see it!][website]
 
+## Project developed with the technologies of astro 🚀 and three.js
+<hr>
+
+## ⚡ To run locally.
+Clone or download this repo:
 ```
-npm init astro -- --template minimal
+ git clone https://github.com/Jamir-boop/portfolio.git && cd ./portfolio
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
+To install dependencies and run local server:
 ```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+ npm install && npm run dev
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+To know more and get information about how I've done this visit [**here!**][website]
+<hr>
+Thank you and have fun 🙂!
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command           | Action                                       |
-|:----------------  |:-------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://github.com/withastro/astro) or jump into our [Discord server](https://astro.build/chat).
+[website]: https://epic-jamir-portfolio.netlify.app
+[youtube]: https://www.youtube.com/channel/UCM9ysYX7CHXGmr5EpYzZj8g
+[instagram]: https://www.instagram.com/jxmir_/

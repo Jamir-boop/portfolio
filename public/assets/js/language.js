@@ -71,6 +71,7 @@ function calltoaction_hover() {
 				emojis[Math.floor(Math.random() * emojis.length)];
 		});
 
+	// al hacer focus en la ventana va a dar play a la animacion del :hover:before
 	window.onfocus = () => {
 		const start_button = document.getElementById("start_button");
 		const before = window.getComputedStyle(start_button, ":before");
