@@ -95,7 +95,7 @@
             const MAX =
                 document.documentElement.scrollHeight -
                 document.documentElement.clientHeight;
-            if (Math.round(window.scrollY) == MAX) {
+            if (Math.round(window.scrollY) >= MAX) {
                 setTimeout(() => {
                     document.location.href = "/project/two";
                     console.log("cambio!");
@@ -116,11 +116,11 @@
         window.onload = () => {
             if (isMobile()) {
                 window.ontouchmove = () => {
-                    scrollControl(), true;
+                    scrollControl();
                 };
             } else {
                 window.onscroll = () => {
-                    scrollControl(), true;
+                    scrollControl();
                 };
             }
 
