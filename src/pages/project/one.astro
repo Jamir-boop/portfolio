@@ -116,11 +116,11 @@
         window.onload = () => {
             if (isMobile()) {
                 window.ontouchmove = () => {
-                    scrollControl();
+                    scrollControl(), true;
                 };
             } else {
                 window.onscroll = () => {
-                    scrollControl();
+                    scrollControl(), true;
                 };
             }
 

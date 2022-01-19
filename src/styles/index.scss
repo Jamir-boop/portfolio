@@ -57,9 +57,6 @@ article {
 	background: transparentize($darkaccent, 0.75);
 }
 
-/**/
-//  ========== MAIN ==========
-/**/
 #main__canvas {
 	position: fixed;
 	outline: none;
@@ -277,9 +274,6 @@ article {
 	}
 }
 
-/**/
-//  ========== BARRA NAVEGACION / HEADER ==========
-/**/
 header {
 	width: 100%;
 	height: clamp(50px, 5vh, 6vh);
@@ -317,9 +311,6 @@ header {
 	}
 }
 
-/**/
-/*========== PROJECTS ==========*/
-/**/
 .proyectos,
 .aboutme {
 	overflow: clip;
@@ -423,10 +414,6 @@ header {
 		cursor: pointer;
 	}
 }
-
-/**/
-//   ========== ABOUT ME ==========
-/**/
 
 footer {
 	position: relative;
