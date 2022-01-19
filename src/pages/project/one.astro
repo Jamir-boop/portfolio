@@ -80,8 +80,18 @@
         </section>
     </article>
     <script>
-        window.onload = () => {
-        window.addEventListener("scroll", () => {
+        function isMobile() {
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                )
+            ) {
+                return true;
+            }
+            return false;
+        }
+
+        function scrollControl() {
             const MAX =
                 document.documentElement.scrollHeight -
                 document.documentElement.clientHeight;
@@ -101,17 +111,26 @@
                 let scale = window.scrollY / 3000 - 0.02;
                 next__img.style.transform = "scale(" + scale + ")";
             }
-        });
+        }
 
-        // Añade clase a main image para que cargue
-        const mainimage = document.querySelector(".main__img");
-        const maintext = document.querySelector(".main__title");
-        console.log(maintext);
-        mainimage.classList.add("main__img--fadein");
-        setTimeout(() => {
-            console.log(maintext, "asdasdasdasd");
-            maintext.classList.add("main__title--fadeinleft");
-        }, 250);
-    };
+        window.onload = () => {
+            if (isMobile()) {
+                window.ontouchmove = () => {
+                    scrollControl();
+                };
+            } else {
+                window.onscroll = () => {
+                    scrollControl();
+                };
+            }
+
+            // Añade clase a main image para que cargue
+            const mainimage = document.querySelector(".main__img");
+            const maintext = document.querySelector(".main__title");
+            mainimage.classList.add("main__img--fadein");
+            setTimeout(() => {
+                maintext.classList.add("main__title--fadeinleft");
+            }, 250);
+        };
     </script>
 </BaseComponent>
