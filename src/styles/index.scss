@@ -52,6 +52,11 @@ article {
 	}
 }
 
+.main,
+.proyectos {
+	background: transparentize($darkaccent, 0.75);
+}
+
 /**/
 //  ========== MAIN ==========
 /**/
@@ -255,6 +260,20 @@ article {
 			opacity: 1;
 			transform: translateY(10%);
 		}
+	}
+	&--hidden {
+		display: none;
+	}
+}
+
+.languagemobile {
+	position: absolute;
+	@include clamp_position(top, right);
+	&__button {
+		@include buttons;
+	}
+	&--hidden{
+		display: none;
 	}
 }
 

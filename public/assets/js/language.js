@@ -1,11 +1,37 @@
+// check browser y oculta el boton de seleccion de idioma
+// muestra el boton de seleccion de idioma para mobiles
+function isMobile() {
+	if (
+		/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+			navigator.userAgent
+		)
+	) {
+		return true;
+	}
+	return false;
+}
+
 function checkNavLang() {
-	const changeToLang = document.querySelector(".change_language");
-	const currentLang = document.querySelector(".selected_language");
+	if (isMobile()) {
+		document
+			.querySelector(".language__container")
+			.classList.add("language__container--hidden");
+
+		document
+			.querySelector(".languagemobile")
+			.classList.remove("languagemobile--hidden");
+	}
 
 	const customLang = localStorage.getItem("lang");
 	if (customLang !== null) {
 		languageto(customLang);
 		return;
+	}
+
+	let changeToLang = document.querySelector(".change_language");
+	const currentLang = document.querySelector(".selected_language");
+	if (isMobile()) {
+		changeToLang = document.querySelector(".languagemobile__button");
 	}
 
 	if (navigator.language.indexOf("es") != -1) {
@@ -42,10 +68,15 @@ function languageto(selection) {
 	let alternative = "en";
 	if (selection == "en") alternative = "es";
 
-	const changeToLang = document.querySelector(".change_language");
-	const currentLang = document.querySelector(".selected_language");
-	currentLang.innerHTML = selection;
-	changeToLang.innerHTML = alternative;
+	if (!isMobile()) {
+		const changeToLang = document.querySelector(".change_language");
+		const currentLang = document.querySelector(".selected_language");
+		currentLang.innerHTML = selection;
+		changeToLang.innerHTML = alternative;
+	} else {
+		const changeToLang = document.querySelector(".languagemobile__button");
+		changeToLang.innerHTML = selection;
+	}
 
 	document.querySelector("html").lang = selection;
 	document.querySelector("#start_button").innerHTML =
@@ -57,6 +88,12 @@ function languageto(selection) {
 		data[selection].project_vertical;
 	document.querySelector(".aboutme #infinite_vertical span").innerHTML =
 		data[selection].aboutme_vertical;
+}
+
+// funcion para el boton mobile
+function invertLanguage(selection) {
+	if (selection == "en") languageto("es");
+	if (selection == "es") languageto("en");
 }
 checkNavLang();
 
@@ -74,17 +111,35 @@ function calltoaction_hover() {
 	// al hacer focus en la ventana va a dar play a la animacion del :hover:before
 	window.onfocus = () => {
 		const start_button = document.getElementById("start_button");
-		const before = window.getComputedStyle(start_button, ":before");
 
 		start_button.style.setProperty("--opacity", "1");
 		start_button.style.setProperty(
 			"--animation",
 			"start_button_shine 480ms backwards"
 		);
-		console.log(before.opacity);
 		setTimeout(() => {
 			start_button.style.setProperty("--opacity", "0");
 			start_button.style.setProperty("--animation", "none");
 		}, 500);
 	};
 }
+
+window.onresize = () => {
+	if (isMobile()) {
+		document
+			.querySelector(".language__container")
+			.classList.add("language__container--hidden");
+
+		document
+			.querySelector(".languagemobile")
+			.classList.remove("languagemobile--hidden");
+	} else {
+		document
+			.querySelector(".language__container")
+			.classList.remove("language__container--hidden");
+
+		document
+			.querySelector(".languagemobile")
+			.classList.add("languagemobile--hidden");
+	}
+};
