@@ -269,7 +269,7 @@ article {
 	&__button {
 		@include buttons;
 	}
-	&--hidden{
+	&--hidden {
 		display: none;
 	}
 }
@@ -454,8 +454,13 @@ footer {
 }
 
 @media all and (max-width: 800px) {
+	article .section {
+		height: 50vh;
+		padding-top: 10vh;
+	}
 	.main__content {
 		width: 100%;
+		height: 50vh;
 	}
 	.main__about {
 		top: 30vh;
