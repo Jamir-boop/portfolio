@@ -24,6 +24,9 @@ body {
 	scroll-behavior: smooth;
 }
 
+iframe {
+	@include no_touchy;
+}
 .close {
 	@include buttons;
 
@@ -67,6 +70,8 @@ body {
 			font-weight: bold;
 			text-transform: capitalize;
 			opacity: 0;
+			@include shadow_deep;
+			
 			&--fadeinleft {
 				animation: fadeinfleft 200ms ease-in forwards;
 			}
@@ -175,6 +180,7 @@ body {
 		}
 		&__fullscreen {
 			width: 100vw;
+			height: 100vh;
 		}
 	}
 
@@ -245,11 +251,11 @@ body {
 	.project .details__container {
 		@include flex(column-reverse);
 	}
-	.project .details{
+	.project .details {
 		height: auto;
 		padding: 5vh 0;
 	}
-	.project .tousers{
+	.project .tousers {
 		padding-top: 10vh;
 	}
 	.project .details__container .right__subtitle,

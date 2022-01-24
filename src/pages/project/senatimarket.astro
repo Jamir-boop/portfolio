@@ -45,7 +45,8 @@
 
         <section class="tousers">
             <div class="tousers__content">
-                <img class="tousers__demovideo" src={DemoImage} alt="project">
+                <iframe class="tousers__demovideo" src="https://player.vimeo.com/video/669587561?h=40dbce58b1?&autoplay=1&loop=1&background=1" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
                 <div class="tousers__paragraph">
                     <h1 class="titleelegante">Atrayendo a usuarios a través de un diseño elegante y temático.</h1>
                     <p class="paragraphelegante">Senati Market es una marca que respira en torno al diseño y la tecnología. Nosotros diseñamos una experiencia premium suave y dinámica para el usuario.</p>
@@ -54,13 +55,20 @@
         </section>
 
         <section class="tousers">
-            <img class="tousers__fullscreen" src={DemoImage} alt="project">
+            <iframe class="tousers__fullscreen" src="https://player.vimeo.com/video/669597729?h=3f58f14db6?&autoplay=1&loop=1&background=1" width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             <div class="tousers__content">
                 <div class="tousers__paragraph">
                     <h1 class="personalizacion">Usando personalización para crear una experiencia única</h1>
                     <p class="personal_paragraph">El usuario es capaz de explorar cada detalle y seleccionar todos producto en absoluto detalle y entender por completo que hace especial a Senati Market</p>
                 </div>
-                <img class="tousers__demovideo end" src={DemoImage} alt="project">
+                <iframe class="tousers__demovideo" src="https://player.vimeo.com/video/669594435?h=ee81856e31?&autoplay=1&loop=1&background=1" width="1280" height="720" frameborder="0" allow="autoplay; fullscreen;" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="tousers">
+            <div class="tousers__content">
+                <img class="tousers__demovideo end" src="/assets/image/senatimarket/registro.png" alt="login">
+                <img class="tousers__demovideo end" src="/assets/image/senatimarket/carrito.jpg" alt="shopping cart">
             </div>
         </section>
 
@@ -181,14 +189,13 @@
                     scrollControl();
                 };
             }
-
-            // Añade clase a main image para que cargue
-            const mainimage = document.querySelector(".main__img");
-            const maintext = document.querySelector(".main__title");
-            mainimage.classList.add("main__img--fadein");
-            setTimeout(() => {
-                maintext.classList.add("main__title--fadeinleft");
-            }, 250);
         };
+        // Añade clase a main image para que cargue
+        const mainimage = document.querySelector(".main__img");
+        const maintext = document.querySelector(".main__title");
+        mainimage.classList.add("main__img--fadein");
+        setTimeout(() => {
+            maintext.classList.add("main__title--fadeinleft");
+        }, 250);
     </script>
 </BaseComponent>
