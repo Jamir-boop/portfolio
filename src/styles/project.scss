@@ -100,6 +100,9 @@ body {
 				min-width: 40%;
 				ul {
 					padding-bottom: $p-bottom;
+					li {
+						padding: 0.25rem 0;
+					}
 				}
 				&__links {
 					li {
@@ -175,6 +178,9 @@ body {
 		}
 	}
 
+	.end {
+		padding: 0 0 10vh 0;
+	}
 	.next {
 		height: 100vh !important;
 		background: transparent;
@@ -239,11 +245,20 @@ body {
 	.project .details__container {
 		@include flex(column-reverse);
 	}
+	.project .details{
+		height: auto;
+		padding: 5vh 0;
+	}
+	.project .tousers{
+		padding-top: 10vh;
+	}
 	.project .details__container .right__subtitle,
 	.project .details__container .right p {
 		padding-bottom: 2vh;
 	}
-
+	.end {
+		padding: 0 0 6vh 0;
+	}
 	.left {
 		@include flex(row);
 		flex-wrap: wrap;

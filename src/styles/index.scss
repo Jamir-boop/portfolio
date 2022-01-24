@@ -353,29 +353,10 @@ header {
 	margin: 0 auto;
 	position: relative;
 
-	.project__details {
-		display: none;
-
-		@include fullscreensize();
-		position: absolute;
-		z-index: 2;
-		overflow: hidden;
-
-		background: firebrick;
-		img {
-			position: absolute;
-			top: -60vh;
-		}
-		.details {
-			position: relative;
-			top: 60vh;
-			font-size: fontz(accent);
-			font-weight: bold;
-		}
-	}
-
 	.project__text {
 		.project__name {
+			@include buttons;
+			display: block;
 			position: relative;
 			z-index: 1;
 
@@ -383,7 +364,7 @@ header {
 			font-weight: bold;
 			width: 160%;
 			color: white;
-			cursor: pointer;
+			transition: color $hover_animation_time ease-in-out;
 
 			&:hover {
 				color: darken(white, 10%);
@@ -393,7 +374,7 @@ header {
 			position: relative;
 			padding: 2em 1em 0;
 
-			color: darken(white, 30%);
+			color: darken(white, 10%);
 
 			p {
 				font-size: fontz(normal);
@@ -409,9 +390,18 @@ header {
 			}
 		}
 	}
+	.project_img {
+		@include buttons;
+		opacity: 1;
+
+		transition: opacity $hover_animation_time ease-in-out;
+		&:hover {
+			opacity: 0.9;
+		}
+	}
 	img {
 		width: 50vw;
-		cursor: pointer;
+		border-radius: 0.5rem;
 	}
 }
 
@@ -455,7 +445,8 @@ footer {
 
 @media all and (max-width: 800px) {
 	article .section {
-		height: 50vh;
+		height: auto !important;
+		min-height: 50vh;
 		padding-top: 10vh;
 	}
 	.main__content {
@@ -485,12 +476,11 @@ footer {
 	}
 	.section_project .project__text .project__desc .desc {
 		margin-left: auto;
-		margin: 1rem 0 0 0;
+		margin: 2rem 0 0 0;
 	}
 	.section_project .project__text .project__name {
 		width: 100%;
 	}
-
 	/*
     	========== FOOTER ==========
   	*/
