@@ -52,10 +52,14 @@ article {
 	}
 }
 
-.main,
-.proyectos {
+#articlescroll {
 	background: transparentize($darkaccent, 0.75);
 }
+// .main,
+// .proyectos {
+// 	// fondo de oscurecer
+// 	background: transparentize($darkaccent, 0.75);
+// }
 
 #main__canvas {
 	position: fixed;

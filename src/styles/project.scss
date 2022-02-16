@@ -71,7 +71,7 @@ iframe {
 			text-transform: capitalize;
 			opacity: 0;
 			@include shadow_deep;
-			
+
 			&--fadeinleft {
 				animation: fadeinfleft 200ms ease-in forwards;
 			}
@@ -256,7 +256,7 @@ iframe {
 		padding: 5vh 0;
 	}
 	.project .tousers {
-		padding-top: 10vh;
+		padding-top: 0vh;
 	}
 	.project .details__container .right__subtitle,
 	.project .details__container .right p {
@@ -286,7 +286,11 @@ iframe {
 	}
 
 	.project .tousers__content {
-		width: 85%;
+		width: 100%;
+	}
+
+	iframe {
+		height: 30vh !important;
 	}
 
 	.next {
