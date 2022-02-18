@@ -31,8 +31,8 @@ iframe {
 	@include buttons;
 
 	position: fixed;
-	top: 2rem;
-	right: 2rem;
+	top: 3rem;
+	right: 3rem;
 
 	z-index: 3;
 	text-decoration: underline $accent_color;
@@ -134,11 +134,15 @@ iframe {
 						padding-bottom: 0.5rem;
 					}
 				}
+				&__tecno {
+					color: darken(white, 10%);
+				}
 			}
 			.right {
 				&__subtitle,
 				p {
 					padding-bottom: $p-bottom;
+					line-height: 1.6rem;
 				}
 
 				&__subtitle {
@@ -148,6 +152,7 @@ iframe {
 				}
 				p {
 					font-weight: 200;
+					color: darken(white, 10%);
 				}
 			}
 		}
@@ -304,7 +309,7 @@ iframe {
 @media all and (min-width: 4000px) {
 	.close {
 		font-size: fontz(title);
-		top: 5rem;
-		right: 5rem;
+		top: 6rem;
+		right: 6rem;
 	}
 }

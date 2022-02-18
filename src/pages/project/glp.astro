@@ -1,0 +1,181 @@
+---
+    import "../../styles/project.scss";
+    import BaseComponent from "../../components/base.astro";
+    import DemoImage from "/assets/image/demo.png";
+---
+
+<BaseComponent title="Proyecto GLP-market">
+    <article class="project">
+    <a href="/?one" class="close">Cerrar</a>
+        <section class="main">
+            <h1 class="main__title">GLP Market</h1>
+            <img class="main__img" src="/assets/image/glpmarket/index.png" alt="project">
+        </section>
+        
+        <section class="details">
+            <div class="details__content">
+                <h1 class="details__title">GLP Market</h1>
+                
+                <div class="details__container">
+                    <div class="left">
+                        <ul class="left__links">
+                            <li><a href="https://github.com/Jamir-boop/GLP-market.git" class="see_code">Ver código</a></li>
+                        </ul>
+                        <ul class="left__client">
+                            <li class="left__title">Proyecto de investigación</li>
+                        </ul>
+                        <ul class="left__tecno">
+                            <li class="left__title">Tecnologias</li>
+                            <li>Laravel</li>
+                            <li>PHP</li>
+                            <li>MariaDB</li>
+                            <li>Javascript</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>XAMPP</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h2 class="right__subtitle">Añadiendo una innovadora experiencia de compra en una tienda minorista</h2>
+                        <p>GLP-market es una tienda familiar importadora de repuestos originales, enfocada en brindar una experiencia al cliente. Este producto está lleno de funcionalidad intuitiva y fácil de usar, que hacen a los productos de GLP-market los más fáciles de cotizar y ordenar.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="tousers">
+            <div class="tousers__content">
+                <iframe class="tousers__demovideo" src="https://player.vimeo.com/video/669587561?h=40dbce58b1?&autoplay=1&loop=1&background=1" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="tousers">
+            <iframe class="tousers__fullscreen" src="https://player.vimeo.com/video/669597729?h=3f58f14db6?&autoplay=1&loop=1&background=1" width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <div class="tousers__content">
+                <iframe class="tousers__demovideo" src="https://player.vimeo.com/video/669594435?h=ee81856e31?&autoplay=1&loop=1&background=1" width="1280" height="720" frameborder="0" allow="autoplay; fullscreen;" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section class="tousers">
+            <div class="tousers__content">
+                <img class="tousers__demovideo end" src="/assets/image/senatimarket/registro.png" alt="login">
+                <img class="tousers__demovideo end" src="/assets/image/senatimarket/carrito.jpg" alt="shopping cart">
+            </div>
+        </section>
+
+        <section class="next">
+        <div class="next__content">
+            <div class="next__text">
+                <span class="next__siguiente">Siguiente</span>
+                <span class="next__nombre">Lorem, ipsum dolor.</span>
+            </div>
+            <img class="next__demo" src={DemoImage} alt="project">
+        </div>
+        </section>
+    </article>
+    <script>
+        function isMobile() {
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                )
+            ) {
+                return true;
+            }
+            return false;
+        }
+
+        function scrollControl() {
+            const MAX =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            if (Math.round(window.scrollY) >= MAX) {
+                setTimeout(() => {
+                    document.location.href = "/project/two";
+                    console.log("cambio!");
+                }, 300);
+            }
+
+            // calculando el 15% final del scroll de la pagina
+            // el scale de la imagen
+            const next__img = document.querySelector(".next__demo");
+            const partial = MAX - (MAX * 15) / 100;
+            // se activa cuando el scroll alcanza el 90%
+            if (Math.round(window.scrollY) >= Math.round(partial)) {
+                let scale = window.scrollY / 3000 - 0.02;
+                next__img.style.transform = "scale(" + scale + ")";
+            }
+        }
+
+        window.onload = () => {
+            // seleccion de idioma
+            checkNavLang();
+            function checkNavLang() {
+                const customLang = localStorage.getItem("lang");
+                if (customLang !== null) {
+                    languageto(customLang);
+                    return;
+                }
+                if (navigator.language.indexOf("es") != -1) {
+                    languageto("es");
+                    return;
+                }
+                if (navigator.language.indexOf("en") != -1) {
+                    languageto("en");
+                }
+            }
+            
+
+            function languageto(selection) {
+                const data = {
+                    en: {
+                        close: "Close",
+                        code: "See code",
+                        client: "Investigation project",
+                        tecno: "Tecnologies",
+                        subtitle: "CAdding an innovative shopping experience in a retail store",
+                        mainparagraph: "GLP-market is a family store that imports original spare parts, and LPG fuel gas focused on providing a premium customer experience. This product is full of intuitive and easy-to-use functionality, which makes GLP-market products the easiest to list and order.",
+                        next: "Next",
+                    },
+                    es: {
+                        close: "Cerrar",
+                        code: "Ver código",
+                        client: "Proyecto de investigación",
+                        tecno: "Tecnologias",
+                        subtitle: "Añadiendo una innovadora experiencia de compra en una tienda minorista",
+                        mainparagraph: "GLP-market es una tienda familiar importadora de repuestos originales, y gas combustible GLP enfocada en brindar una experiencia premium al cliente. Este producto está lleno de funcionalidad intuitiva y fácil de usar, que hacen a los productos de GLP-market los más fáciles de cotizar y ordenar.",
+                        next: "Siguiente",
+                    },
+                };
+
+                document.querySelector("html").lang = selection;
+                document.querySelector(".close").innerHTML = data[selection].close;
+                document.querySelector(".right__subtitle").innerHTML = data[selection].subtitle;
+                document.querySelector(".left__client .left__title").innerHTML = data[selection].client;
+                document.querySelector(".left__tecno .left__title").innerHTML = data[selection].tecno;
+                document.querySelector(".right p").innerHTML = data[selection].mainparagraph;
+                document.querySelector(".next__siguiente").innerHTML = data[selection].next;
+            }
+
+
+            // Cambio de página con scroll
+            if (isMobile()) {
+                window.ontouchmove = () => {
+                    scrollControl();
+                };
+            } else {
+                window.onscroll = () => {
+                    scrollControl();
+                };
+            }
+        };
+        // Añade clase a main image para que cargue
+        const mainimage = document.querySelector(".main__img");
+        const maintext = document.querySelector(".main__title");
+        mainimage.classList.add("main__img--fadein");
+        setTimeout(() => {
+            maintext.classList.add("main__title--fadeinleft");
+        }, 250);
+    </script>
+</BaseComponent>
