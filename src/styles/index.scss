@@ -324,7 +324,7 @@ header {
 	@include no_touchy;
 	height: 0.1px;
 	position: sticky;
-	top: 0;
+	top: 1rem;
 	z-index: -10;
 
 	// animation: infinite_title 200s infinite linear both;
@@ -334,14 +334,14 @@ header {
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
 		text-transform: uppercase;
-		letter-spacing: -4px;
-		writing-mode: vertical-lr;
-		text-orientation: upright;
+		// letter-spacing: -4px;
+		// writing-mode: vertical-lr;
+		// text-orientation: upright;
 
 		// color: transparentize(white, 0.3);
 		color: white;
-		padding: max(0.2em, 20px);
-		padding-left: 10vw;
+		// padding: max(0.2em, 20px);
+		padding-left: 8vw;
 		width: 100%;
 	}
 }
