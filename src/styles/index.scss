@@ -329,16 +329,17 @@ header {
 
 	// animation: infinite_title 200s infinite linear both;
 	span {
-		font-size: 8vh;
+		font-size: 3vh;
 		font-family: "Inter", sans-serif;
 		font-weight: bold;
 		text-rendering: optimizeLegibility;
 		text-transform: uppercase;
-		letter-spacing: -1vh;
+		letter-spacing: -4px;
 		writing-mode: vertical-lr;
 		text-orientation: upright;
 
-		color: transparentize(white, 0.8);
+		// color: transparentize(white, 0.3);
+		color: white;
 		padding: max(0.2em, 20px);
 		padding-left: 10vw;
 		width: 100%;
@@ -367,13 +368,30 @@ header {
 			font-size: fontz(accent);
 			font-weight: bold;
 			width: 160%;
-			color: white;
+			color: darken(white, 5%);
 			transition: color $hover_animation_time ease-in-out;
 
 			&:hover {
-				color: darken(white, 10%);
+				color: white;
+			}
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 42%;
+				width: 0px;
+				height: 36%;
+				background-color: $accent_color;
+				opacity: 0.6;
+				z-index: -1;
+				transition: all 0.3s ease-in-out;
+			}
+
+			&:hover:after {
+				width: 50%;
 			}
 		}
+
 		.project__desc {
 			position: relative;
 			padding: 2em 1em 0;
@@ -396,11 +414,16 @@ header {
 	}
 	.project_img {
 		@include buttons;
-		opacity: 1;
+		opacity: 0.9;
 
-		transition: opacity $hover_animation_time ease-in-out;
+		transition: opacity $hover_animation_time ease-in-out,
+			border $hover_animation_time ease-in-out;
+		border: 2px solid transparent;
+		border-radius: 0.5rem;
+
 		&:hover {
-			opacity: 0.9;
+			border: 2px solid $accent_color;
+			opacity: 1;
 		}
 	}
 	img {
@@ -447,7 +470,7 @@ footer {
 	}
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 1000px) {
 	article .section {
 		height: auto !important;
 		min-height: 50vh;
@@ -485,9 +508,7 @@ footer {
 	.section_project .project__text .project__name {
 		width: 100%;
 	}
-	/*
-    	========== FOOTER ==========
-  	*/
+
 	footer {
 		small {
 			display: none;
