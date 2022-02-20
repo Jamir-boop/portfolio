@@ -1,6 +1,5 @@
 ---
 	import BaseComponent from "../components/base.astro";
-	import FooterComponent from "../components/footer.astro";
 ---
 
 <style>
@@ -15,10 +14,9 @@
     width: 100%;
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: 1rem;
 
     text-align: center;
-    font-size: 1rem;
     color: #fff;
  }
  .credit a{
@@ -30,12 +28,11 @@
     top: 2rem;
     left: 2rem;
     
-    font-size: 1rem;
     z-index: 1;
     text-transform: capitalize;
  }
  nav a {
-    border-radius: 0.25em;
+    text-decoration: none;
     color: #fff;
     transition: text-decoration 180ms ease-in-out;
  }
@@ -46,7 +43,7 @@
 
 <BaseComponent title="three.js sandbox by Jeiser Vargas">
 	<nav>
-		<a href="/">Volver al inicio</a>
+		<a href="/"><small>back to index</small></a>
 	</nav>
 
 	<canvas id="main__canvas"></canvas>
@@ -302,7 +299,7 @@
 	<script src={Astro.resolve("../components/sandbox.js")} type="module"></script>
 
 	<div class="credit">
-		<p>por <a href="https://github.com/Jamir-boop">Jeiser Vargas</a>🚀</p>
+		<small>with 💖 by <a href="https://github.com/Jamir-boop">Jeiser Vargas</a></small>
 	</div>
 
 </BaseComponent>
