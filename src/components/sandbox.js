@@ -47,7 +47,7 @@ function createScene() {
 
 	camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
 	// camera = new THREE.OrthographicCamera( SCREEN_WIDTH, SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_HEIGHT, NEAR, 1000 );
-	camera.position.set(0, 0, 1); //testing
+	camera.position.set(0, 0, 0.03); //testing
 	// camera.position.set(0, 0, 30);
 	scene.add(camera);
 

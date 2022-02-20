@@ -82,8 +82,8 @@ function languageto(selection) {
 	document.querySelector("#start_button").innerHTML =
 		"<span id='emoji'>🤓</span>" + data[selection].calltoaction;
 	calltoaction_hover();
-	document.querySelector(".main__about small").innerHTML =
-		data[selection].about;
+	// document.querySelector(".main__about small").innerHTML =
+	// 	data[selection].about;
 	document.querySelector(".proyectos #infinite_vertical span").innerHTML =
 		data[selection].project_vertical;
 	document.querySelector(".aboutme #infinite_vertical span").innerHTML =

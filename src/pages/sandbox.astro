@@ -5,28 +5,50 @@
 
 <style>
  body{
-	 background-color: black;
-	 position: absolute;
-	 overflow: hidden;
-	 width: 100vw;
-	 height: 100vh;
+    background-color: black;
+    position: absolute;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
  }
  .credit{
-	 width: 100%;
-	 position: absolute;
-	 z-index: 1;
-	 bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
 
-	 text-align: center;
-	 font-size: 1rem;
-	 color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
  }
  .credit a{
-	 color: #fff;
+    color: #fff;
+ }
+ nav{
+    position: fixed;
+
+    top: 2rem;
+    left: 2rem;
+    
+    font-size: 1rem;
+    z-index: 1;
+    text-transform: capitalize;
+ }
+ nav a {
+    border-radius: 0.25em;
+    color: #fff;
+    transition: text-decoration 180ms ease-in-out;
+ }
+ nav a:hover{
+    text-decoration: underline;
  }
 </style>
 
 <BaseComponent title="three.js sandbox by Jeiser Vargas">
+	<nav>
+		<a href="/">Volver al inicio</a>
+	</nav>
+
 	<canvas id="main__canvas"></canvas>
 
 	<script id="vertexShader" type="x-shader/x-vertex">
