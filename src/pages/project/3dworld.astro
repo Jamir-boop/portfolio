@@ -1,0 +1,194 @@
+---
+    import "../../styles/project.scss";
+    import BaseComponent from "../../components/base.astro";
+    import DemoImage from "/assets/image/demo.png";
+---
+
+<BaseComponent title="Proyecto 3Dworld">
+    <article class="project">
+    <a href="/?one" class="close">Cerrar</a>
+        <section class="main">
+            <h1 class="main__title">3Dworld</h1>
+            <img class="main__img" src="/assets/image/3dworld/index.png" alt="project">
+        </section>
+        
+        <section class="details">
+            <div class="details__content">
+                <h1 class="details__title">3Dworld</h1>
+                
+                <div class="details__container">
+                    <div class="left">
+                        <ul class="left__links">
+                            <li><a href="#" onclick="window.open('https://github.com/Jamir-boop/3Dworld.git', '_blank');" class="see_code">Ver código</a></li>
+                        </ul>
+                        <ul class="left__client">
+                            <li class="left__title">Proyecto de investigación</li>
+                        </ul>
+                        <ul class="left__tecno">
+                            <li class="left__title">Tecnologías</li>
+                            <li>Laravel 8</li>
+                            <li>Ajax</li>
+                            <li>Bootstrap</li>
+                            <li>Livewire</li>
+                            <li>AdminLTE</li>
+                            <li>Datatables</li>
+                            <li>Postgresql</li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <h2 class="right__subtitle">Acelerando y automatizando procesos empresariales.</h2>
+                        <p>3Dworld es una empresa de venta de impresoras 3D; este es un sistema ERP (Enterprise Resource Planning), dedicado a automatizar y administrar los procesos empresariales de las áreas de: finanzas, venta al por menor, cadena de suministro, recursos humanos y operaciones.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="tousers">
+            <div class="tousers__content">
+                <iframe class="tousers__demovideo" src="https://player.vimeo.com/video/683885547?h=40dbce58b1?&autoplay=1&loop=1&background=1" width="640" height="564" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+                <div class="tousers__paragraph">
+                    <h1 class="titleelegante">Auto-completado asíncrono.</h1>
+                    <p class="paragraphelegante">Realizando queries asíncronas a la base de datos haciendo uso de la tecnología ajax, para autocompletar datos necesarios en los formularios; esta característica se encuentra implementada en diversos formularios minimizando en trabajo repetitivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tousers">
+            <img class="tousers__fullscreen" src="/assets/image/3dworld/roles.png" alt="roles">
+            <div class="tousers__content">
+                <div class="tousers__paragraph">
+                    <h1 class="personalizacion">Roles</h1>
+                    <p class="personal_paragraph">El acceso y la interfaz responden de acuerdo al usuario que haya iniciado sesión. Entre las vistas tenemos al Administrador, Logística, Vendedor, Almacén, etc.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="next">
+        <div class="next__content">
+            <div class="next__text">
+                <span class="next__siguiente">Siguiente</span>
+                <span class="next__nombre">Lorem, ipsum dolor.</span>
+            </div>
+            <img class="next__demo" src={DemoImage} alt="project">
+        </div>
+        </section>
+    </article>
+    <script>
+        function isMobile() {
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                    navigator.userAgent
+                )
+            ) {
+                return true;
+            }
+            return false;
+        }
+
+        function scrollControl() {
+            const MAX =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            if (Math.round(window.scrollY) >= MAX) {
+                setTimeout(() => {
+                    document.location.href = "/project/two";
+                    console.log("cambio!");
+                }, 300);
+            }
+
+            // calculando el 15% final del scroll de la pagina
+            // el scale de la imagen
+            const next__img = document.querySelector(".next__demo");
+            const partial = MAX - (MAX * 15) / 100;
+            // se activa cuando el scroll alcanza el 90%
+            if (Math.round(window.scrollY) >= Math.round(partial)) {
+                let scale = window.scrollY / 3000 - 0.02;
+                next__img.style.transform = "scale(" + scale + ")";
+            }
+        }
+
+        window.onload = () => {
+            // seleccion de idioma
+            checkNavLang();
+            function checkNavLang() {
+                const customLang = localStorage.getItem("lang");
+                if (customLang !== null) {
+                    languageto(customLang);
+                    return;
+                }
+                if (navigator.language.indexOf("es") != -1) {
+                    languageto("es");
+                    return;
+                }
+                if (navigator.language.indexOf("en") != -1) {
+                    languageto("en");
+                }
+            }
+            
+
+            function languageto(selection) {
+                const data = {
+                    en: {
+                        close: "Close",
+                        code: "See code",
+                        client: "Investigation project",
+                        tecno: "Tecnologies",
+                        subtitle: "Accelerating and automating business processes.",
+                        mainparagraph: "3Dworld is a 3D printer sales company; This is an ERP (Enterprise Resource Planning) system, dedicated to automating and managing business processes in the areas of: finance, retail, supply chain, human resources and operations.",
+                        titleelegante: "Asynchronous autocomplete.",
+                        paragraphelegante: "Making asynchronous queries to the database using ajax technology, to autocomplete the necessary data in the forms; this feature is implemented in various forms minimizing repetitive work.",
+                        personalizacion: "Roles",
+                        personal_paragraph: "The access and the interface respond according to the user who is logged in. Among the views we have the Administrator, Logistics, Seller, Warehouse, etc.",
+                        next: "Next",
+                    },
+                    es: {
+                        close: "Cerrar",
+                        code: "Ver código",
+                        client: "Proyecto de investigación",
+                        tecno: "Tecnologias",
+                        subtitle: "Acelerando y automatizando procesos empresariales.",
+                        mainparagraph: "3Dworld es una empresa de venta de impresoras 3D; este es un sistema ERP (Enterprise Resource Planning), dedicado a automatizar y administrar los procesos empresariales de las áreas de: finanzas, venta al por menor, cadena de suministro, recursos humanos y operaciones.",
+                        titleelegante: "Auto-completado asíncrono.",
+                        paragraphelegante: "Realizando queries asíncronas a la base de datos haciendo uso de la tecnología ajax, para autocompletar datos necesarios en los formularios; esta característica se encuentra implementada en diversos formularios minimizando en trabajo repetitivo.",
+                        personalizacion: "Roles",
+                        personal_paragraph: "El acceso y la interfaz responden de acuerdo al usuario que haya iniciado sesión. Entre las vistas tenemos al Administrador, Logística, Vendedor, Almacén, etc.",
+                        next: "Siguiente",
+                    },
+                };
+
+                document.querySelector("html").lang = selection;
+                document.querySelector(".close").innerHTML = data[selection].close;
+                document.querySelector(".right__subtitle").innerHTML = data[selection].subtitle;
+                document.querySelector(".left__client .left__title").innerHTML = data[selection].client;
+                document.querySelector(".left__tecno .left__title").innerHTML = data[selection].tecno;
+                document.querySelector(".right p").innerHTML = data[selection].mainparagraph;
+                document.querySelector(".titleelegante").innerHTML = data[selection].titleelegante;
+                document.querySelector(".paragraphelegante").innerHTML = data[selection].paragraphelegante;
+                document.querySelector(".personalizacion").innerHTML = data[selection].personalizacion;
+                document.querySelector(".personal_paragraph").innerHTML = data[selection].personal_paragraph;
+                document.querySelector(".next__siguiente").innerHTML = data[selection].next;
+            }
+
+
+            // Cambio de página con scroll
+            if (isMobile()) {
+                window.ontouchmove = () => {
+                    scrollControl();
+                };
+            } else {
+                window.onscroll = () => {
+                    scrollControl();
+                };
+            }
+        };
+        // Añade clase a main image para que cargue
+        const mainimage = document.querySelector(".main__img");
+        const maintext = document.querySelector(".main__title");
+        mainimage.classList.add("main__img--fadein");
+        setTimeout(() => {
+            maintext.classList.add("main__title--fadeinleft");
+        }, 250);
+    </script>
+</BaseComponent>
