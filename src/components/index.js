@@ -32,7 +32,7 @@ function init() {
 
 /*
 	Global Variables
-	Scene + Camera + Renderer -
+	Scene + Camera + Renderer
 */
 const scene = new THREE.Scene();
 let camera, renderer, controls, composer, gui;
