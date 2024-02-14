@@ -19,6 +19,6 @@ To know more and get information about how I've done this visit [**here!**][webs
 Thank you and have fun 🙂!
 
 
-[website]: https://epic-jamir-portfolio.netlify.app
+[website]: https://jeiservargas.netlify.app/
 [youtube]: https://www.youtube.com/channel/UCM9ysYX7CHXGmr5EpYzZj8g
 [instagram]: https://www.instagram.com/jxmir_/
